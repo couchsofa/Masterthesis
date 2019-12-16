@@ -1,0 +1,147 @@
+% Gobals
+\newcommand{\GetAuthor}{Arne Rick}
+\newcommand{\GetTitle}{Erzeugung Modifizierter Antwortspektrem Zur Vordimensionierung Von Seismisch Isolierten Bauwerken}
+
+% Layout
+\documentclass[12pt, oneside]{report}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm,headheight=15pt]{geometry}
+\usepackage[utf8]{inputenc}
+
+\usepackage{parskip}
+\usepackage[ngerman]{babel}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usepackage{listings}
+\usepackage{solarized-light}
+\usepackage{xcolor-solarized}
+
+\lstset{numbers=left,
+		numbersep=0.5em,
+		numberstyle=\normalfont\footnotesize\color{solarized-violet},
+		frame=l,
+		framesep=2em,
+		framerule=1pt,
+		fillcolor=\color{solarized-base2}, 
+	    rulecolor=\color{solarized-base2},
+	    rulesepcolor=\color{solarized-base2},
+	    xleftmargin=2em}
+
+\newenvironment{inconsolata}
+	{\fontfamily{fi4}\footnotesize\selectfont}
+	{\par}
+
+\usepackage{subfig}
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
+
+\usepackage{amsmath}
+\usepackage{rotating}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\usepackage{scrextend}
+
+\usepackage{csvsimple}
+
+% Notes
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommand{\note}[1]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red]{#1}}
+
+% Header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{}
+\chead{\GetTitle{}}
+\rhead{}
+
+\lfoot{Kapitel \thechapter}
+\cfoot{\GetAuthor{}}
+\rfoot{\thepage}
+
+%\fancyhead{}
+%\fancyhead[CO,LE]{\GetTitle{}}
+%\fancyfoot{}
+%\fancyfoot[LE,RO]{\thepage}
+%\fancyfoot[LO,CE]{Chapter \thechapter}
+%fancyfoot[CO,RE]{\GetAuthor{}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% References
+\usepackage{hyperref}
+\usepackage[style=numeric]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{cleveref}
+\crefname{figure}{figure}{figures}
+\Crefname{figure}{Figure}{Figures}
+
+% Title
+\title{
+	{\GetTitle{}}\\
+	{\includegraphics{hska_logo.png}}
+}
+\author{\GetAuthor{}}
+\date{\today{}, Karlsruhe}
+
+% Document
+\begin{document}
+
+% Notes
+%\newpage
+%\listoftodos[Notes]
+%\newpage
+
+\maketitle
+\setcounter{page}{1}
+
+\chapter*{\centering Abstract}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\chapter*{\centering Danksagung}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\pagestyle{empty}
+
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+\clearpage
+\pagestyle{fancy}
+
+\chapter{Einleitung}
+\input{chapters/section1}
+
+\chapter{Dämpfer und Isolatoren}
+\input{chapters/section2}
+
+\chapter{Berechnung des modifizierten Antwortspektrums}
+\input{chapters/section3}
+
+\chapter{Beispielberechnung}
+\input{chapters/section4}
+
+\chapter{Analyse}
+\input{chapters/section5}
+
+\chapter{Zusammenfassung}
+\input{chapters/section6}
+
+
+\appendix
+%\chapter{Appendix}
+\input{chapters/appendix}
+
+
+\end{document}
