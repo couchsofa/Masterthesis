@@ -47,25 +47,24 @@ TC = 0.5
 TD = 2
 
 def c(m1, k1):
-	return 0.05#*2*math.sqrt(m1*k1)
+	return 0.05*2*math.sqrt(m1*k1)
 
 # 2MS
 def _2MS_F2(m1, k1, m2, ag, gamma1, beta0, q, S, TB, TC, TD):
 	omega_1 = math.sqrt(k1/(m1+m2))
 	T_1 = (2*math.pi)/omega_1
 	Sd_1 = AWS(ag, gamma1, beta0, q, S, TB, TC, TD, T_1)
-	Fb_1 = m2*Sd_1
-	#X = (k1+k2-m1*omega_1*omega_1)/k2
-	#X_norm = 1/X
+	Fb_1 = (m1+m2)*Sd_1
+	X = (k1+k2-m1*omega_1*omega_1)/k2
+	X_norm = X/math.sqrt(1+X*X)
 
-	#return [X_norm*Fb_1, omega_1]
-	return [Fb_1, omega_1]
+	return [X_norm*Fb_1, omega_1]
 
 # 1MS
 def _1MS_F2(m1, k1, c, m2, ag, gamma1, beta0, q, S, TB, TC, TD):
 	omega_2 = math.sqrt(k2/m2)
 	T_2 = (2*math.pi)/omega_2
-	Sd_2 = m2*AWS(ag, gamma1, beta0, q, S, TB, TC, TD, T_2) * G(m1, c, k1, T_2)
+	Sd_2 = AWS(ag, gamma1, beta0, q, S, TB, TC, TD, T_2) * G(m1, c, k1, T_2)
 
 	return [Sd_2, omega_2]
 
@@ -95,9 +94,7 @@ plt.grid(True)
 plt.tight_layout()
 plt.axes().set_aspect(0.2)
 plt.margins(x=0, y=0)
-plt.savefig("/home/couchsofa/masterthesis/Masterthesis/images/DampenerSweep.png", dpi=300)
+plt.savefig("/home/couchsofa/masterthesis/Masterthesis/images/DampenerSweep2.png", dpi=300)
 plt.clf()
 
-# Im Bereich der Annahme, dass das untere System dominiert 20% Fehler, wird die Struktur ggü der Basis weicher/steifer
-# so überlagern sich die Eigenfrequenzen (Schwebungen, Angewandete Baudynamik S. 100)
-# Plot für Dämpfung = 5%
+#TODO: Sweeps with varied Xsi
