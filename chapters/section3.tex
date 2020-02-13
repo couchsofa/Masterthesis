@@ -29,7 +29,7 @@ Da das Antwortspektrum für Einmassenschwinger bereits bekannt ist, kann die Bet
 Die Bewegungsgleichung (siehe auch \cite{Kramer} (S. 92, Gl. 7.3)) für das System des Isolators ist durch
 
 \begin{equation}\label{eq:bewegungsgleichung}
-m_i \cdot \ddot x(t) + c_i^* \cdot \dot x(t) + k_i^* \cdot x(t) = 0
+c_i^* \cdot \dot x(t) + k_i^* \cdot x(t) = - m_i \cdot \ddot x(t)
 \end{equation}
 
 gegeben.
@@ -39,23 +39,36 @@ gegeben.
 \section{Betrachtung als Übertragungsfunktion}
 \label{sec:ubertragungsfunktion}
 
+Ziel ist Relation von Eingang zu Ausgang -> Bewegungsgleichung -> Lösung über Laplacetransformation
+
+Quote, Umformung zur Lösung Seite 673
+
+Lösung der DGL
+
+System ist linear -> Laplace 
+
+
 \begin{equation} \label{laplace}
 F(s) = \int_{0}^{\infty} f(t)e^{-st}dt
 \end{equation}
 
-Umformung von (\cref{eq:bewegungsgleichung}) von t in s Domain
+Umformung von (\cref{eq:bewegungsgleichung}) zur Transformation von dem Zeitbereich in den Bildbereich (t in s Domäne) mittels der Differentiationsregel
+
+*Differentiationsregel
 
 \begin{equation} \label{laplace1}
-F(s) = m_i \cdot s^2 \cdot x(s) + c_i^* \cdot s \cdot x(s) + k_i^* \cdot x(s)
+F(s) = m_i \cdot s^2 \cdot X(s) + c_i^* \cdot s \cdot X(s) + k_i^* \cdot X(s)
 \end{equation}
 
 Somit ergibt sich die Übertragungsfunktion zu
+
+für ein Eingangssignal X(s) und das Ausgangssignal F(s)
 
 \begin{equation} \label{laplace2}
 G(s)=\frac{X(s)}{F(s)} = \frac{1}{m_i \cdot s^2 + c_i^* \cdot s + k_i^*}
 \end{equation}
 
-Die Polstellen ergeben sich zu
+Die Polstellen ergeben sich zu und beschreiben die Resonanzfrequenzen werden aber hier nicht weiter betrachtet.
 
 \begin{equation} \label{laplace-pole}
 s_{1,2} = \frac{-c_i^* \pm \sqrt{(c_i^*)^2 - 4m_ik_i^*}}{2m_i}
@@ -64,6 +77,8 @@ s_{1,2} = \frac{-c_i^* \pm \sqrt{(c_i^*)^2 - 4m_ik_i^*}}{2m_i}
 \begin{equation} \label{laplace3}
 G(s)=\frac{1}{(s-s_1)(s-s_2)}
 \end{equation}
+
+Ersetzt man s durch i omega und nimmt den Betrag der Funktion so erhält man das Amplitudenspektrum.
 
 \begin{equation} \label{laplace-attan}
 |G(i\omega)|
@@ -74,6 +89,14 @@ G(s)=\frac{1}{(s-s_1)(s-s_2)}
 * Filterfunktion
 
 * Filtern des Spektrums
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{composition2.png}
+    \caption{Komposition}
+    \label{fig:composition}
+\end{figure}
+
 
 \pagebreak
 
@@ -90,6 +113,8 @@ Anahand eines Beispiels soll in einer Handrechnung an einem einfachen System zun
 \end{figure}
 
 Die Dämpfung beträgt $c_1 = c_2 = 5\%$, die Masse des Kellergeschosses $m_1 = 0.2 MN/s^2/m$ mit einer Steifigkeit von $k_1 = 5 MN/m$ und die Masse der aufgehenden Struktur $m_2 = 1 MN/s^2/m$ mit einer Steifigkeit von $k_2 = 45 MN/m$.
+
+Das Verhältnis der Eigenkreisfrequenzen der Basis $\omega_1$ zur Struktur $\omega_2$ beträgt somit ungefähr $1/3$. Ein Wert der sich beim Design von Isolatoren in der Praxis bewehrt hat.
 
 \subsection{Bemessungsspektrum}
 
@@ -113,6 +138,8 @@ Daraus ergibt sich das Bemessungsspektrum zu \cref{fig:Bemessungsspektrum}.
 \end{figure}
 
 \subsection{Betrachtung mit Isolationsspektrums}
+
+*Isolationsspektrum zeigen
 
 Die Eigenfrequenz der Struktur ergibt sich zu
 
@@ -192,11 +219,30 @@ Damit liegt die Abweichung der beiden Ansätze in dem Fall bei $0.0576/0.053=1.0
 \section{Grenzfälle}
 \label{sec:grenzfalle}
 
-*2MS mit Beteiligungsfaktor erklären
+Zur weiteren Untersuchung soll noch eine Berechnung am Zweimassenschwinger mit den Beteiligungsfaktoren der Schwingungsform erfolgen, wobei hier die Steifigkeit des Isolators variiert wird. Die Berechnung mittels Isolationsspektrum erfolgt analog zum vorherigen Beispiel.
 
-*Sweeps
+Die Eigenkreisfrequenz wird über die Lösung des charakteristischen Polynoms der Matrizenform des Systems der gekoppelten Bewegungsdifferentialgleichungen des Zweimassenschwingers (\cite{Pocanschi} S. 143, Gl. 8.11) ermittelt.
 
-*Abweichung durch Schwebung/Beteiligung 2. Feder erklären
+\begin{equation*}
+\omega_1 = \sqrt{\frac{(k_1 + k_2) \cdot m_2 + k_2 \cdot m_1 - \sqrt{[(k_1 + k_2) \cdot m_2 + k_2 \cdot  m_1]^2 - 4 \cdot m_1 \cdot m_2 \cdot k_1 \cdot k_2}}{2 \cdot m_1 \cdot m_2}}
+\end{equation*}
+
+Und der Beteiligungsfaktor des Isolators zu
+
+\begin{equation*}
+X = 1/\left( \frac{k_1 + k_2 - m_1 \cdot \omega_1^2}{k_2} \right)
+\end{equation*}
+
+\begin{figure}[ht] 
+    \centering
+    \includegraphics[width=0.9\textwidth]{DampenerSweep.png}
+    \caption{Abweichung der beiden Ansätze}
+    \label{fig:Bemessungsspektrum}
+\end{figure}
+
+*2MS mit Beteiligungsfaktor  -> Diagramm mit Verschiebung = 1
+
+*Abweichung durch Schwebung/Beteiligung 2. Feder 
 
 \pagebreak
 
