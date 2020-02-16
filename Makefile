@@ -20,3 +20,4 @@ figures:
 	inkscape --export-dpi=300 -z -e images/composition.png svg/composition.svg
 	inkscape --export-dpi=300 -z -e images/composition2.png svg/composition2.svg
 	inkscape --export-dpi=300 -z -e images/2MS_beispiel.png svg/2MS_beispiel.svg
+	inkscape --export-dpi=300 -z -e images/1MS_AWS.png svg/1MS_AWS.svg

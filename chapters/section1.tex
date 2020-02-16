@@ -121,7 +121,7 @@ Das Vorgehen ist ähnlich zu \cref{sec:Antwortspektrenverfahren}, jedoch wird f�
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{AWS_Modal_Einleitung.png}
-    \caption{Bemessungsspektrum}
+    \caption{Bemessungsspektrum Modalanalyse}
 \end{figure}
 
 \begin{figure}[H]
@@ -129,21 +129,6 @@ Das Vorgehen ist ähnlich zu \cref{sec:Antwortspektrenverfahren}, jedoch wird f�
     \includegraphics[width=0.9\textwidth]{Beteiligungsfaktoren.png}
     \caption{Eigenschwingungsformen eines Dreimassensystems \cite{Pocanschi}}
 \end{figure}
-
-
-
-
-
-
-
-
-
-
-Beteiligungsfaktoren
-
-
-
-
 
 Anschließend müssen die modalen Schnittgrößen und Verschiebungen kombiniert werden. Hier sieht der Eurocode die SRSS-Methode (Square Root of Sum of Squares), die CQC-Methode (Complete Quadratic Combination) und die CQCi-Methode (CQC unter Berücksichtigung des Vorzeichens der i-ten Eigenform) vor.
 
@@ -156,16 +141,127 @@ Sie ist ein genaueres Verfahren zur Bestimmung der plastischen Kapizität, die i
 \subsection{Zeitschrittberechnung}
 \label{sec:Zeitschrittberechnung}
 
-Die Berechnung mittels Zeitschrittverfahren ("time-history analysis") ist eín nicht-lineares Verfahren, welches eine zeitabhängige Antwort einer Struktur über die direkte numerische Integration der Differentialgleichungen der Bewegung unter den im Eurocode 8 angegebenen Akzelerogrammen der Bodenbeschleunigung bestimmt. 
+Die Berechnung mittels Zeitschrittverfahren ("time-history analysis") ist eín nicht-lineares Verfahren, welches eine zeitabhängige Antwort einer Struktur über die direkte numerische Integration der Differentialgleichungen der Bewegung unter den im Eurocode 8 angegebenen simulierten oder tatsächlich aufgezeichneter Akzelerogramme der Bodenbeschleunigung bestimmt. 
 
 \pagebreak
 
-\section{Erzeugung der Antwortspektren}
+\section{Bestimmung des Antwortspektrums}
 \label{sec:Antwortspektren}
+
+Zur Gewinnung des Antwortspektrums wird ein Einmassenschwinger unter Fußpunktanregung durch ortspezifische Akzelerogramme betrachtet und dessen Eigenfrequenz variiert.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{1MS_AWS.png}
+    \caption{Einmassenschwinger mit Fußpunktanregung}
+\end{figure}
+
+Die Bewegungsgleichung des Systems
+
+\begin{equation} \label{ems_aws}
+m \ddot u + c \dot u + k u = -m \ddot u_g
+\end{equation}
+
+nach Umformung mit $\xi = c/(2m\omega)$ und $\omega = \sqrt{k/m}$
+
+\begin{equation} \label{ems_aws_umf}
+\ddot u + 2\xi\omega \dot u + \omega^2 u = - \ddot u_g
+\end{equation}
+
+zeigt, dass die Antwort lediglich von $\omega$, der Anregung $\ddot u_g$ und $\xi$ abhängig ist. Wobei $\xi$ mit 5\% angenommen wird.
+Das Antwortspektrum stellt die Einhüllende des Maximalwertes der Absolutbeschleunigung der Systemantwort $S_a=max|\ddot u + \ddot u_g|$ über die Eigenfrequenz des Systems $\omega$ da. \cite{Bachmann}
+
+Sie wird über die Eckperioden $T_B, T_C, T_D$ und den Bemessungswert der Bodenbeschleunigung $a_g$ parametrisiert. Hinzu kommt noch der Bedeutungsbeiwert $\gamma_1$, der Einfluss des Baugrundes über den Bodenparameter $S$ und ein Dämpfungs-Korrekturbeiwert $\eta$, der bei 5\% viskoser Dämpfung $1,0$ beträgt und sonst mit $\eta=\sqrt{10/(5+\xi)}\geq 0,55$ angegeben wird.
+
+Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbeschleunigung wieder. Die Erdbebenzone kann aus einer Karte oder Kartei entnommen werden und liefert den Referenz-Spitzenwert der Bodenbeschleunigung $a_g$.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ |c|c| } 
+ \hline
+ Erdbebenzone & $a_g [m/s^2]$ \\
+ \hline\hline
+ Zone 0 & - \\ 
+ Zone 1 & 0,4 \\ 
+ Zone 2 & 0,6 \\ 
+ Zone 3 & 0,8 \\ 
+ \hline
+\end{tabular}
+\caption{Tabelle NA.3 — Zuordnung von Referenz-Spitzenwerten der Bodenbeschleunigung zu den Erdbebenzonen [DIN EN 1998-1/NA:2011-01]}
+\end{table}
+
+Über die Baugrundverhältnisse kann nach Eurocode 8 NAD eine Baugrundklasse ermittelt werden und in dessen Abhängigkeit Parameter für den Bodenparameter $S$ und die Eckperioden $T_B, T_C, T_D$ agegeben werden.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ Baugrundklasse & $S$ & $T_B [s]$ & $T_C [s]$ & $T_D [s]$\\
+ \hline\hline
+ A-R  & 1,00 & 0,05 & 0,20 & 2,0\\ 
+ B-R  & 1,25 & 0,05 & 0,25 & 2,0\\ 
+ C-R  & 1,50 & 0,05 & 0,30 & 2,0\\ 
+ \hline
+ B-T  & 1,00 & 0,10 & 0,30 & 2,0\\
+ C-T  & 1,25 & 0,10 & 0,40 & 2,0\\
+ \hline
+ C-S  & 0,75 & 0,10 & 0,50 & 2,0\\
+ \hline
+\end{tabular}
+\caption{Tabelle NA.4 — Werte der Parameter zur Beschreibung des elastischen horizontalen Antwortspektrums [DIN EN 1998-1/NA:2011-01]}
+\end{table}
+
+Der Bedeutungsbeiwert bildet die Wichtigkeit einer Struktur ab und erhöht die Wiederkehrperiode, bei einer Auftretenswahrscheinlichkeit von 10\% in 50 Jahren.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ |c|p{9cm}|c| } 
+ \hline
+ Bedeutungskategorie & Bauwerke & $\gamma_1$\\
+ \hline\hline
+ I   & Bauwerke ohne Bedeutung für den Schutz der Allgemeinheit, mit geringem Personenverkehr (z. B. Scheunen, Kulturgewächshäuser, usw.). & 0,8\\
+ \hline
+ II  & Bauwerke, die nicht zu den anderen Kategorien gehören ( z. B. kleinere Wohn- und Bürogebäude, Werkstätten, usw.). & 1,0\\
+ \hline
+ III & Bauwerke, von deren Versagen bei Erdbeben eine große Zahl von Personen betroffen ist ( z. B. große Wohnanlagen, Schulen, Versammlungsräume, Kaufhäuser, usw.). & 1,2\\
+ \hline
+ IV  & Bauwerke, deren Unversehrtheit im Erdbebenfall von hoher Bedeutung für den Schutz der Allgemeinheit ist ( z. B. Krankenhäuser, wichtige Einrichtungen des Katastrophenschutzes, der Feuerwehr und der Sicherheitskräfte, usw.). & 1,4\\
+ \hline
+\end{tabular}
+\caption{Tabelle NA.6 — Bedeutungskategorien und Bedeutungsbeiwerte [DIN EN 1998-1/NA:2011-01]}
+\end{table}
+
+Das elastische Antwortspektrum $S_e(T)$ wird somit über folgende Ausdrücke bestimmt
+
+\begin{align*}
+T_A \leq T \leq T_B: S_e(T) &= a_g\gamma_1S \left[ 1+\frac{T}{T_B}(\eta2,5-1) \right] \\
+T_B \leq T \leq T_C: S_e(T) &= a_g\gamma_1S\eta2,5\\
+T_C \leq T \leq T_D: S_e(T) &= a_g\gamma_1S\eta2,5\frac{T_C}{T}\\
+T_D \leq T: S_e(T) &= a_g\gamma_1S\eta2,5\frac{T_CT_D}{T^2}
+\end{align*}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{AWS_Elastisch_Perioden.png}
+    \caption{Elastisches Antwortspektrum}
+\end{figure}
+
+
+
+
+
+
+
 
 \pagebreak
 
 \section{Vordimensionierung}
 \label{sec:vordimensionierung}
+
+
+
+
+
+Optimierung, Bachmann, Pocanschi
 
 \pagebreak
