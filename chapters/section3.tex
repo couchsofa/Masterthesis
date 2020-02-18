@@ -1,6 +1,79 @@
 \section{Modellierung}
 \label{sec:modellierung}
 
+
+
+
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{voigt-kelvin-model.png}
+    \caption{Voigt-Kelvin-Modell}
+\end{figure}
+
+\begin{align}
+\ddot x_1 m_1 &= -(x_1 - x_2) k_1 -(\dot x_1 - \dot x_2) c_1\\
+\ddot x_2 m_2 &= (x_1 - x_2) k_1 + (\dot x_1 - \dot x_2) c_1 - (x_2 - x_3) k_2 - (\dot x_2 - \dot x_3) c_2
+\end{align}
+
+Ansatz für harmonische Schwingung:
+
+\begin{align*}
+x_j &= S_j e^{i \omega t}\\
+\dot x_j &= i \omega S_j e^{i \omega t}\\
+\ddot x_j &= - \omega^2 S_j e^{i \omega t}
+\end{align*}
+
+\begin{align}
+- \omega^2 S_1 m_1 e^{i \omega t} &= - (S_1 - S_2) e^{i \omega t} k_1 - (S_1 - S_2) i \omega c_1 e^{i \omega t} \label{eq:2DOF1} \\
+- \omega^2 S_2 m_2 e^{i \omega t} &= (S_1 - S_2)(k_1 + i \omega c_1) e^{i \omega t} - (S_2 - S_3)(k_2 + i \omega c_2) e^{i \omega t} \label{eq:2DOF2}
+\end{align}
+
+\cref{eq:2DOF1} nach $S_2$ umgestellt:
+
+\begin{align*}
+\omega^2 S_1 m_1 &= (S_1 - S_2)(k_1 + i \omega c_1) \\
+&\Rightarrow X_1 = \frac{\omega^2 m_1}{k_1 + i \omega c_1}\\
+S_2 &= S_1 (1 - X_1)
+\end{align*}
+
+$S_2$ in \cref{eq:2DOF2} eingesetzt:
+
+\begin{align*}
+\omega^2 m_2 S_1 &= - (S_1 - S_1 (1 - X_1)) (k_1 + i \omega c_1) + (S_1 (1 - X_1) - S_3) (k_2 + i \omega c_2)\\
+&\Rightarrow X_2 = \frac{\omega^2 m_2}{k_2 + i \omega c_2}\\
+S_1 (1 - X_1) X_2 &= S_1 (1-X_1) - S_3 - S_1 X_1 \frac{k_1 + i \omega c_1}{k_2 + i \omega c_2}\\
+&\Rightarrow X_{12} = \frac{\omega^2 m_1}{k_2 + i \omega c_2}\\
+S_1 (1 - X_1)(X_2 - 1) &= S_3 + S_1 X_{12}\\
+S_3 &= S_1 [(1 - X_1)(1 - X_2) - X_{12}]
+\end{align*}
+
+\begin{equation}\label{eq:VT2DOF}
+\left\lvert \frac{S_1}{S_3} \right\rvert = \left\lvert \frac{1}{[(1 - X_1)(1 - X_2) - X_{12}]} \right\rvert
+\end{equation}
+
+\makebox[0.8cm]{$k_2$}  effektive Steifigkeit des Isolators\par
+\makebox[0.8cm]{$m_2$}  Masse direkt über dem Isolator\par
+\makebox[0.8cm]{$c_2$}  effektives Lehr'sches Dämpfungsmaß des Isolators $c_2 = \xi_2 2 \sqrt{m_2k_2}$\par
+
+WARUM? Erklären dass im Spektrum der EMS Eigenfrequenz = Einwirkung ist
+
+Die Masse des oberen Schwingers (1) kann normiert werden ($m_1 = 1$) und die Steifigkeit und Dämpfung in Abhängigkeit der Frequenz der Anregung angegeben werden.
+
+\begin{align*}
+c_1 &= \xi_1 2 \sqrt{k_1}\\
+k_1 &= \omega^2
+\end{align*}
+
+
+
+
+
+
+
+
+
 \subsection{Erzeugung von Antwortspektren}
 
 * Variation der Eigenfrequenz
