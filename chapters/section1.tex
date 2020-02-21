@@ -51,11 +51,11 @@ T_1 = \frac{2 \pi H^2}{\alpha_1^2}\sqrt{\frac{m}{hEI}}
 \thinspace
 
 \begin{multicols}{2}
-$H$: Gestamthöhe des Bauwerks \newline
-$h$: Geschosshöhe \newline
-$m$: Geschossmasse \newline
-$EI$: Steifigkeit \newline 
-$\alpha_1$: Schwingzeitbeiwert \newline
+\makebox[0.8cm]{$H$} Gestamthöhe des Bauwerks \par
+\makebox[0.8cm]{$h$} Geschosshöhe \par
+\makebox[0.8cm]{$m$} Geschossmasse \par
+\makebox[0.8cm]{$EI$} Steifigkeit \par 
+\makebox[0.8cm]{$\alpha_1$} Schwingzeitbeiwert \par
 \columnbreak
 \begin{flushright}
 \begin{tabular}{ |c|c| } 
@@ -71,7 +71,7 @@ $\alpha_1$: Schwingzeitbeiwert \newline
 \end{flushright}
 \end{multicols}
 
-Mit der Grundschwingzeit kann nun aus dem Antwortspektrum \cref{sec:Antwortspektren} der Bemessungswert der Spektralbeschleunigung $S_d$ bestimmt und die Gesamterdbebenkraft $F_b$ brechnet werden.
+Mit der Grundschwingzeit kann nun aus dem Antwortspektrum (\cref{sec:Antwortspektren}) der Bemessungswert der Spektralbeschleunigung $S_d$ bestimmt und die Gesamterdbebenkraft $F_b$ brechnet werden.
 
 \begin{figure}[H]
     \centering
@@ -130,7 +130,29 @@ Das Vorgehen ist ähnlich zu \cref{sec:Antwortspektrenverfahren}, jedoch wird f�
     \caption{Eigenschwingungsformen eines Dreimassensystems \cite{Pocanschi}}
 \end{figure}
 
-Anschließend müssen die modalen Schnittgrößen und Verschiebungen kombiniert werden. Hier sieht der Eurocode die SRSS-Methode (Square Root of Sum of Squares), die CQC-Methode (Complete Quadratic Combination) und die CQCi-Methode (CQC unter Berücksichtigung des Vorzeichens der i-ten Eigenform) vor.
+Anschließend müssen die modalen Schnittgrößen und Verschiebungen kombiniert werden. Hier sieht der Eurocode die SRSS-Methode (Square Root of Sum of Squares)
+
+\begin{equation*}
+S = \sqrt{\sum_{j=1}^{n}S_j^2}
+\end{equation*}
+
+und die CQC-Methode (Complete Quadratic Combination)
+
+\begin{equation*}
+S = \sqrt{\sum_{j=1}^{n}\sum_{k=1}^{n} S_j \cdot \rho_{jk} \cdot S_k}
+\end{equation*}
+
+vor. Wobei $\rho_{jk}$ der Wechselwirkungsfaktor ist, der sich für konstante $\xi_j = \xi_k = \xi$ wie folgt berechnet.
+
+\begin{equation*}
+\rho_{jk} = \frac{8 \xi^2 (1 + r) r^{3/2}}{(1 - r^2)^2 + 4 \xi^2 r ( 1 + r)^2}
+\quad\mathrm{mit}\quad 
+r = \frac{\omega_k}{\omega_j}
+\end{equation*}
+
+Neben der CQC-Methode darf auch die CQCi-Methode angewendet werden, welche eine Modifikation unter Berücksichtigung des Vorzeichens der i-ten Eigenform darstellt.
+
+
 
 \subsection{Kapazitätsspektrenmethode}
 \label{sec:Kapazitaetsspektrenmethode}
@@ -190,7 +212,7 @@ Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbe
 \caption{Tabelle NA.3 — Zuordnung von Referenz-Spitzenwerten der Bodenbeschleunigung zu den Erdbebenzonen [DIN EN 1998-1/NA:2011-01]}
 \end{table}
 
-Über die Baugrundverhältnisse kann nach Eurocode 8 NAD eine Baugrundklasse ermittelt werden und in dessen Abhängigkeit Parameter für den Bodenparameter $S$ und die Eckperioden $T_B, T_C, T_D$ agegeben werden.
+Über die Baugrundverhältnisse kann nach Eurocode 8 NAD eine Baugrundklasse ermittelt werden und in dessen Abhängigkeit Parameter für den Bodenparameter $S$ und die Eckperioden $T_B, T_C, T_D$ angegeben werden.
 
 \begin{table}[H]
 \centering
@@ -211,21 +233,28 @@ Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbe
 \caption{Tabelle NA.4 — Werte der Parameter zur Beschreibung des elastischen horizontalen Antwortspektrums [DIN EN 1998-1/NA:2011-01]}
 \end{table}
 
-Der Bedeutungsbeiwert bildet die Wichtigkeit einer Struktur ab und erhöht die Wiederkehrperiode, bei einer Auftretenswahrscheinlichkeit von 10\% in 50 Jahren.
+Der Bedeutungsbeiwert bildet die Wichtigkeit einer Struktur ab und erhöht die Wiederkehrperiode, bei einer Auftretenswahrscheinlichkeit $P_R$ von 10\% in einer Zeitspanne $T_L$ von 50 Jahren.
+Bei einem Bedeutungsbeiwert von $\gamma_1 = 1,0$ beträgt die mittlere Wiederkehrperiode $T_R$
+
+\begin{align*}
+T_R &= \frac{-T_L}{ln(1 - P_R)}\\
+T_R &= \frac{-50}{ln(1 - 0,1)}\\
+T_R &=  475 \mbox{ Jahre}
+\end{align*}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{ |c|p{9cm}|c| } 
+\begin{tabular}{ |c|p{7cm}|c|c| } 
  \hline
- Bedeutungskategorie & Bauwerke & $\gamma_1$\\
+ Bedeutungskategorie & Bauwerke & $\gamma_1$ & $T_R$ [a]\\
  \hline\hline
- I   & Bauwerke ohne Bedeutung für den Schutz der Allgemeinheit, mit geringem Personenverkehr (z. B. Scheunen, Kulturgewächshäuser, usw.). & 0,8\\
+ I   & Bauwerke ohne Bedeutung für den Schutz der Allgemeinheit, mit geringem Personenverkehr (z. B. Scheunen, Kulturgewächshäuser, usw.). & 0,8 & 225\\
  \hline
- II  & Bauwerke, die nicht zu den anderen Kategorien gehören ( z. B. kleinere Wohn- und Bürogebäude, Werkstätten, usw.). & 1,0\\
+ II  & Bauwerke, die nicht zu den anderen Kategorien gehören ( z. B. kleinere Wohn- und Bürogebäude, Werkstätten, usw.). & 1,0 & 475\\
  \hline
- III & Bauwerke, von deren Versagen bei Erdbeben eine große Zahl von Personen betroffen ist ( z. B. große Wohnanlagen, Schulen, Versammlungsräume, Kaufhäuser, usw.). & 1,2\\
+ III & Bauwerke, von deren Versagen bei Erdbeben eine große Zahl von Personen betroffen ist ( z. B. große Wohnanlagen, Schulen, Versammlungsräume, Kaufhäuser, usw.). & 1,2 & 820\\
  \hline
- IV  & Bauwerke, deren Unversehrtheit im Erdbebenfall von hoher Bedeutung für den Schutz der Allgemeinheit ist ( z. B. Krankenhäuser, wichtige Einrichtungen des Katastrophenschutzes, der Feuerwehr und der Sicherheitskräfte, usw.). & 1,4\\
+ IV  & Bauwerke, deren Unversehrtheit im Erdbebenfall von hoher Bedeutung für den Schutz der Allgemeinheit ist ( z. B. Krankenhäuser, wichtige Einrichtungen des Katastrophenschutzes, der Feuerwehr und der Sicherheitskräfte, usw.). & 1,4 & 1300\\
  \hline
 \end{tabular}
 \caption{Tabelle NA.6 — Bedeutungskategorien und Bedeutungsbeiwerte [DIN EN 1998-1/NA:2011-01]}

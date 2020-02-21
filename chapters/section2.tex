@@ -2,6 +2,29 @@ Wenn die Einwirkungen aus Erdbeben sehr hoch werden, zum Beispiel durch eine hoh
 
 Es können leichtere Konstruktionen gebaut werden, die durch geringere Aufwendung an Material die Kosten senken und die Nachhaltigkeit durch senken des Ausstoßes an CO\textsubscript{2} erhöhen.
 
+
+
+
+
+
+
+
+
+
+
+Historie https://athene-forschung.unibw.de/doc/119645/119645.pdf Seite 123
+
+
+
+
+
+
+
+
+
+
+
+
 \section{Gleitpendelisolatoren}
 \label{sec:gleitisolatoren}
 
@@ -13,7 +36,7 @@ In dieser Arbeit sollen nur Gleitpendelisolatoren betrachtet werden. Sie bestehe
     \caption{Gleitpendelisolator [Maurer SE (maurer.eu)]}
 \end{figure}
 
-Die Reibung zwischen den Schnittstellen und somit die Dissipation kann eingestellt werden.
+Die Reibung zwischen den Schnittstellen und somit die Energiedissipation kann eingestellt werden.
 Bei einem zu hohen Reibkoeffizienten besteht jedoch die Gefahr, dass die Rückzentrierung nicht mehr gewährleistet werden kann, welche ein großer Vorteil der Gleitpendelisolatoren ist.
 Zur Erhöhung der Dissipation können aber auch zusätzliche viskose Dämpfungselemente angeordnet werden.
 
@@ -36,7 +59,7 @@ Zur Erhöhung der Dissipation können aber auch zusätzliche viskose Dämpfungse
 \section{Funktionsweise}
 \label{sec:funktion}
 
-Isolatoren sind eine Ebene zwischen der Gründung und dem aufgehendem Bauwerk. Sie haben eine deutlich geringere Steifigkeit als die zu isolierende Struktur, wodurch zwar große Verschiebungen am Isolator auftreten, aber die Grundschwingzeit reduziert wird.
+Isolatoren stellen eine Ebene zwischen der Gründung und dem aufgehendem Bauwerk dar. Sie haben eine deutlich geringere Steifigkeit als die zu isolierende Struktur, wodurch zwar große Verschiebungen am Isolator auftreten, aber die Grundschwingzeit reduziert wird.
 Die relativen Verschiebungen der Struktur werden verringert und somit die Beschleunigungen und ebenso die Trägheitskräfte der Massen reduziert.
 
 \begin{figure}[h]
@@ -47,9 +70,65 @@ Die relativen Verschiebungen der Struktur werden verringert und somit die Beschl
 
 Die Dissipationsfähigkeit, Steifigkeit und Eigenfrequenz dieser Isolatoren kann über den Reibkoeffizienten, den Radius des Pendels und der Masse über dem Isolator beeinflusst werden.
 
+\subsection{Abstimmung}
+\label{sec:abstimmung}
+
+
+
+
+
+
+
+
+Optimierung, Bachmann, Pocanschi (426)  <--- das war für Tilger! Aber hier was über omega1 zu omega2 und den massen schreiben
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Steifigkeit}
+\label{sec:steifigkeit}
+
+Die effektive Steifigkeit kann über die Rückstell- und Reibkraft des Gleitpendellagers berechnet werden. Die Rückstellkraft wird durch die Anhebung der Vertikalkraft (Eigengewicht des Bauwerks) ausgelöst. \cite{Pocanschi}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Pendellager.png}
+    \caption{Schematischer Aufbau des Gleitpendellagers im zentriertem sowie im ausgelenkten Zustand \cite{Romen}}
+\end{figure}
+
+\begin{align*}
+F_{\text{Rück}} &= \frac{G D}{R \cos \theta}\\
+F_{\text{Reib}} &= \mu G
+\end{align*}
+
+\makebox[0.8cm]{$G$}  Vertikalkraft (Eigengewicht)\par
+\makebox[0.8cm]{$D$}  Auslenkung\par
+\makebox[0.8cm]{$R$}  Radius der Isolator-Gleitfläche\par
+\makebox[0.8cm]{$\theta$}  Winkel der Auslenkung\par
+\makebox[0.8cm]{$\mu$}  Reibungskoeffizient des Isolators\par
+
+Für kleine Winkel mit $\cos \theta = 1$ ergibt sich die Steifigkeit zu:
+
+\begin{align*}
+k_{eff} &= \frac{F_{\text{Rück}} + F_{\text{Reib}}}{D}\\
+        &= \frac{G}{R} + \mu \frac{G}{D}
+\end{align*}
+
 \subsection{Dämpfung}
 \label{sec:daempdung}
 
+Die effektive Dämpfung ergibt sich aus der Fläche der Hystereseschleife und der effektiven Steifigkeit des Gleitpendellagers. \cite{Huber}\cite{Pocanschi}
 
 \begin{figure}[h]
     \centering
@@ -57,27 +136,30 @@ Die Dissipationsfähigkeit, Steifigkeit und Eigenfrequenz dieser Isolatoren kann
     \caption{Hysterese-Zyklus [HDR Engineering Inc.]}
 \end{figure}
 
+\begin{align*}
+\xi_{eff} &= \frac{4 \mu G D}{2 \pi k_{eff} D^2}\\
+          &= \frac{2}{\pi} \frac{\mu R}{(D + \mu R)}
+\end{align*}
 
-\subsection{Steifigkeit}
-\label{sec:steifigkeit}
 
-
-
-Huber Hysterese Kruve 
-
-Formeln Huber mit Umstellung nach Isemann
 
 \pagebreak
 
 \section{Schwierigkeiten bei der Vordimensionierung}
 \label{sec:schwierigkeitenvordimensionierung}
 
+
+
+
 Genaue Berechnung mit Zeitschrittverfahren
-Grobe Vordimensionierung mit AWS
+Grobe Vordimensionierung mit AWS Verfahren nach Kelly, aber für Modalanalyse braucht man Spektrum
+Grobes Gebäudemodell ohne Isolator in EDV + Isolationsspektrum
+
+Pocanschi 541
 
 Schwierig weil Isolator mit modelliert werden muss
 
 
-Optimierung, Bachmann, Pocanschi (426)
+
 
 \pagebreak
