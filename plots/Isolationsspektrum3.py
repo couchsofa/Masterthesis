@@ -89,8 +89,8 @@ def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
 	_omega2 = np.sqrt(_k1/_m1)
 
 	# Eigenfrequenz erste Eigenform (Isolator) gedämpft
-	oemga_1d = _omega1 * np.sqrt(1 - Xi2**2)
-	T1 = 2*np.pi/oemga_1d
+	omega_1d = _omega1 * np.sqrt(1 - Xi2**2)
+	T1 = 2*np.pi/omega_1d
 
 	# Transmissionskoeffizient des Systems
 	a = (2*_omega1*_omega2*(Xi2 * _omega2 - Xi1 * _omega1))/(_omega2**2 - _omega1**2)
@@ -98,10 +98,9 @@ def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
 
 	_c1 = a * _m1 + b * _k1
 	_c2 = a * _m2 + b * _k2
-	VT = VT_1_over_3(oemga_1d, _m2, k2, _c2, _m1, _k1, _c1) / 10.05
+	VT = VT_1_over_3(omega_1d, m2, k2, _c2, m1, k1, _c1) / 10.05
 
-	# Dämpfung in AWS auf 0% setzen (wird in VT berücksichtigt)
-	n = np.sqrt(10/5)
+	n = 1
 
 	return Se(n, ag, S, TB, TC, TD, T1) * VT
 

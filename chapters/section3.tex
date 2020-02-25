@@ -1,10 +1,52 @@
 \section{Modellierung}
 \label{sec:modellierung}
 
+\subsection{Ansatz über die Übertragsfunktion}
+\label{sec:ansatzfunktion}
 
+Der erste untersuchte Ansatz war das Modell in zwei getrennte System zu zerlegen und getrennt zu betrachten.
+Die Annahme war, dass der Isolator lediglich als Filter auf das Antwortspektrum wirkt.
 
-\subsection{Transmissibilität}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{composition.png}
+    \caption{Komposition}
+    \label{fig:composition}
+\end{figure}
+
+Die Funktion $H(\omega)$ stellt hier das Antwortspektrum dar und $G(s)$ die Übertragungsfunktion des Isolators.
+Sie kann mittels der Laplace-Transformation
+
+\begin{equation} \label{laplace}
+F(s) = \int_{0}^{\infty} f(t)e^{-st}dt
+\end{equation}
+
+aus der Bewegungsgleichung des Isolators \cite{Kramer}
+
+\begin{equation}\label{eq:bewegungsgleichung}
+c_i \cdot \dot x(t) + k_i \cdot x(t) = - m_i \cdot \ddot x(t)
+\end{equation}
+
+für eine Kraftanregung zu
+
+\begin{equation} \label{laplace2}
+G(s)=\frac{X(s)}{F(s)} = \frac{1}{m_i \cdot s^2 + c_i \cdot s + k_i}
+\end{equation}
+
+bestimmt (wobei $s = i \omega$) und das isolierte Antwortspektrum ($H(\omega) \cdot |G(s)|$) gewonnen werden da der Betrag der Übertragungsfunktion den Amplitudengang angibt.
+
+Allerdings war dieser Ansatz nicht zielführend, da (wie an den Bewegungsdifferetialgleichungen (\cref{eq:BewegDGL}) erkennbar ist) die Systeme gekoppelt sind und nicht getrennt betrachtet werden können.
+
+\subsection{Vereinfachter Ansatz}
+\label{sec:ansatzvereinfacht}
+
+\subsection{Ansatz über die Transmissibilität}
+\label{sec:ansatztrasnm}
+
+\subsubsection{Transmissibilität}
 \label{sec:transm}
+
+
 
 \begin{figure}[ht]
     \centering
@@ -12,7 +54,7 @@
     \caption{Voigt-Kelvin-Modell}
 \end{figure}
 
-\begin{align}
+\begin{align}\label{eq:BewegDGL}
 \ddot x_1 m_1 &= -(x_1 - x_2) k_1 -(\dot x_1 - \dot x_2) c_1\\
 \ddot x_2 m_2 &= (x_1 - x_2) k_1 + (\dot x_1 - \dot x_2) c_1 - (x_2 - x_3) k_2 - (\dot x_2 - \dot x_3) c_2
 \end{align}
@@ -50,8 +92,29 @@ VT = \left\lvert \frac{S_1}{S_3} \right\rvert = \left\lvert \frac{1}{[(1 - X_1)(
 \end{equation}
 
 
-\subsection{Rayleigh-Dämpfung}
+\subsubsection{Rayleigh-Dämpfung}
 \label{sec:rayleigh}
+
+
+Allgemeine Matrixschreibweise des Systems
+
+\begin{equation}
+\begin{bmatrix}
+m_2  & 0\\
+0    & m_1
+\end{bmatrix}
+\ddot{\vec{x}} +
+\begin{bmatrix}
+c_2 + c_1  & -c_1\\
+-c_1       & c_1
+\end{bmatrix}
+\dot{\vec{x}} +
+\begin{bmatrix}
+k_2 + k_1  & -k_1\\
+-k_1       & k_1
+\end{bmatrix}
+\vec{x} = 0
+\end{equation}
 
 Kreiseigenfrequenz des ungedämpften Systems
 
@@ -62,60 +125,84 @@ Kreiseigenfrequenz des ungedämpften Systems
 Eigenvektoren des ungedämpften Systems
 
 \begin{align*}
-\Phi_1 &= \binom{1}{\varepsilon_1}
-\Phi_2 &= \binom{1}{\varepsilon_2}
+\vec{\Phi}_1 &= \binom{\varphi_{11}}{\varphi_{21}} = \binom{1}{\varepsilon_1}\\
+\vec{\Phi}_2 &= \binom{\varphi_{12}}{\varphi_{22}} = \binom{1}{\varepsilon_2}\\
 \intertext{mit}
-\varepsilon_1 &= \frac{k_2 + k_1 - m_2 \omega_1^2}{k_1}
+\varepsilon_1 &= \frac{k_2 + k_1 - m_2 \omega_1^2}{k_1}\\
 \varepsilon_2 &= \frac{k_2 + k_1 - m_2 \omega_2^2}{k_1}
 \end{align*}
 
 Nach Betragsgröße normierte Eigenvektoren des ungedämpften Systems
 
 \begin{align*}
-\varphi_{11} &= \sqrt{\frac{1}{1 + \varepsilon_1^2}}
-\varphi_{21} &= \varepsilon_1 \varphi_{11}
+\varphi_{11} &= \sqrt{\frac{1}{1 + \varepsilon_1^2}}  &  \varphi_{12} &= \sqrt{\frac{1}{1 + \varepsilon_2^2}}\\
+\varphi_{21} &= \varepsilon_1 \varphi_{11}            &  \varphi_{22} &= \varepsilon_2 \varphi_{12}
 \end{align*}
+
+Generalisierte Massen
 
 \begin{align*}
-\varphi_{12} &= \sqrt{\frac{1}{1 + \varepsilon_2^2}}
-\varphi_{22} &= \varepsilon_2 \varphi_{12}
+m_2^* &= \vec{\Phi}_1^T M \vec{\Phi}_1               &   m_1^* &= \vec{\Phi}_2^T M \vec{\Phi}_2\\
+      &= \varphi_{11}^2 m_2 + \varphi_{21}^2 m_1     &         &= \varphi_{12}^2 m_2 + \varphi_{22}^2 m_1
+\end{align*}
+
+Generalisierte Steifigkeiten
+
+\begin{align*}
+k_2^* &= \vec{\Phi}_1^T K \vec{\Phi}_1                                                          &   k_1^* &= \vec{\Phi}_2^T K \vec{\Phi}_2\\
+      &= \varphi_{11}^2 (k_2 + k_1) - 2 \varphi_{21} \varphi_{11} k_1 + \varphi_{21}^2 k_1      &         &= \varphi_{12}^2 (k_2 + k_1) - 2 \varphi_{22} \varphi_{12} k_1 + \varphi_{22}^2 k_1
+\end{align*}
+
+Eigenkreisfrequenzen der zwei Einmassenschwinger
+
+\begin{align*}
+\omega_1^* &= \sqrt{\frac{k_2^*}{m_2^*}}  &  \omega_2^* &= \sqrt{\frac{k_1^*}{m_1^*}}
+\end{align*}
+
+Beiwerte der Rayleigh-Dämpfung $\alpha$ und $\beta$ 
+
+\begin{align*}
+\alpha &= \frac{2 \omega_1^* \omega_2^* (\xi_2 \omega_2^* - \xi_1 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
+\beta  &= \frac{2 (\xi_1 \omega_2^* - \xi_2 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}
+\end{align*}
+
+Rayleigh-Dämpfung
+
+\begin{align*}
+c_1^* &= \alpha m_1^* + \beta k_1^*\\
+c_2^* &= \alpha m_2^* + \beta k_2^*
 \end{align*}
 
 
-\iffalse
-def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
 
 
-  _m2 = phi_11**2 * m2 + phi_21**2 * m1
-  _k2 = phi_11**2 * (k2 + k1) - 2 * phi_21 * phi_11 * k1 + phi_21**2 * k1
 
-  _omega1 = np.sqrt(_k2/_m2)
-
-  _m1 = phi_12**2 * m2 + phi_22**2 * m1
-  _k1 = phi_12**2 * (k2 + k1) - 2 * phi_22 * phi_12 * k1 + phi_22**2 * k1
-
-  _omega2 = np.sqrt(_k1/_m1)
-
-  # Eigenfrequenz erste Eigenform (Isolator) gedämpft
-  oemga_1d = _omega1 * np.sqrt(1 - Xi2**2)
-  T1 = 2*np.pi/oemga_1d
-
-  # Transmissionskoeffizient des Systems
-  a = (2*_omega1*_omega2*(Xi2 * _omega2 - Xi1 * _omega1))/(_omega2**2 - _omega1**2)
-  b = (2*(Xi1 * _omega2 - Xi2 * _omega1))/(_omega2**2 - _omega1**2)
-
-  _c1 = a * _m1 + b * _k1
-  _c2 = a * _m2 + b * _k2
-  VT = VT_1_over_3(oemga_1d, _m2, k2, _c2, _m1, _k1, _c1) / 10.05
-
-  # Dämpfung in AWS auf 0% setzen (wird in VT berücksichtigt)
-  n = np.sqrt(10/5)
-
-  return Se(n, ag, S, TB, TC, TD, T1) * VT
-
-\fi
+Eigenfrequenz der ersten Eigenform (Isolator) gedämpft
 
 
+\begin{align*}
+\omega_{1d} &= \omega_1^* \sqrt{1 - \xi_2^2}\\
+T_1         &= \frac{2 \pi}{\omega_{1d}} 
+\end{align*}
+
+
+Die Transmissibilität kann nun am System für $\omega = \omega_{1d}$ bestimmt werden.
+
+\begin{equation}
+VT(\omega_{1d}, m_2, k_2, c_2^*, m_1, k_1, c_1^*)
+\end{equation}
+
+Da $S_e$ für einen Einmassenschwinger mit 5\% Dämpfung der Eigenfrequenz genau auf $T$ angegeben ist, muss hier noch die Resonanz rausgerechnet werden um die äquivalente Amplitude der einwirkenden Anregung am Fußpunkt zu erhalten.
+
+\begin{align*}
+TR(\xi) &= \frac{\sqrt{1 + 4 \xi ^2}}{2 \xi}\\
+TR(5\%) &= \frac{\sqrt{1 + 4 \cdot 0.05^2}}{0.1}\\
+        &\approx 10.05
+\end{align*}
+
+\begin{equation}
+S_e / 10.05
+\end{equation}
 
 \subsection{Erzeugung von Antwortspektren}
 
@@ -142,79 +229,16 @@ Da das Antwortspektrum für Einmassenschwinger bereits bekannt ist, kann die Bet
 
 \subsection{Bewegungsgleichung}
 
-Die Bewegungsgleichung (siehe auch \cite{Kramer} (S. 92, Gl. 7.3)) für das System des Isolators ist durch
-
-\begin{equation}\label{eq:bewegungsgleichung}
-c_i^* \cdot \dot x(t) + k_i^* \cdot x(t) = - m_i \cdot \ddot x(t)
-\end{equation}
-
-gegeben.
-
-\pagebreak
-
-\section{Betrachtung als Übertragungsfunktion}
-\label{sec:ubertragungsfunktion}
-
-Ziel ist Relation von Eingang zu Ausgang -> Bewegungsgleichung -> Lösung über Laplacetransformation
-
-Quote, Umformung zur Lösung Seite 673
-
-Lösung der DGL
-
-System ist linear -> Laplace 
-
-
-\begin{equation} \label{laplace}
-F(s) = \int_{0}^{\infty} f(t)e^{-st}dt
-\end{equation}
-
-Umformung von (\cref{eq:bewegungsgleichung}) zur Transformation von dem Zeitbereich in den Bildbereich (t in s Domäne) mittels der Differentiationsregel
-
-*Differentiationsregel
-
-\begin{equation} \label{laplace1}
-F(s) = m_i \cdot s^2 \cdot X(s) + c_i^* \cdot s \cdot X(s) + k_i^* \cdot X(s)
-\end{equation}
-
-Somit ergibt sich die Übertragungsfunktion zu
-
-für ein Eingangssignal X(s) und das Ausgangssignal F(s)
-
-\begin{equation} \label{laplace2}
-G(s)=\frac{X(s)}{F(s)} = \frac{1}{m_i \cdot s^2 + c_i^* \cdot s + k_i^*}
-\end{equation}
-
-Die Polstellen ergeben sich zu und beschreiben die Resonanzfrequenzen werden aber hier nicht weiter betrachtet.
-
-\begin{equation} \label{laplace-pole}
-s_{1,2} = \frac{-c_i^* \pm \sqrt{(c_i^*)^2 - 4m_ik_i^*}}{2m_i}
-\end{equation}
-
-\begin{equation} \label{laplace3}
-G(s)=\frac{1}{(s-s_1)(s-s_2)}
-\end{equation}
-
-Ersetzt man s durch i omega und nimmt den Betrag der Funktion so erhält man das Amplitudenspektrum.
-
-\begin{equation} \label{laplace-attan}
-|G(i\omega)|
-\end{equation}
-
-* Laplace Transfomration
-
-* Filterfunktion
-
-* Filtern des Spektrums
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.9\textwidth]{composition2.png}
-    \caption{Komposition}
-    \label{fig:composition}
-\end{figure}
 
 
 \pagebreak
+
+
+
+
+
+
+
 
 \section{Vergleich zum Zweimassenschwinger}
 \label{sec:vergleich}

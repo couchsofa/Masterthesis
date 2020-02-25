@@ -55,7 +55,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -180,7 +180,7 @@
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';baseline-shift:sub"
    id="tspan5202">i</tspan><tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';baseline-shift:super"
-   id="tspan5204">*</tspan></tspan></text>
+   id="tspan5204" /></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -195,7 +195,7 @@
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';baseline-shift:sub"
    id="tspan5224">i</tspan><tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';baseline-shift:super"
-   id="tspan5226">*</tspan></tspan></text>
+   id="tspan5226" /></tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path5228"
@@ -284,23 +284,23 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="85.645294"
+       x="84.057793"
        y="19.221695"
        id="text5326"><tspan
          sodipodi:role="line"
          id="tspan5324"
-         x="85.645294"
+         x="84.057793"
          y="19.221695"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';stroke-width:0.26458332">H(s)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';stroke-width:0.26458332">H(ω)</tspan></text>
     <text
        id="text5330"
        y="72.138367"
-       x="85.645294"
+       x="84.057793"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';stroke-width:0.26458332"
          y="72.138367"
-         x="85.645294"
+         x="84.057793"
          id="tspan5328"
          sodipodi:role="line">G(s)</tspan></text>
   </g>
