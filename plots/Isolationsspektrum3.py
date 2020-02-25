@@ -14,30 +14,99 @@ from matplotlib.legend_handler import HandlerLine2D
 #
 
 # Elastisches Antwortspektrum
-def Se(ag, S, TB, TC, TD, T):
+def Se(n, ag, S, TB, TC, TD, T):
 
 	if T <= TB:
-		Se = ag * S * (1 + T/TB * (2.5 -1))
+		Se = ag * S * (1 + T/TB * (n*2.5 -1))
 
 	elif T <= TC:
-		Se = ag * S * 2.5
+		Se = ag * S * 2.5 * n
 
 	elif T <= TD:
-		Se = ag * S * 2.5 * TC/T
+		Se = ag * S * n * 2.5 * TC/T
 
 	else:
-		Se = ag * S * 2.5 * (TC*TD)/(T*T)
+		Se = ag * S * n * 2.5 * (TC*TD)/(T*T)
 
 	return Se
 
-# Übertagung von Bodenanregung zu Masse 1
-def VT_1_over_3(omega, Xi1, m2, k2, c2):
 
-	# Parameter des EMS aus dem AWS
-	m1 = 1
-	k1 = omega**2
-	c1 = Xi1 * 2 * np.sqrt(k1)
+# Isemann
+def vereinfacht(n, k1, m1, k2, m2):
 
+	omega = np.sqrt(k1/m1)
+
+	a = k2/k1
+	b = m2/m1
+
+	A = 1 + a + b
+	B = (1 + a + b)**2 - 4 * a *b
+	C = 2 * b
+
+	omega1 = np.sqrt((A - np.sqrt(B))/(C) * omega**2)
+	T1 = 2*np.pi/omega1
+
+	A = 1 + a - b
+	B = (1 + a + b)**2 - 4 * a *b
+
+	r = (A + np.sqrt(B))/(2)
+
+	phi = 1/r
+
+	L = (phi * m2 + 1 * m1) / (phi**2 * m2 + 1**2 * m1 )
+
+	return Se(n, ag, S, TB, TC, TD, T1) * phi * L
+
+
+# Rick
+def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
+
+	# Omega1 ungedämpft
+	A = (k2 + k1) * m1 + k1 * m2
+	B = ((k2 + k1) * m1 + k1 * m2)**2 - 4 * m2 * m1 * k2 * k1
+	C = 2 * m2 * m1
+
+	omega1 = np.sqrt((A - np.sqrt(B))/(C))
+	omega2 = np.sqrt((A + np.sqrt(B))/(C))
+
+	# Umrechnung mit Rayleigh Dämpfung
+	e1 = (k2 + k1 - m2 * omega1**2)/k1
+	phi_11 = np.sqrt(1/(1+e1**2))
+	phi_21 = e1 * phi_11
+
+	e2 = (k2 + k1 - m2 * omega2**2)/k1
+	phi_12 = np.sqrt(1/(1+e2**2))
+	phi_22 = e2 * phi_12
+
+	_m2 = phi_11**2 * m2 + phi_21**2 * m1
+	_k2 = phi_11**2 * (k2 + k1) - 2 * phi_21 * phi_11 * k1 + phi_21**2 * k1
+
+	_omega1 = np.sqrt(_k2/_m2)
+
+	_m1 = phi_12**2 * m2 + phi_22**2 * m1
+	_k1 = phi_12**2 * (k2 + k1) - 2 * phi_22 * phi_12 * k1 + phi_22**2 * k1
+
+	_omega2 = np.sqrt(_k1/_m1)
+
+	# Eigenfrequenz erste Eigenform (Isolator) gedämpft
+	oemga_1d = _omega1 * np.sqrt(1 - Xi2**2)
+	T1 = 2*np.pi/oemga_1d
+
+	# Transmissionskoeffizient des Systems
+	a = (2*_omega1*_omega2*(Xi2 * _omega2 - Xi1 * _omega1))/(_omega2**2 - _omega1**2)
+	b = (2*(Xi1 * _omega2 - Xi2 * _omega1))/(_omega2**2 - _omega1**2)
+
+	_c1 = a * _m1 + b * _k1
+	_c2 = a * _m2 + b * _k2
+	VT = VT_1_over_3(oemga_1d, _m2, k2, _c2, _m1, _k1, _c1) / 10.05
+
+	# Dämpfung in AWS auf 0% setzen (wird in VT berücksichtigt)
+	n = np.sqrt(10/5)
+
+	return Se(n, ag, S, TB, TC, TD, T1) * VT
+
+
+def VT_1_over_3(omega, m2, k2, c2, m1, k1, c1):
 
 	X1 = (omega**2 * m1)/(k1 + 1j * omega * c1)
 
@@ -53,13 +122,7 @@ def VT_1_over_3(omega, Xi1, m2, k2, c2):
 
 
 # Übertagung von Bodenanregung zu Masse 2
-def VT_2_over_3(omega, Xi1, m2, k2, c2):
-
-	# Parameter des EMS aus dem AWS
-	m1 = 1
-	k1 = omega**2
-	c1 = Xi1 * 2 * np.sqrt(k1)
-
+def VT_2_over_3(omega, m2, k2, c2, m1, k1, c1):
 
 	X1 = (k1 + 1j * omega * c1) / (k1 + 1j * omega * c1 - omega**2 * m1)
 
@@ -87,68 +150,57 @@ def Phi(m1, k1, m2, k2):
 	return 1/phi
 
 
-
 # Konstanten und Definitionen
-m1  = 1
-k1  = 1000
+m1  = 2486.7
+k1  = 98170
 Xi1 = 0.05
+c1 = Xi1 * 2 * np.sqrt(k1 * m1)
 
-k2  = 200
-Xi2 = 0.05
+m2  = 1619.5
+k2  = 21117
+Xi2 = 0.14147
 
-ag = 0.4
-S  = 0.75
-TB = 0.1
-TC = 0.5
+ag = 3.924
+S  = 1
+TB = 0.4
+TC = 1.6
 TD = 2
 
-_mu = np.arange(1, 100, 1)
-F_Kelly = []
-F_Iso   = []
-F_Iso2  = []
 
-for mu in _mu:
-
-	m2 = m1 * mu
-	c2 = Xi2 * 2 * np.sqrt(k2 * m2)
-
-	# Kelly
-	omega = np.sqrt(k2 / (m1 + m2))
-	T = (2 * np.pi ) / omega
-
-	F_Kelly.append(Se(ag, S, TB, TC, TD, T) * (m1 + m2) * Phi(m1, k1, m2, k2))
-
-
-	# Isolationsspektrum 1
-	omega = np.sqrt(k1 / m1)
-	T = (2 * np.pi ) / omega
-
-	F_Iso.append(Se(ag, S, TB, TC, TD, T) * VT_1_over_3(omega, Xi1, m2, k2, c2) * m1 )
-
-
-	# Isolationsspektrum 2
-	omega = np.sqrt(k1 / m1)
-	T = (2 * np.pi ) / omega
-
-	F_Iso2.append(Se(ag, S, TB, TC, TD, T) * VT_2_over_3(omega, Xi1, m2, k2, c2) * m1 )
-
-
-
-
-
+_T = np.arange(0.001, 5, 0.1)
+#_T = [0.001, 0.5, 1, 2, 3, 4, 5]
+AWS = []
+for T in _T:
+	AWS.append(Se(1, ag, S, TB, TC, TD, T))
+	
+AWS_rayleigh = []
+for T in _T:
+	k1 = m1 * (2 * np.pi / T)**2
+	Sa = vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2)
+	AWS_rayleigh.append(Sa)
 	
 
+AWS_iso = []
+for T in _T:
+	n = np.sqrt(10/(5+Xi2*100))
+	k1 = m1 * (2 * np.pi / T)**2
+	Sa = vereinfacht(n, k1, m1, k2, m2)
+	AWS_iso.append(Sa)
 
-plt.plot(_mu, F_Kelly, label='Kelly', linestyle='-')
-plt.plot(_mu, F_Iso, label='Isoliert S1/S3', linestyle=':')
-plt.plot(_mu, F_Iso2, label='Isoliert S2/S3', linestyle='--')
+
+plt.plot(_T, AWS, label='AWS', linestyle='-')
+plt.plot(_T, AWS_rayleigh, label='AWS isoliert', linestyle=':')
+plt.plot(_T, AWS_iso, label='AWS isoliert (vereinfacht)', linestyle='--')
+
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.25), shadow=False, ncol=3, frameon=False)
 
-plt.xlabel('m2/m1')
+#plt.xlabel('m2/m1')
+#plt.xlabel('T')
+
 
 plt.grid(True)
 plt.tight_layout()
 #plt.axes().set_aspect(0.7)
-plt.margins(x=0, y=0)
+plt.margins(x=0, y=0.1)
 plt.savefig("/home/couchsofa/masterthesis/Masterthesis/images/Isolation.png", dpi=300)
 plt.clf()
