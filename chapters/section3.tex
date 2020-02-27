@@ -1,5 +1,17 @@
+Hier soll nun ein Verfahren hergeleitet und anschließend mit zwei vereinfachten Verfahren verglichen werden. 
+
 \section{Modellierung}
 \label{sec:modellierung}
+
+Für die Erzeugung der Isolationsspektren wird hier das System um den Isolator erweitert und als Zweimassenschwinger (\cref{fig:vkm}) betrachtet.
+Wobei der obere Schwinger die aufgehende Struktur ($s$) und der untere Schwinger den Isolator ($i$) samt des steifen Kellergeschosses beschreiben soll.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{voigt-kelvin-model.png}
+    \caption{Voigt-Kelvin-Modell}
+    \label{fig:vkm}
+\end{figure}
 
 \subsection{Ansatz über die Übertragsfunktion}
 \label{sec:ansatzfunktion}
@@ -35,36 +47,108 @@ G(s)=\frac{X(s)}{F(s)} = \frac{1}{m_i \cdot s^2 + c_i \cdot s + k_i}
 
 bestimmt (wobei $s = i \omega$) und das isolierte Antwortspektrum ($H(\omega) \cdot |G(s)|$) gewonnen werden da der Betrag der Übertragungsfunktion den Amplitudengang angibt.
 
-Allerdings war dieser Ansatz nicht zielführend, da (wie an den Bewegungsdifferetialgleichungen (\cref{eq:BewegDGL}) erkennbar ist) die Systeme gekoppelt sind und nicht getrennt betrachtet werden können.
+Allerdings war dieser Ansatz nicht zielführend, da (wie an den Bewegungsdifferentialgleichungen (\cref{eq:BewegDGL1} und \cref{eq:BewegDGL2}) erkennbar ist) die Systeme gekoppelt sind und nicht getrennt betrachtet werden können.
 
 \subsection{Vereinfachter Ansatz}
 \label{sec:ansatzvereinfacht}
 
+Zur Ermittelung der Eigenkreisfrequenzen des Zweimassenschwingers $\omega_{L,1,2}$ werden die Verhältniswerte
+
+\begin{align}
+\alpha &= \frac{k_2}{k_1} & \beta  &= \frac{m_2}{m_1} \\
+\end{align}
+
+eingeführt. Damit lassen sich die Eigenkreisfrequenzen und Perioden des isolierten Systems bezogen auf die Eigenkreisfrequenz $\omega$ des nicht isolierten Bauwerks wie folgt berechnen \cite{Pocanschi} \cite{Isemann}
+
+\begin{align}
+\omega_{L,1}^2 &= \frac{1 + \alpha + \beta - \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}}{2 \beta} \omega^2\\
+\omega_{L,2}^2 &= \frac{1 + \alpha + \beta + \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}}{2 \beta} \omega^2
+\end{align}
+
+\begin{align}
+T_{L,1} &= \frac{2 \pi}{\omega_{L,1}} & T_{L,2} &= \frac{2 \pi}{\omega_{L,2}}
+\end{align}
+
+Die Komponenten der Eigenvektoren $\vec{\Phi}_{1,2}$ lassen sich über die Beiwerte $\alpha$ und $\beta$ bestimmen.
+
+\begin{align}
+r_1 &= \frac{1 + \alpha - \beta + \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}}{2}\\
+r_2 &= \frac{1 + \alpha - \beta - \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}}{2}
+\end{align}
+
+Die Schwingungsformen lauten damit wie folgt und können normiert werden.
+
+\begin{align}
+\vec{\Phi}_1 &= \binom{1}{r_1} & \vec{\Phi}_2 &= \binom{1}{r_2}\\
+\vec{\Phi}_1 &= \binom{1/r_1}{1} & \vec{\Phi}_2 &= \binom{1/r_1}{1}
+\end{align}
+
+Der Beteiligunsfaktor der ersten Schwinungsform wird wie folgt definiert.
+
+\begin{equation}
+L_1 = \frac{\vec{\Phi}_1^T M \vec{I}}{\vec{\Phi}_1^T M \vec{\Phi}_1}
+\end{equation}
+
+Da die Steifigkeit des Isolators idealerweise deutlich geringer als die der Struktur ist gilt $\alpha \rightarrow 0$, $\vec{I} = \binom{1}{1}$ und $L_2$ wird klein, da die Schwingungsform durch die erste bestimmt wird.
+Damit lässt sich die maximale absolute Beschleunigung der Massen der ersten Schwingungsform des Zweimassenschwingers infolge einer Fußpunktanregung bestimmen.
+
+\begin{equation}
+\ddot U_{max} = \vec{\Phi}_1 L_1 S_a(T_{L,1}, \xi_{L,1})
+\end{equation}
+
+Für die Erzeugung des isolierten Antwortspektrums wird die Steifigkeit der Struktur variiert und die Eigenkreisfrequenz dieser ermittelt.
+
+\begin{equation}
+k_{1,i} = \frac{4 \pi^2 m_1}{T_i^2}
+\end{equation}
+
+\begin{equation}
+\omega = \sqrt{\frac{k_1}{m_1}}
+\end{equation}
+
+Da die Antwortspektren im Eurocode auf eine Dämpfung von 5\% normiert sind wird unter der Annahme, dass die Dämpfung des Isolators dominiert das Antwortspektrum abgemindert.
+
+\begin{equation}\label{eta}
+\eta = \sqrt{\frac{10}{5 + \xi_2}}
+\end{equation}
+
 \subsection{Ansatz über die Transmissibilität}
 \label{sec:ansatztrasnm}
+
+Die Beschleunigung aus dem Antwortspektrum wird in eine äquivalente harmonische Beschleunigungsanregung am Fußpunkt umgerechnet.
+Anschließend wird über die Bewegungsgleichungen (\cref{eq:2DOF1,eq:2DOF2}) das Verhältnis der Amplituden von Fußpunktanregung zu harmonischer Schwingung an der oberen Masse $m_1$ hergeleitet.
+Da die Perioden im Antwortspektrum die Eigenfrequenz des zur Erzeugung verwendeten Einmassenschwingers darstellen, kann eine harmonische Anregung erzeugt werden dessen Erregerfrequenz der Eigenfrequenz des Einmassenschwingers entspricht.
+Für diesen Fall kann der Vergrößerungsfaktor in Abhängigkeit von der Dämpfung $\xi$ angegeben werden.
+
+\begin{equation} \label{eq:1DOF}
+TR(\Omega/\omega = 1) = \frac{\sqrt{1 + 4 \xi^2}}{2 \xi}
+\end{equation}
+
+Die Antwortspektren im Eurocode sind auf eine Dämpfung von 5\% normiert. Damit ergibt sich ein Vergrößerungsfaktor von
+
+\begin{align*}
+TR(\Omega/\omega = 1) &= \frac{\sqrt{1 + 4 \cdot 0.05^2}}{0.1}\\
+                      &\approx 10.05 
+\end{align*}
+
+Die Amplitude der äquivalenten Fußpunktanregung beträgt damit $S_a/10.05$.
+Zur Erzeugung eines isolierten Antwortspektrums soll dann die Steifigkeit $k_1$ variiert werden, sodass die Eigenfrequenz des oberen Systems der Periode des Antwortspektrums entspricht, und die Parameter des Isolators konstant bleiben.
+So kann ein Isolationsspektrum erzeugt werden, dass für jede Periode der aufgehenden Struktur eine äquivalente Beschleunigungsantwort angibt.
 
 \subsubsection{Transmissibilität}
 \label{sec:transm}
 
+Die Bewegungsdifferentialgleichungen für das in \cref{fig:vkm} dargestellte System lauten:
 
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{voigt-kelvin-model.png}
-    \caption{Voigt-Kelvin-Modell}
-\end{figure}
-
-\begin{align}\label{eq:BewegDGL}
-\ddot x_1 m_1 &= -(x_1 - x_2) k_1 -(\dot x_1 - \dot x_2) c_1\\
-\ddot x_2 m_2 &= (x_1 - x_2) k_1 + (\dot x_1 - \dot x_2) c_1 - (x_2 - x_3) k_2 - (\dot x_2 - \dot x_3) c_2
+\begin{align}
+\ddot x_1 m_1 &= -(x_1 - x_2) k_1 -(\dot x_1 - \dot x_2) c_1 \label{eq:BewegDGL1}\\
+\ddot x_2 m_2 &= (x_1 - x_2) k_1 + (\dot x_1 - \dot x_2) c_1 - (x_2 - x_3) k_2 - (\dot x_2 - \dot x_3) c_2 \label{eq:BewegDGL2}
 \end{align}
 
 Ansatz für harmonische Schwingung:
 
 \begin{align*}
-x_j &= S_j e^{i \omega t}\\
-\dot x_j &= i \omega S_j e^{i \omega t}\\
-\ddot x_j &= - \omega^2 S_j e^{i \omega t}
+x_j &= S_j e^{i \omega t} & \dot x_j &= i \omega S_j e^{i \omega t} & \ddot x_j &= - \omega^2 S_j e^{i \omega t}
 \end{align*}
 
 \begin{align}
@@ -87,304 +171,416 @@ S_1 (1 - X_1)(X_2 - 1) &= S_3 + S_1 X_{12}\\
 S_3 &= S_1 [(1 - X_1)(1 - X_2) - X_{12}]
 \end{align*}
 
+Mit den komplexwertigen Transmissionskoeffizienten $X_1$, $X_2$ und $X_{12}$ ergibt sich die Transmissibilität aus dem Betrag des Verhältnisses von $S_1$ zu $S_3$.
+
 \begin{equation}\label{eq:VT2DOF}
 VT = \left\lvert \frac{S_1}{S_3} \right\rvert = \left\lvert \frac{1}{[(1 - X_1)(1 - X_2) - X_{12}]} \right\rvert
 \end{equation}
 
+Ein Hindernis stellen jedoch noch die Dämpfungsbeiwerte $c_1$ und $c_2$ dar. Die Gleichungen (\ref{eq:BewegDGL1}) und (\ref{eq:BewegDGL2}) können nicht entkoppelt werden und daher kann das, vom Einmassenschwinger gewohnte Lehr'sche Dämpfungsmaß hier nicht angewendet werden.
+Ein Ansatz, der hier untersucht werden soll, ist die steifigkeits- und massenproportionale modale Dämpfung. Sie wird auch als Rayleigh-Dämpfung bezeichnet. \cite{Pocanschi}
 
 \subsubsection{Rayleigh-Dämpfung}
 \label{sec:rayleigh}
 
-
-Allgemeine Matrixschreibweise des Systems
-
-\begin{equation}
-\begin{bmatrix}
-m_2  & 0\\
-0    & m_1
-\end{bmatrix}
-\ddot{\vec{x}} +
-\begin{bmatrix}
-c_2 + c_1  & -c_1\\
--c_1       & c_1
-\end{bmatrix}
-\dot{\vec{x}} +
-\begin{bmatrix}
-k_2 + k_1  & -k_1\\
--k_1       & k_1
-\end{bmatrix}
-\vec{x} = 0
-\end{equation}
-
-Kreiseigenfrequenz des ungedämpften Systems
+Bei diesem Ansatz soll eine Proportionalität zwischen der Dämpfungsmatrix $C$ und den generalisierten Massen- und Steifigkeitsmatrizen $M^*$ und $K^*$ verwendet werden.
 
 \begin{equation*}
-\omega_{1,2}^2 = \frac{(k_2 + k_1) m_1 + k_1 m_2 \pm \sqrt{((k_2 + k_1) m_1 + k_1 m_2)^2 - 4 m_2 m_1 k_2 k_1}}{2 m_2 m_1}
+C^* = \alpha M^* + \beta K^*
 \end{equation*}
 
-Eigenvektoren des ungedämpften Systems
+Wobei $\alpha$ und $\beta$ die Beiwerte der Rayleigh-Dämpfung sind.
+$\alpha M$ kann als äußere und der Term $\beta K$ als innere Dämpfung verstanden werden.
 
-\begin{align*}
-\vec{\Phi}_1 &= \binom{\varphi_{11}}{\varphi_{21}} = \binom{1}{\varepsilon_1}\\
-\vec{\Phi}_2 &= \binom{\varphi_{12}}{\varphi_{22}} = \binom{1}{\varepsilon_2}\\
-\intertext{mit}
-\varepsilon_1 &= \frac{k_2 + k_1 - m_2 \omega_1^2}{k_1}\\
-\varepsilon_2 &= \frac{k_2 + k_1 - m_2 \omega_2^2}{k_1}
-\end{align*}
-
-Nach Betragsgröße normierte Eigenvektoren des ungedämpften Systems
-
-\begin{align*}
-\varphi_{11} &= \sqrt{\frac{1}{1 + \varepsilon_1^2}}  &  \varphi_{12} &= \sqrt{\frac{1}{1 + \varepsilon_2^2}}\\
-\varphi_{21} &= \varepsilon_1 \varphi_{11}            &  \varphi_{22} &= \varepsilon_2 \varphi_{12}
-\end{align*}
-
-Generalisierte Massen
-
-\begin{align*}
-m_2^* &= \vec{\Phi}_1^T M \vec{\Phi}_1               &   m_1^* &= \vec{\Phi}_2^T M \vec{\Phi}_2\\
-      &= \varphi_{11}^2 m_2 + \varphi_{21}^2 m_1     &         &= \varphi_{12}^2 m_2 + \varphi_{22}^2 m_1
-\end{align*}
-
-Generalisierte Steifigkeiten
-
-\begin{align*}
-k_2^* &= \vec{\Phi}_1^T K \vec{\Phi}_1                                                          &   k_1^* &= \vec{\Phi}_2^T K \vec{\Phi}_2\\
-      &= \varphi_{11}^2 (k_2 + k_1) - 2 \varphi_{21} \varphi_{11} k_1 + \varphi_{21}^2 k_1      &         &= \varphi_{12}^2 (k_2 + k_1) - 2 \varphi_{22} \varphi_{12} k_1 + \varphi_{22}^2 k_1
-\end{align*}
-
-Eigenkreisfrequenzen der zwei Einmassenschwinger
-
-\begin{align*}
-\omega_1^* &= \sqrt{\frac{k_2^*}{m_2^*}}  &  \omega_2^* &= \sqrt{\frac{k_1^*}{m_1^*}}
-\end{align*}
-
-Beiwerte der Rayleigh-Dämpfung $\alpha$ und $\beta$ 
+Die Bestimmungsgleichungen der Beweirte lauten wie folgt.
 
 \begin{align*}
 \alpha &= \frac{2 \omega_1^* \omega_2^* (\xi_2 \omega_2^* - \xi_1 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
 \beta  &= \frac{2 (\xi_1 \omega_2^* - \xi_2 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}
 \end{align*}
 
-Rayleigh-Dämpfung
+Um die Eigenkreisfrequenzen $\omega_1^*$ und $\omega_2^*$ zu erhalten werden zunächst die Eigenkreisfrequenzen am ungedämpften System berechnet und die Eigenvektoren der zugehörigen Eigenformen bestimmt.
+
+Eigenkreisfrequenz des ungedämpften Systems:
+
+\begin{equation*}
+\omega_{1,2}^2 = \frac{(k_2 + k_1) m_1 + k_1 m_2 \pm \sqrt{((k_2 + k_1) m_1 + k_1 m_2)^2 - 4 m_2 m_1 k_2 k_1}}{2 m_2 m_1}
+\end{equation*}
+
+Eigenvektoren des ungedämpften Systems:
+
+\begin{align*}
+\vec{\Phi}_1 &= \binom{\varphi_{11}}{\varphi_{21}} = \binom{1}{\varepsilon_1} & \vec{\Phi}_2 &= \binom{\varphi_{12}}{\varphi_{22}} = \binom{1}{\varepsilon_2}\\
+\intertext{mit}
+\varepsilon_1 &= \frac{k_2 + k_1 - m_2 \omega_1^2}{k_1} & \varepsilon_2 &= \frac{k_2 + k_1 - m_2 \omega_2^2}{k_1}
+\end{align*}
+
+Nach Betragsgröße normierte Eigenvektoren des ungedämpften Systems:
+
+\begin{align*}
+\varphi_{11} &= \sqrt{\frac{1}{1 + \varepsilon_1^2}}  &  \varphi_{12} &= \sqrt{\frac{1}{1 + \varepsilon_2^2}}\\
+\varphi_{21} &= \varepsilon_1 \varphi_{11}            &  \varphi_{22} &= \varepsilon_2 \varphi_{12}
+\end{align*}
+
+Mit Hilfe der Eigenvektoren können die generalisierten Massen und Steifigkeiten ermittelt werden und damit die Eigenkreisfrequenzen.
+
+Generalisierte Massen:
+
+\begin{align*}
+m_2^* &= \vec{\Phi}_1^T M \vec{\Phi}_1               &   m_1^* &= \vec{\Phi}_2^T M \vec{\Phi}_2\\
+      &= \varphi_{11}^2 m_2 + \varphi_{21}^2 m_1     &         &= \varphi_{12}^2 m_2 + \varphi_{22}^2 m_1
+\end{align*}
+
+Generalisierte Steifigkeiten:
+
+\begin{align*}
+k_2^* &= \vec{\Phi}_1^T K \vec{\Phi}_1                                                          &   k_1^* &= \vec{\Phi}_2^T K \vec{\Phi}_2\\
+      &= \varphi_{11}^2 (k_2 + k_1) - 2 \varphi_{21} \varphi_{11} k_1 + \varphi_{21}^2 k_1      &         &= \varphi_{12}^2 (k_2 + k_1) - 2 \varphi_{22} \varphi_{12} k_1 + \varphi_{22}^2 k_1
+\end{align*}
+
+Eigenkreisfrequenzen der zwei Einmassenschwinger:
+
+\begin{align*}
+\omega_1^* &= \sqrt{\frac{k_2^*}{m_2^*}}  &  \omega_2^* &= \sqrt{\frac{k_1^*}{m_1^*}}
+\end{align*}
+
+Damit ergeben sich die Dämpfungsbeiwerte der Rayleigh-Dämpfung
 
 \begin{align*}
 c_1^* &= \alpha m_1^* + \beta k_1^*\\
 c_2^* &= \alpha m_2^* + \beta k_2^*
 \end{align*}
 
-
-
-
-
-Eigenfrequenz der ersten Eigenform (Isolator) gedämpft
-
+und die gedämpfte Eigenfrequenz der ersten, durch den Isolator gesteuerten, Eigenform  
 
 \begin{align*}
 \omega_{1d} &= \omega_1^* \sqrt{1 - \xi_2^2}\\
 T_1         &= \frac{2 \pi}{\omega_{1d}} 
 \end{align*}
 
-
-Die Transmissibilität kann nun am System für $\omega = \omega_{1d}$ bestimmt werden.
-
-\begin{equation}
-VT(\omega_{1d}, m_2, k_2, c_2^*, m_1, k_1, c_1^*)
-\end{equation}
-
-Da $S_e$ für einen Einmassenschwinger mit 5\% Dämpfung der Eigenfrequenz genau auf $T$ angegeben ist, muss hier noch die Resonanz rausgerechnet werden um die äquivalente Amplitude der einwirkenden Anregung am Fußpunkt zu erhalten.
-
-\begin{align*}
-TR(\xi) &= \frac{\sqrt{1 + 4 \xi ^2}}{2 \xi}\\
-TR(5\%) &= \frac{\sqrt{1 + 4 \cdot 0.05^2}}{0.1}\\
-        &\approx 10.05
-\end{align*}
+Die Transmissibilität kann nun mit den Dämpfungsbeiwerten der Rayleigh-Dämpfung bestimmt werden.
 
 \begin{equation}
-S_e / 10.05
+VT(m_2, k_2, c_2^*, m_1, k_1, c_1^*)
 \end{equation}
 
-\subsection{Erzeugung von Antwortspektren}
+\subsubsection{Erzeugung des isolierten Antwortspektrums}
+\label{sec:transmAWS}
 
-* Variation der Eigenfrequenz
+Das isolierte Antwortspektrum kann nun aus dem elastischen Antwortspektrum erlangt werden.
+Für jede Periode $T_i$ wird die Steifigkeit der aufgehenden Struktur berechnet wobei die restlichen Parameter konstant bleiben.
 
-* Gleichung
+\begin{equation}
+k_{1,i} = m_1 (\frac{2 \pi}{T_i})^2
+\end{equation}
+  
+Damit können die Transmissibilität $VT$, die gedämpfte erste Eigenkreisfrequenz $\omega_{1d}$
 
-* Zeitschrittverfahren
+\begin{align}
+\omega_{1d} &= \omega_1^* \sqrt{1 - \xi_2^2} \\
+T_1 &= \frac{2 \pi}{\omega_{1d}}
+\end{align}
 
-\subsection{Erweitertes Modell}
+und die zugehörige äquivalente Amplitude der Beschleunigung der Fußpunktanregung
 
-Für die Erzeugung der Isolationsspektren wird hier das System um den Isolator erweitert und als Zweimassenschwinger (\cref{fig:vkm}) betrachtet.
-Wobei der obere Schwinger die aufgehende Struktur ($s$) und der untere Schwinger den Isolator ($i$) samt des steifen Kellergeschosses beschreiben soll.
+\begin{equation}
+S_{a,x_3} = Se(T_1) / 10.05
+\end{equation}
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{voigt-kelvin-model.png}
-    \caption{Voigt-Kelvin-Modell}
-    \label{fig:vkm}
-\end{figure}
+ermittelt werden. Die Ordinate des isolierten Antwortspektrums beträgt dann
 
-Unter Annahme der Linearität können die Systeme getrennt betrachtet werden. Am System der Struktur wird durch Parameter Sweeps das Antwortspektrum berechnet. Da der untere Teil des Systems dabei unverändert bleibt kann anschließend durch Komposition das Isolationsspektrum ermittelt werden.
-Da das Antwortspektrum für Einmassenschwinger bereits bekannt ist, kann die Betrachtung des Gesamtsystems und eine aufwändige Zeitschrittanalyse entfallen.
-
-\subsection{Bewegungsgleichung}
-
-
-
+\begin{equation}
+S_{a,isoliert} = S_{a,x_3} \cdot VT
+\end{equation}
+  
 \pagebreak
 
-
-
-
-
-
-
-
-\section{Vergleich zum Zweimassenschwinger}
+\section{Vergleich der Ansätze am Beispiel}
 \label{sec:vergleich}
 
-Anahand eines Beispiels soll in einer Handrechnung an einem einfachen System zunächst die auf die aufgehende Struktur wirkende Gesamterdbebenkraft $F_b$ mittels des Isolationsspektrums ermittelt werden und anschließend mit den Ergebnissen einer Berechnung am Zweimassenschwinger verglichen werden.
+Die Ansätze sollen anhand eines konkreten Beispiels verglichen werden. Hierzu werden die Werte aus \cite{Isemann} Kapitel 11.2.3 verwendet.
+Die Parameter des Systems lauten:
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{2MS_beispiel.png}
-    \caption{Zweimassenschwinger}
-    \label{fig:2ms}
-\end{figure}
+\makebox[1cm]{$D$}    = 0.35 m \par
+\makebox[1cm]{$\mu$}  = 0.04\par
+\makebox[1cm]{$m_1$}  = 2486.7 t\par
+\makebox[1cm]{$m_2$}  = 1619.5 t\par
+\makebox[1cm]{$R$}    = 2.5 m\par
 
-Die Dämpfung beträgt $c_1 = c_2 = 5\%$, die Masse des Kellergeschosses $m_1 = 0.2 MN/s^2/m$ mit einer Steifigkeit von $k_1 = 5 MN/m$ und die Masse der aufgehenden Struktur $m_2 = 1 MN/s^2/m$ mit einer Steifigkeit von $k_2 = 45 MN/m$.
+Es soll ein Antwortspektrum mit folgenden Eckperioden und Bodenbeschleunigung verwendet werden.
 
-Das Verhältnis der Eigenkreisfrequenzen der Basis $\omega_1$ zur Struktur $\omega_2$ beträgt somit ungefähr $1/3$. Ein Wert der sich beim Design von Isolatoren in der Praxis bewehrt hat.
+\makebox[1cm]{$T_B$}  = 0.4 s\par
+\makebox[1cm]{$T_C$}  = 1.6 s\par
+\makebox[1cm]{$T_D$}  = 2.0 s\par
+\makebox[1cm]{$a_g$}  = 3.924 m/s\textsuperscript{2}\par
 
-\subsection{Bemessungsspektrum}
-
-Für dieses Beispiel wird ein Antwortspektrum aus dem Raum Karlsruhe herangezogen. Damit ergibt sich eine Bodenbeschleunigung in der Erdbebenzone 1 von $a_g = 0.4 m/s^2$ und die Baugrundklasse C-S mit den Kontrollperioden $T_B$, $T_C$, $T_D$ und Untergrundparameter $S$:
-
-\begin{align*}
-S &= 0.75 s\\
-T_B &= 0.1 s\\
-T_C &= 0.5 s\\
-T_D &= 2.0 s
-\end{align*}
-
-Der Bedeutungsbeiwert wird mit $\gamma_1 = 1.0$ für gewöhnliche Bauten mit Bedeutungsklasse II, der Verstärkungsbeiwert der Spektralbeschleunigung mit $\beta_0 = 2.5$ für eine viskose Dämpfung von 5\% und der Verhaltensbeiwert für Duktilitätsklasse 1 mit $q = 1.5$ angesetzt.
-Daraus ergibt sich das Bemessungsspektrum zu \cref{fig:Bemessungsspektrum}.
-
-\begin{figure}[ht] 
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{AWS_beispiel.png}
-    \caption{Bemessungsspektrum}
-    \label{fig:Bemessungsspektrum}
+    \caption{Antwortspektrum}
 \end{figure}
 
-\subsection{Betrachtung mit Isolationsspektrums}
-
-*Isolationsspektrum zeigen
-
-Die Eigenfrequenz der Struktur ergibt sich zu
-
-\begin{align*}
-\omega &= \sqrt{\frac{k_2}{m_2}} = \sqrt{\frac{45}{1}}\\
-       &= 6.708 s^{-1}
-\end{align*}
-
-\begin{align*}
-T &= \frac{2 \cdot \pi}{\omega} = \frac{2 \cdot \pi}{6.708}\\
-  &= 0.936 s
-\end{align*}
-
-und eine Beschleunigung von
-
-\begin{align*}
-S_d(T) &= a_g \cdot \gamma_1 \cdot S \cdot \frac{\beta_0}{q} \cdot \frac{T_C}{T}\\
-S_d(0.936) &= 0.4 \cdot 1.0 \cdot 0.75 \cdot \frac{2.5}{1.5} \cdot \frac{0.5}{0.936}\\
-           &= 0.277 m/s^2
-\end{align*}
-
-Die Übertragungsfunktion für den hier gegebenen Isolator lautet:
-
-\begin{align*}
-G(s) &= \frac{1}{m_1 \cdot s^2 + c_1 \cdot s + k_1}\\
-     &= \frac{1}{0.2 \cdot s^2 + 0.05 \cdot s + 5}
-\end{align*}
-
-Um die Amplitude zu erhalten wird der Laplace-Faktor $s$ bestimmt und der Betrag der Übertragungsfunktion ermittelt.
-
-\begin{align*}
-s &= i \cdot \omega\\
-  &= i \cdot 6.708\\
-  &= 6.708i
-\end{align*}
-
-\begin{align*}
-|G(6.708i)| &= |\frac{1}{0.2 \cdot 6.708i^2 + 0.05 \cdot 6.708i + 5}|\\
-            &= 0.208
-\end{align*}
-
-Die an der Struktur wirkende Gesamterdbebenkraft $F_b$ ergibt sich somit zu:
-
-\begin{align*}
-F_b &= |G(s)| \cdot S_d(T) \cdot m_2\\
-    &= 0.208 \cdot 0.277 m/s^2 \cdot 1 MN/s^2/m\\
-    &= \underline{\underline{0.0576 MN}}
-\end{align*}
-
-\subsection{Betrachtung am Zweimassenschwinger}
-
-Bei der Betrachtung des Zweimassenschwingers kann vereinfacht angenommen werden, dass der weiche Isolator die Eigentform dominiert \cite{AKK} und sich die Eigenfrequenz des Gesamtsystems somit zu
-
-\begin{align*}
-\omega_1 &= \sqrt{\frac{k_1}{m_1 + m_2}}\\
-         &= \sqrt{\frac{5}{1.0 + 0.2}}\\
-         &= 2.041 s^{-1}
-\end{align*}
-
-\begin{align*}
-T_1 &= \frac{2 \cdot \pi}{\omega} = \frac{2 \cdot \pi}{2.041}\\
-    &= 3.078 s
-\end{align*}
-
-ergibt. Die auf die Struktur wirkende Gesamterdbebenkraft $F_b$ ist dann:
-
-\begin{align*}
-F_b &= S_d(T) \cdot m_2\\
-    &= 0.053 m/s^2 \cdot 1 MN/s^2/m\\
-    &= \underline{\underline{0.053 MN}}
-\end{align*}
-
-Damit liegt die Abweichung der beiden Ansätze in dem Fall bei $0.0576/0.053=1.0945$, also ungefähr $9.5\%$.
-
-\pagebreak
-
-\section{Grenzfälle}
-\label{sec:grenzfalle}
-
-Zur weiteren Untersuchung soll noch eine Berechnung am Zweimassenschwinger mit den Beteiligungsfaktoren der Schwingungsform erfolgen, wobei hier die Steifigkeit des Isolators variiert wird. Die Berechnung mittels Isolationsspektrum erfolgt analog zum vorherigen Beispiel.
-
-Die Eigenkreisfrequenz wird über die Lösung des charakteristischen Polynoms der Matrizenform des Systems der gekoppelten Bewegungsdifferentialgleichungen des Zweimassenschwingers (\cite{Pocanschi} S. 143, Gl. 8.11) ermittelt.
+Die Steifigkeit $k_2$ ergibt sich aus der effektiven Steifigkeit des Isolators nach \cref{keff}
 
 \begin{equation*}
-\omega_1 = \sqrt{\frac{(k_1 + k_2) \cdot m_2 + k_2 \cdot m_1 - \sqrt{[(k_1 + k_2) \cdot m_2 + k_2 \cdot  m_1]^2 - 4 \cdot m_1 \cdot m_2 \cdot k_1 \cdot k_2}}{2 \cdot m_1 \cdot m_2}}
+k_2 = k_{eff} = \frac{G}{R} + \mu \frac{G}{D} = \frac{41062 kN}{2.5 m} + 0.04 \cdot \frac{41062 kN}{0.35 m} = 21117 kN/m
 \end{equation*}
 
-Und der Beteiligungsfaktor des Isolators zu
+Die Dämpfung $\xi_1$ wird mit 5\% angenommen und die effektive Dämpfung des Isolators $\xi_2$ nach \cref{xieff} bestimmt.
 
 \begin{equation*}
-X = 1/\left( \frac{k_1 + k_2 - m_1 \cdot \omega_1^2}{k_2} \right)
+\xi_2 = \xi_{eff} = \frac{2}{\pi} \frac{\mu R}{(D + \mu R)} = \frac{2}{\pi} \frac{0.04 \cdot 2.5 m}{(0.35 m + 0.04 \cdot 2.5 m)} \approx 0.14147
 \end{equation*}
 
-\begin{figure}[ht] 
+Hier sollen zunächst die Ergebnisse für eine Periode der aufgehenden Struktur von $T = 1 s$ betrachtet werden. Daraus ergibt sich eine Steifigkeit $k_1$ von
+
+\begin{equation*}
+k_1 = m_1 (\frac{2 \pi}{T})^2 = 2486.7 t \cdot (\frac{2 \pi}{1 s})^2 = 98170 kN/m
+\end{equation*}
+
+\subsection{Betrachtung als effektiver Einmassenschwinger}
+
+Wie in \cref{sec:schwierigkeitenvordimensionierung} erwähnt kann das System unter der Annahme, dass der Isolator die Eigenform dominiert (\cref{Verteilung}) auch als verienfachter Einmassenschwinger modelliert werden.
+
+Die Eigenperiode beträgt dann
+
+\begin{equation*}
+\omega = \sqrt{\frac{k_2}{m_1 + m_2}} = \sqrt{\frac{21117 kN/m}{4106.2 t}} \approx 2.267 \frac{1}{s}
+\end{equation*}
+
+\begin{equation*}
+T = \frac{2 \pi}{\omega} = \frac{2 \pi}{2.267 \frac{1}{s}} \approx 2.77 s
+\end{equation*}
+
+Für eine Periode von $T = 2.77 s$ im Bereich $T_D \leq T$ und, unter der Annahme, dass auch die Dämpfung des Isolators dominiert, $\eta=\sqrt{10/(5+14.147)} \approx 0.723$ beträgt die Spektralbeschleunigung
+
+\begin{align*}
+S_a(T) &= a_g \eta 2.5 \frac{T_C T_D}{T^2}\\
+       &= 3.924 m/s^2 \cdot 0.723 \cdot 2.5 \cdot \frac{1.6 s \cdot 2.0 s}{(2.77 s)^2}\\
+       &= \underline{\underline{2.958 m/s^2}}
+\end{align*}
+
+\subsection{Vereinfachtes Verfahren}
+
+Im ersten Schritt wird die Eigenkreisfrequenz des nicht isolierten Bauwerks $\omega$ und die Verhältniswerte $\alpha$ und $\beta$ ermittelt.
+
+\begin{align*}
+\omega &= \sqrt{\frac{k_1}{m_1}} = \sqrt{\frac{98170 kN/m}{2486.7 t}} = 6.2832 \frac{1}{s}\\
+\end{align*}
+
+\begin{align*}
+\alpha &= \frac{k_2}{k_1} = \frac{21117 kN/m}{98170 kN/m} = 0.2151 & \beta  &= \frac{m_2}{m_1} = \frac{1619.5 t}{2486.7 t} = 0.65\\
+\end{align*}
+
+Damit lassen sich die Eigenkreisfrequenzen und Perioden des isolierten Systems bestimmen.
+
+\begin{align*}
+\omega_{L,1}^2 &= \frac{1 + \alpha + \beta - \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}}{2 \beta} \omega^2\\
+               &= \frac{1 + 0.215 + 0.65 - \sqrt{(1 + 0.215 + 0.65)^2 - 4 \cdot 0.215 \cdot 0.65}}{2 \cdot 0.65} \cdot (6.2832 \frac{1}{s})^2\\
+               &= 4.7504 \Rightarrow  \omega_{L,1} = 2.18 \frac{1}{s}\\
+\end{align*}
+
+\begin{align*}
+T_{L,1} &= \frac{2 \pi}{\omega_{L,1}} = \frac{2 \pi}{2.18 \frac{1}{s}} = 2.882 s
+\end{align*}
+
+Für die Periode von $T = 2.77 s$ im Bereich $T_D \leq T$ und der Dämpfung des Isolators mit $\eta=\sqrt{10/(5+14.147)} \approx 0.723$ beträgt die Spektralbeschleunigung
+
+\begin{align*}
+S_a(T) &= a_g \eta 2.5 \frac{T_C T_D}{T^2}\\
+       &= 3.924 m/s^2 \cdot 0.723 \cdot 2.5 \cdot \frac{1.6 s \cdot 2.0 s}{(2.882 s)^2}\\
+       &= 2.733 m/s^2
+\end{align*}
+
+Um dann die maximale Beschleunigung zu erhalten wird noch der erste Eigenvektor und Beteiligungsfaktor berücksichtigt.
+
+\begin{align*}
+r_1 &= \frac{1 + \alpha - \beta + \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}}{2} \\
+    &= \frac{1 + 0.215 - 0.65 + \sqrt{(1 + 0.215 + 0.65)^2 - 4 \cdot 0.215 \cdot 0.65}}{2}\\
+    &= 1.137
+\end{align*}
+
+\begin{align*}
+\vec{\Phi}_1 &= \binom{1/r_1}{1} = \binom{1/1.137}{1} = \binom{0.8795}{1}
+\end{align*}
+
+\begin{equation*}
+L_1 = \frac{\vec{\Phi}_1^T M \vec{I}}{\vec{\Phi}_1^T M \vec{\Phi}_1} = \frac{
+\begin{pmatrix}
+  0.8795 & 1
+\end{pmatrix}
+\begin{bmatrix}
+  1619.5 t & 0 t\\
+  0 t & 2486.7 t
+\end{bmatrix}
+\begin{pmatrix}
+  1\\
+  1
+\end{pmatrix}
+}{
+\begin{pmatrix}
+  0.8795 & 1
+\end{pmatrix}
+\begin{bmatrix}
+  1619.5 t & 0 t\\
+  0 t & 2486.7 t
+\end{bmatrix}
+\begin{pmatrix}
+  0.8795 \\
+  1
+\end{pmatrix}}
+= 1.0458
+\end{equation*}
+
+\begin{equation*}
+\ddot U_{max} = \vec{\Phi}_1 L_1 S_a(T_{L,1}, \xi_{L,1}) = 1.0 \cdot 1.0458 \cdot 2.733 m/s^2 = \underline{\underline{2.858 m/s^2}}
+\end{equation*}
+
+\subsection{Verfahren der Transmissibilität}
+
+Zunächst werden die Dämpfungsbeiwerte mit dem Ansatz der Rayleigh-Dämpfung ermittelt. Dafür werden die Eigenkreisfrequenzen des ungedämpften Systems benötigt.
+
+\begin{align*}
+\omega_{1,2}^2 &= \frac{(k_2 + k_1) m_1 + k_1 m_2 \pm \sqrt{((k_2 + k_1) m_1 + k_1 m_2)^2 - 4 m_2 m_1 k_2 k_1}}{2 m_2 m_1}\\
+               \intertext{mit $(k_2 + k_1) m_1 + k_1 m_2 = (21117  + 98170 ) \cdot 2486.7  + 98170  \cdot 1619.5 = 455568212.9 $ \newline und $4 m_2 m_1 k_2 k_1 = 4 \cdot 1619.5  \cdot 2486.7  \cdot 21117  \cdot 98170 = 3.3370719 \cdot 10^{14}$}
+               &= \frac{ 455568212.9 \pm \sqrt{((21117  + 98170 ) \cdot 2486.7  + 98170  \cdot 1619.5 )^2 - 3.33.. \cdot 10^{14}}}{2 \cdot 1619.5  \cdot 2486.7 }\\
+               &\Rightarrow \omega_1 \approx 2.179 \frac{1}{s}\\
+               &\Rightarrow \omega_2 \approx 10.410 \frac{1}{s}
+\end{align*}
+
+Damit können die normierten Komponenten der Eigenvektoren bestimmt werden.
+
+\begin{align*}
+\varepsilon_1 &= \frac{k_2 + k_1 - m_2 \omega_1^2}{k_1} \\
+              &= \frac{21117 kN/m + 98170 kN/m - 1619.5 t \cdot (2.179 \frac{1}{s})^2}{98170 kN/m}\\
+              &= 1.136
+\end{align*}
+\begin{align*}
+\varepsilon_2 &= \frac{k_2 + k_1 - m_2 \omega_2^2}{k_1} \\
+              &= \frac{21117 kN/m + 98170 kN/m - 1619.5 t \cdot (10.410 \frac{1}{s})^2}{98170 kN/m}\\
+              &= -0.572
+\end{align*}
+
+\begin{align*}
+\varphi_{11} &= \sqrt{\frac{1}{1 + \varepsilon_1^2}} = \sqrt{\frac{1}{1 + 1.136^2}} \approx 0.660\\
+\varphi_{21} &= \varepsilon_1 \varphi_{11} = 1.136 \cdot 0.660 \approx 0.750\\
+\varphi_{12} &= \sqrt{\frac{1}{1 + \varepsilon_2^2}} = \sqrt{\frac{1}{1 + (-0.572)^2}} \approx 0.867\\
+\varphi_{22} &= \varepsilon_2 \varphi_{12} = -0.572 \cdot 0.867 \approx -0.497
+\end{align*}
+
+Die generalisierten Massen und Steifigkeiten sind dann
+
+\begin{align*}
+m_2^* &= \varphi_{11}^2 m_2 + \varphi_{21}^2 m_1 = 0.660^2 cdot 1619.5 t + 0.750^2 \cdot 2486.7 t\\
+      &= 2108.3 t\\[2em]
+m_1^* &= \varphi_{12}^2 m_2 + \varphi_{22}^2 m_1 = 0.867^2 \cdot 1619.5 t + -0.497^2 \cdot 2486.7 t\\
+      &= 1833.8 t\\[2em]
+k_2^* &= \varphi_{11}^2 (k_2 + k_1) - 2 \varphi_{21} \varphi_{11} k_1 + \varphi_{21}^2 k_1\\
+      &= 0.660^2 \cdot (21117 kN/m +  98170 kN/m) - 2 \cdot 0.750 \cdot 0.660 \cdot 98170 kN/m\\
+      &\phantom{{}=1} + 0.750^2 \cdot  98170 kN/m\\
+      &= 10013.4 kN/m\\[2em]
+k_1^* &= \varphi_{12}^2 (k_2 + k_1) - 2 \varphi_{22} \varphi_{12} k_1 + \varphi_{22}^2 k_1\\
+      &= 0.867^2 \cdot (21117 kN/m +  98170 kN/m) - 2 \cdot -0.497 \cdot 0.867 \cdot 98170 kN/m\\
+      &\phantom{{}=1} + -0.497^2 \cdot 98170 kN/m\\
+      &= 198759.0 kN/m
+\end{align*}
+
+und die Eigenkreisfrequenzen der zwei Einmassenschwinger
+
+\begin{align*}
+\omega_1^* &= \sqrt{\frac{k_2^*}{m_2^*}} = \sqrt{\frac{10013.4 kN/m}{2108.3 t}}\\
+           &= 2.179 \frac{1}{s}
+\end{align*}
+\begin{align*}
+\omega_2^* &= \sqrt{\frac{k_1^*}{m_1^*}} = \sqrt{\frac{198759.0 kN/m}{1833.8 t}}\\
+           &= 10.410 \frac{1}{s}
+\end{align*}
+
+Damit ergeben sich die Dämpfungsbeiwerte der Rayleigh-Dämpfung
+
+\begin{align*}
+\alpha &= \frac{2 \omega_1^* \omega_2^* (\xi_2 \omega_2^* - \xi_1 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
+       &= \frac{2 \cdot 2.179 \frac{1}{s} \cdot 10.410 \frac{1}{s} \cdot (0.14147 \cdot 10.410 \frac{1}{s} - 0.05 \cdot 2.179 \frac{1}{s})}{(10.410 \frac{1}{s})^2 - (2.179 \frac{1}{s})^2}\\
+       &\approx 0.597\\[2em]
+\beta  &= \frac{2 (\xi_1 \omega_2^* - \xi_2 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
+       &= \frac{2 \cdot (0.05 \cdot 10.410 \frac{1}{s} - 0.14147 \cdot 2.179 \frac{1}{s})}{(10.410 \frac{1}{s})^2 - (2.179 \frac{1}{s})^2}\\
+       &\approx 0.004
+\end{align*}
+
+\begin{align*}
+c_1^* &= \alpha m_1^* + \beta k_1^* = 0.597 \cdot 1833.8 t + 0.004 \cdot 198759.0 kN/m\\
+      &\approx 1909.1\\
+c_2^* &= \alpha m_2^* + \beta k_2^* = 0.597 \cdot 1833.8 t + 0.004 \cdot 10013.4 kN/m\\
+      &\approx 1300.0
+\end{align*}
+
+und die gedämpfte Eigenfrequenz der ersten, durch den Isolator gesteuerten, Eigenform  
+
+\begin{align*}
+\omega_{1d} &= \omega_1^* \sqrt{1 - \xi_2^2} = 2.179 \frac{1}{s} \cdot \sqrt{1 - 0.14147^2}\\
+            &\approx 2.157 \frac{1}{s}\\
+T_1         &= \frac{2 \pi}{\omega_{1d}} = \frac{2 \pi}{2.157 \frac{1}{s}}\\
+            &\approx 2.912 s
+\end{align*}
+
+Mit der Periode lässt sich bereits $S_a$ aus dem Antwortspektrum (mit $\eta = 1$) ermitteln.
+
+\begin{align*}
+S_a(T) &= a_g \eta 2.5 \frac{T_C T_D}{T^2}\\
+       &= 3.924 m/s^2 \cdot 1 \cdot 2.5 \cdot \frac{1.6 s \cdot 2.0 s}{(2.912 s)^2}\\
+       &= 3.701 m/s^2
+\end{align*}
+
+Die Transmissibilität kann nun mit den Dämpfungsbeiwerten der Rayleigh-Dämpfung bestimmt werden. Dazu werden zuerst die drei komplexwertigen Transmissionskoeffizienten (mit $\omega = \omega_{1d}$) berechnet.
+
+\begin{align*}
+X_1 &= \frac{\omega^2 m_1}{k_1 + i \omega c_1} = \frac{(2.157 \frac{1}{s})^2 \cdot 2486.7 t}{98170kN/m + i \cdot 2.157 \frac{1}{s} \cdot 1909.1}\\
+    &\approx 0.117 - 0.005i\\[2em]
+X_2 &= \frac{\omega^2 m_2}{k_2 + i \omega c_2} = \frac{(2.157 \frac{1}{s})^2 \cdot 1619.5 t}{21117kN/m + i \cdot 2.157 \frac{1}{s} \cdot 1300.0}\\
+    &\approx 0.350 - 0.046i\\[2em]
+X_{12} &= \frac{\omega^2 m_1}{k_2 + i \omega c_2} = \frac{(2.157 \frac{1}{s})^2 \cdot 2486.7 t}{21117kN/m + i \cdot 2.157 \frac{1}{s} \cdot 1300.0}\\
+    &\approx 0.538 - 0.071i
+\end{align*}
+
+\begin{align*}
+VT &= \left\lvert \frac{1}{(1 - X_1)(1 - X_2) - X_{12}} \right\rvert\\
+   &= \left\lvert \frac{1}{(1 - (0.117 - 0.005i)) \cdot (1 - (0.350 - 0.046i)) - (0.538 - 0.071i)} \right\rvert\\
+   &\approx 8.282
+\end{align*}
+
+\begin{align*}
+S_{a,isoliert} &= \frac{S_a \cdot VT}{VT_{EMS}} = \frac{3.701 m/s^2 \cdot 8.282}{10.05}\\
+               &= \underline{\underline{3.050 m/s^2}}
+\end{align*}
+
+\subsection{Vergleich der Ergebnisse}
+
+
+Werte vergleichen
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ Einmassenschwinger & Vereinfacht & Transmissibilität\\
+ \hline\hline
+ 2.958 $m/s^2$ & 2.858 $m/s^2$ & 3.050 $m/s^2$\\
+ \hline
+\end{tabular}
+\caption{Vergleich der Beschleunigungen aus den drei Ansätzen}
+\end{table}
+
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{DampenerSweep.png}
-    \caption{Abweichung der beiden Ansätze}
-    \label{fig:Bemessungsspektrum}
+    \includegraphics[width=1.0\textwidth]{Isolation.png}
+    \caption{Isolationsspektren der drei Ansätze}
+    \label{fig:Isolation}
 \end{figure}
 
-*2MS mit Beteiligungsfaktor  -> Diagramm mit Verschiebung = 1
-
-*Abweichung durch Schwebung/Beteiligung 2. Feder 
-
-\pagebreak
+Vergleich 11.3 nachbilden
+Spektren plotten mit numerischen werten
 
 \section{Nichtlinearitäten und Ansätze zur Linearisierung}
 \label{sec:nichtlinearitaten}

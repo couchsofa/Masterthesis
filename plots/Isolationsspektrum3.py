@@ -31,6 +31,15 @@ def Se(n, ag, S, TB, TC, TD, T):
 	return Se
 
 
+# Kelly
+def Kelly(n, m1, k2, m2):
+
+	omega = np.sqrt(k2/(m1+m2))
+	T1 = 2 * np.pi / omega
+
+	return Se(n, ag, S, TB, TC, TD, T1)
+
+
 # Isemann
 def vereinfacht(n, k1, m1, k2, m2):
 
@@ -78,6 +87,8 @@ def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
 	phi_12 = np.sqrt(1/(1+e2**2))
 	phi_22 = e2 * phi_12
 
+
+
 	_m2 = phi_11**2 * m2 + phi_21**2 * m1
 	_k2 = phi_11**2 * (k2 + k1) - 2 * phi_21 * phi_11 * k1 + phi_21**2 * k1
 
@@ -98,11 +109,14 @@ def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
 
 	_c1 = a * _m1 + b * _k1
 	_c2 = a * _m2 + b * _k2
-	VT = VT_1_over_3(omega_1d, m2, k2, _c2, m1, k1, _c1) / 10.05
+
+	
+
+	VT = VT_1_over_3(omega_1d, m2, k2, _c2, m1, k1, _c1) 
 
 	n = 1
 
-	return Se(n, ag, S, TB, TC, TD, T1) * VT
+	return Se(n, ag, S, TB, TC, TD, T1) * VT / 10.05
 
 
 def VT_1_over_3(omega, m2, k2, c2, m1, k1, c1):
@@ -165,7 +179,6 @@ TB = 0.4
 TC = 1.6
 TD = 2
 
-
 _T = np.arange(0.001, 5, 0.1)
 #_T = [0.001, 0.5, 1, 2, 3, 4, 5]
 AWS = []
@@ -187,15 +200,28 @@ for T in _T:
 	AWS_iso.append(Sa)
 
 
+AWS_Kelly = []
+for T in _T:
+	n = np.sqrt(10/(5+Xi2*100))
+	k1 = m1 * (2 * np.pi / T)**2
+	Sa = Kelly(n, m1, k2, m2)
+	AWS_Kelly.append(Sa)
+
+# Periode des Isolators
+
+T_iso = (2 * np.pi) / np.sqrt(k2/m2)
+
+plt.axvline(x=T_iso, color='black', linestyle='--', linewidth=0.5)
+
 plt.plot(_T, AWS, label='AWS', linestyle='-')
-plt.plot(_T, AWS_rayleigh, label='AWS isoliert', linestyle=':')
+plt.plot(_T, AWS_rayleigh, label='AWS (Transmissibilität)', linestyle=':')
 plt.plot(_T, AWS_iso, label='AWS isoliert (vereinfacht)', linestyle='--')
+plt.plot(_T, AWS_Kelly, label='AWS isoliert (EMS)', linestyle='-.')
 
-plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.25), shadow=False, ncol=3, frameon=False)
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.25), shadow=False, ncol=2, frameon=False)
 
-#plt.xlabel('m2/m1')
-#plt.xlabel('T')
-
+plt.xlabel('T [$s$]')
+plt.ylabel('$S_a$ $[m/s^{2}]$')
 
 plt.grid(True)
 plt.tight_layout()
