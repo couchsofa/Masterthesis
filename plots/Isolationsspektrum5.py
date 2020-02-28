@@ -87,8 +87,6 @@ def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
 	phi_12 = np.sqrt(1/(1+e2**2))
 	phi_22 = e2 * phi_12
 
-
-
 	_m2 = phi_11**2 * m2 + phi_21**2 * m1
 	_k2 = phi_11**2 * (k2 + k1) - 2 * phi_21 * phi_11 * k1 + phi_21**2 * k1
 
@@ -104,17 +102,24 @@ def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
 	T1 = 2*np.pi/omega_1d
 
 	# Transmissionskoeffizient des Systems
+
+	# Nach Pocanschi
 	a = (2*_omega1*_omega2*(Xi2 * _omega2 - Xi1 * _omega1))/(_omega2**2 - _omega1**2)
 	b = (2*(Xi1 * _omega2 - Xi2 * _omega1))/(_omega2**2 - _omega1**2)
 
+	#  Nach Isemann
+	#b = 2 * Xi2 / (omega1 * omega2)
+	#a = omega1 * omega2 * b
+
 	_c1 = a * _m1 + b * _k1
 	_c2 = a * _m2 + b * _k2
+	
 
 	VT = VT_1_over_3(omega_1d, _m2, _k2, _c2, _m1, _k1, _c1) 
 
-	n = np.sqrt(10/(5+Xi2*100))
+	n = 1#np.sqrt(10/(5+Xi2*100))
 
-	return Se(n, ag, S, TB, TC, TD, T1) * VT
+	return Se(n, ag, S, TB, TC, TD, T1) * VT #/ 10.05
 
 
 def VT_1_over_3(omega, m2, k2, c2, m1, k1, c1):
@@ -162,14 +167,14 @@ def Phi(m1, k1, m2, k2):
 
 
 # Konstanten und Definitionen
-m1  = 2486.7
+m1  = 2486.7#2846.7
 k1  = 98170
 Xi1 = 0.05
 c1 = Xi1 * 2 * np.sqrt(k1 * m1)
 
 m2  = 1619.5
-k2  = 21117
-Xi2 = 0.14147
+k2  = 32000
+Xi2 = 0.1367
 
 ag = 3.924
 S  = 1
@@ -177,8 +182,8 @@ TB = 0.4
 TC = 1.6
 TD = 2
 
-_T = np.arange(0.001, 5.1, 0.1)
-#_T = [1]
+_T = np.arange(0.001, 4.01, 0.1)
+#_T = [0.001, 0.5, 1, 2, 3, 4, 5]
 AWS = []
 for T in _T:
 	AWS.append(Se(1, ag, S, TB, TC, TD, T))
@@ -206,14 +211,19 @@ for T in _T:
 	AWS_Kelly.append(Sa)
 
 
-plt.plot(_T, AWS_rayleigh, label='AWS (Transmissibilität)', linestyle=':')
-plt.plot(_T, AWS_iso, label='AWS isoliert (vereinfacht)', linestyle='--')
-plt.plot(_T, AWS_Kelly, label='AWS isoliert (EMS)', linestyle='-.')
+
+#plt.plot(_T, AWS_iso, label='AWS isoliert (vereinfacht)', linestyle='--')
+#plt.plot(_T, AWS_Kelly, label='AWS isoliert (EMS)', linestyle='-.')
 plt.plot(_T, AWS, label='AWS', linestyle='-')
 T_iso = 2 * np.pi / np.sqrt(k2/(m2+m1))
 plt.axvline(x=T_iso, label = 'Isolatorperiode', color='black', linestyle='--', linewidth=0.5)
 
+plt.plot(_T, AWS_rayleigh, label='Isolationsspektrum (Transmissibilität)', linestyle=':')
 
+plt.axvline(x=5, label = 'Isolationsspektrum (VBA)', color='#fdbd0e', linestyle='-', linewidth=0.5)
+plt.axvline(x=5, label = 'Erdbeben 1', color='#33b86c', linestyle='-', linewidth=0.5)
+plt.axvline(x=5, label = 'Erdbeben 2', color='#233e64', linestyle='-', linewidth=0.5)
+plt.axvline(x=5, label = 'Erdbeben 3', color='#763ea5', linestyle='-', linewidth=0.5)
 
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.25), shadow=False, ncol=2, frameon=False)
 
@@ -225,6 +235,6 @@ plt.tight_layout()
 #plt.axes().set_aspect(0.7)
 plt.margins(x=0, y=0.1)
 plt.gca().set_ylim(0,11)
-plt.gca().set_xlim(0,5)
-plt.savefig("/home/couchsofa/masterthesis/Masterthesis/images/Isolation.png", dpi=300)
+plt.gca().set_xlim(0,4.01)
+plt.savefig("/home/couchsofa/masterthesis/Masterthesis/images/Isolation_3.png", dpi=300)
 plt.clf()
