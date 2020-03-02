@@ -1,18 +1,18 @@
-Wenn die Einwirkungen aus Erdbeben sehr hoch werden, zum Beispiel durch eine hohe Anforderung an den Bedeutungsbeiwert oder sich das Bauwerk in einem Starkbebengebiet befindet, ist es meistens technisch und wirtschaftlich günstiger, die Struktur von der Einwirkung zu isolieren, damit sie dieser nicht mehr vollends ausgesetzt wird.
+Wenn die Einwirkungen aus Erdbeben sehr hoch werden, zum Beispiel durch eine hohe Anforderung an den Bedeutungsbeiwert oder wenn sich das Bauwerk in einem Starkbebengebiet befindet, ist es meistens technisch und wirtschaftlich günstiger, die Struktur von der Einwirkung zu isolieren, damit sie dieser nicht mehr vollends ausgesetzt wird.
 
-Es können leichtere Konstruktionen gebaut werden, die durch geringere Aufwendung an Material die Kosten senken und die Nachhaltigkeit durch senken des Ausstoßes an CO\textsubscript{2} erhöhen.
+Es können leichtere Konstruktionen gebaut werden, die durch geringere Aufwendung an Material die Kosten Senken und die Nachhaltigkeit durch senken des Ausstoßes an CO\textsubscript{2} erhöhen.
 
 Die horizontale Isolation ist keine Lösung der Neuzeit. Schon die Baumeister im alten China ordneten zwischen Fundament und Grundplatte eine Schicht aus rolligem Sand an \cite{Taylor}.
-Im zwanzigsten Jahrhundert folgten einige Patente mit dem selben Grundprinzip und 1921 realisierte Frank Lloyd Wright das Imperial Hotel in Tokyo mit einer Isolation mittels einer Schicht 3m mächtigen aus Weichboden. Das Gebäude überstand ein 2 Jahre später aufgetretenes schweres Erdbeben nahezu unbeschadet \cite{Reitherman}.
+Im 20. Jahrhundert folgten einige Patente mit dem selben Grundprinzip und 1921 realisierte Frank Lloyd Wright das Imperial Hotel in Tokyo mit einer Isolation mittels einer 3m mächtigen Schicht aus Weichboden. Das Gebäude überstand ein zwei Jahre später aufgetretenes schweres Erdbeben nahezu unbeschadet \cite{Reitherman}.
 
-Für die Isolierung stehen einige verschiedene Mechanismen, wie zum Beispiel kinematische Lager, Gleitpendelisolatoren und Elastomerlager (ggf. mit Bleikern) zur verfügung.
+Für die Isolierung stehen einige verschiedene Mechanismen, wie zum Beispiel kinematische Lager, Gleitpendelisolatoren und Elastomerlager (ggf. mit Bleikern) zur Verfügung.
 In dieser Arbeit sollen nur Gleitpendelisolatoren betrachtet werden.
 
 
 \section{Gleitpendelisolatoren}
 \label{sec:gleitisolatoren}
 
- Gleitpendelisolatoren bestehen aus zwei spherisch angeformten Lagerplatten zwischen denen ein Gleitschuh geschaltet wird.
+ Gleitpendelisolatoren bestehen aus zwei spherisch angeformten Lagerplatten, zwischen denen ein Gleitschuh geschaltet wird.
 
 \begin{figure}[H]
     \centering
@@ -59,9 +59,9 @@ Die Dissipationsfähigkeit, Steifigkeit und Eigenfrequenz dieser Isolatoren kann
 \subsection{Abstimmung}
 \label{sec:abstimmung}
 
-Damit der Isolator möglichst effektiv wirkt sollte das Ziel sein die Masse direkt über dem Isolator möglichst groß zur wählen und die Steifigkeit zu reduzieren wobei die aufgehende Struktur möglichst steif sein sollte.
+Damit der Isolator möglichst effektiv wirkt sollte das Ziel sein, die Masse direkt über dem Isolator möglichst groß zu wählen und die Steifigkeit zu reduzieren, wobei die aufgehende Struktur möglichst steif sein sollte.
 Dadurch sollte die Periode des Isolators $T_I$ möglichst weit von der Periode der Struktur $T_S$ entfernt sein.
-Ein Wert, der sich in der Praxis bewährt hat angestrebt zu werden ist $S_I \approx 3 \cdot T_S$.
+Ein Wert, der sich in der Praxis als angestrenswert erwiesen hat, ist $T_I \approx 3 \cdot T_S$.
 
 \subsection{Steifigkeit}
 \label{sec:steifigkeit}
@@ -115,8 +115,8 @@ Die effektive Dämpfung ergibt sich aus der Fläche der Hystereseschleife und de
 \section{Schwierigkeiten bei der Vordimensionierung}
 \label{sec:schwierigkeitenvordimensionierung}
 
-Für eine genaue Berechnung ist es sinnvoll ein Gebäudemodell samt Isolator zu erstellen und mit dem Zeitschrittverfahren und Erdbebenzeitverläufen zu berechnen. Dies ist jedoch sehr aufwendig und bei einer Vordimensionierung nicht immer praktikabel, da sich Parameter noch ändern können.
-Ein Ansatz ist es unter der Annahme, dass die Steifigkeit der Struktur sehr hoch ist und die des Isolators $k_I$ die Eigenform dominiert die Gesamtstruktur auf einen Einmassenschwinger mit der effektiven Masse aus Strutkur ($m_S$) und Isolator ($m_I$) zu vereinfachen \cite{Kelly}.
+Für eine genaue Berechnung ist es sinnvoll, ein Gebäudemodell samt Isolator zu erstellen und mit dem Zeitschrittverfahren und Erdbebenzeitverläufen zu berechnen. Dies ist jedoch sehr aufwendig und bei einer Vordimensionierung nicht immer praktikabel, da sich Parameter noch ändern können.
+Ein Ansatz ist es, die Gesamtstruktur auf einen Einmassenschwinger mit der effektiven Masse aus Struktur ($m_S$) und Isolator ($m_I$) zu vereinfachen. Er beruht auf der Annahme, dass die Steifigkeit der Struktur sehr hoch ist und die des Isolators $k_I$ die Eigenform somit dominiert \cite{Kelly2}.
 Die Eigenfrequenz kann dann mit
 
 \begin{equation}
@@ -125,7 +125,7 @@ Die Eigenfrequenz kann dann mit
 
 bestimmt und die Spektralbeschleunigung $Sa(\frac{2 \pi}{\omega})$ aus dem Antwortspektrum entnommen werden.
 
-Soll allerdings eine Modalanalyse am Gebäude mittels EDV vorgenommen werden wird ein isoliertes Antwortspektrum benötigt.
+Soll allerdings eine Modalanalyse am Gebäude mittels EDV vorgenommen werden, wird ein isoliertes Antwortspektrum benötigt.
 So könnte man ein grobes Gebäudemodell erstellen und mit dem isolierten Antwortspektrum eine computergestützte Modalanalyse durchführen.
 
 \pagebreak

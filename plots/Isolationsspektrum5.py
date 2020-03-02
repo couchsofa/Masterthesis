@@ -117,9 +117,68 @@ def vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
 
 	VT = VT_1_over_3(omega_1d, _m2, _k2, _c2, _m1, _k1, _c1) 
 
-	n = 1#np.sqrt(10/(5+Xi2*100))
+	n = np.sqrt(10/5)
 
 	return Se(n, ag, S, TB, TC, TD, T1) * VT #/ 10.05
+
+
+def _vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2):
+
+	# Omega1 ungedämpft
+	A = (k2 + k1) * m1 + k1 * m2
+	B = ((k2 + k1) * m1 + k1 * m2)**2 - 4 * m2 * m1 * k2 * k1
+	C = 2 * m2 * m1
+
+	omega1 = np.sqrt((A - np.sqrt(B))/(C))
+	omega2 = np.sqrt((A + np.sqrt(B))/(C))
+
+	# Umrechnung mit Rayleigh Dämpfung
+	e1 = (k2 + k1 - m2 * omega1**2)/k1
+	phi_11 = np.sqrt(1/(1+e1**2))
+	phi_21 = e1 * phi_11
+
+	e2 = (k2 + k1 - m2 * omega2**2)/k1
+	phi_12 = np.sqrt(1/(1+e2**2))
+	phi_22 = e2 * phi_12
+
+
+
+	_m2 = phi_11**2 * m2 + phi_21**2 * m1
+	_k2 = phi_11**2 * (k2 + k1) - 2 * phi_21 * phi_11 * k1 + phi_21**2 * k1
+
+	_omega1 = np.sqrt(_k2/_m2)
+
+	_m1 = phi_12**2 * m2 + phi_22**2 * m1
+	_k1 = phi_12**2 * (k2 + k1) - 2 * phi_22 * phi_12 * k1 + phi_22**2 * k1
+
+	_omega2 = np.sqrt(_k1/_m1)
+
+	# Eigenfrequenz erste Eigenform (Isolator) gedämpft
+	omega_1d = _omega1 * np.sqrt(1 - Xi2**2)
+	T1 = 2*np.pi/omega_1d
+
+	# Transmissionskoeffizient des Systems
+	a = (2*_omega1*_omega2*(Xi2 * _omega2 - Xi1 * _omega1))/(_omega2**2 - _omega1**2)
+	b = (2*(Xi1 * _omega2 - Xi2 * _omega1))/(_omega2**2 - _omega1**2)
+
+	_c1 = a * _m1 + b * _k1
+	_c2 = a * _m2 + b * _k2
+
+	#backtransform
+
+	_C = np.array([[_c2, 0], [0, _c1]])
+	Phi_inv = np.linalg.pinv([[phi_11, phi_12], [phi_21, phi_22]])
+
+	C = np.transpose(Phi_inv) * _C * Phi_inv
+
+	c2 = C[0][0] * 1000
+	c1 = C[1][1] * 1000
+
+	VT = VT_1_over_3(omega_1d, m2, k2, c2, m1, k1, c1) 
+
+	n = np.sqrt(10/(5))
+
+	return Se(n, ag, S, TB, TC, TD, T1) * VT
 
 
 def VT_1_over_3(omega, m2, k2, c2, m1, k1, c1):
@@ -174,7 +233,7 @@ c1 = Xi1 * 2 * np.sqrt(k1 * m1)
 
 m2  = 1619.5
 k2  = 32000
-Xi2 = 0.1367
+Xi2 = 0.1257
 
 ag = 3.924
 S  = 1
@@ -191,7 +250,7 @@ for T in _T:
 AWS_rayleigh = []
 for T in _T:
 	k1 = m1 * (2 * np.pi / T)**2
-	Sa = vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2)
+	Sa = _vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2)
 	AWS_rayleigh.append(Sa)
 	
 

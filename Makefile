@@ -15,6 +15,7 @@ figures:
 	python plots/DampenerSweep.py
 	python plots/Isolationsspektrum.py
 	python plots/Isolationsspektrum2.py
+	python plots/Isolationsspektrum3.py
 	python plots/Antwortspektrum.py
 	inkscape --export-dpi=300 -z -e images/voigt-kelvin-model.png svg/voigt-kelvin-model.svg
 	inkscape --export-dpi=300 -z -e images/composition.png svg/composition.svg
