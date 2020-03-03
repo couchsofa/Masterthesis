@@ -265,7 +265,7 @@ for T in _T:
 	AWS_Kelly.append(Sa)
 
 
-plt.plot(_T, AWS_rayleigh, label='AWS (Transmissibilität)', linestyle=':')
+plt.plot(_T, AWS_rayleigh, label='AWS isoliert (Transmissibilität)', linestyle=':')
 plt.plot(_T, AWS_iso, label='AWS isoliert (vereinfacht)', linestyle='--')
 plt.plot(_T, AWS_Kelly, label='AWS isoliert (EMS)', linestyle='-.')
 plt.plot(_T, AWS, label='AWS', linestyle='-')

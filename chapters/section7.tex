@@ -1,9 +1,37 @@
-Zusammenfassung
+%Zusammenfassung
 
+In dieser Arbeit wird ein analytisches Modell erstellt mit dem isolierte Antwortspecktren erzeugt werden können mithilfe derer Gebäudeberechnungen durchgeführt werden können ohne der Isolator im Gebäudemodell erfasst werden muss.
+Die isolierten Antwortspektren werden mithilfe des hier erarbeiteten Modells aus den Antwortspektren gemäß Eurocode 8 abgeleitet.
+Dies hat den Vorteil, dass die Antwortspecktren nach bereits etablierten Verfahren für den individuellen Gebäudestandort ermittelt werden können.
+Das Modell erspart dem Anwender ebenfalls die eventuell komplexe Modellierung des Gebäudeisolators, da das Verhalten des Isolators im isolierten Antwortspektrum abgebildet ist.
+Es ist folglich möglich Verfahren wie die Modalanalyse oder das vereinfachte Antwortspektrum unter Verwendung des isolierten Antwortspektrums durchzuführen.
+
+Um das Verhalten eines Isolatortyps im Modell abzubilden wurden in dieser Arbeit ausschließlich Gleitpendelisolatoren betrachtet.
+Gute Isolationseigenschaften werden erzielt, wenn die Steifigkeit des Isolators deutlich kleiner ist als die der aufgehenden Struktur und die Masse über dem Isolator möglichst groß ist.
+Die Rückstell- und Reibungskrtaft ist bei Gleitpendelisolatoren proportional zu ihrer Steifigkeit.
+Die Dämfung wird in linearer Näherung über die Hystereseschleife der steifigkeit berechnet.
+
+Um die Ergebnisse des isolierten Antwortspecktrums abschätzen zu können werden zunächst näherungen mithilfe des effektiven Einmassenschwingers berechnet. \cite{Kelly}
+Das isolierte Antwortspektrum wird dabei zunächst mit einem vereinfachten Verfahren berechnet. Dieses Verfahren liefert jedoch Werte auf der unsicheren Seite, wesshalb ein weiterer Ansatz untersucht wird.
+Dieser zweite Ansatz basiert auf der Berechnung der Transmissibilität um die Übertragung von Schwingungen aus Fußpunktanregungen auf die aufgehende Struktur via des Isolators zu bestimmen.
+Bei diesem  Verfahren ist zudem möglich unterschiedliche Dämpfungswerte für Struktur und Isolator anzunehmen.
+Im Verlauf dieser Arbeit wurden daher verschiedene Dämpfungsmodelle untersucht.
+
+Die Korrektheit des Ableitungsverfahrens und der Dämpfungsmodelle wurde nachfolgend durch vergleichende Beispielrechznungen verifiziert.
+Die Ergebnisse wurden mit den Ergebnissen einer numerischen Zeitschrittberechnung und denen des vereinfachten Verfahrens verglichen.
+Bei den Vergleichen zeigten sich, dass das Transmisibilitätsverfahren Werte erzeugt die auf der sicheren seite liegen und den Qualitativen Verlauf aus den Zeitschrittberechnungen besser abbildet.
+
+Mit einer Modalanalyse wurde weiterhin gezeigt, dass das isolierte Antwortspektrum dazu verwendet werden kann das Verhalten des Isolators abzubilden, ohne das dieser in dem Gebäudemodell vorhanden sein muss.
+Es wurden so statische Ersatzlasten berechnet, mithilfe derer das Gebäude auf Erdbebensicherheit ausgelegt werden kann, ohne das der Isolator aufwändig in das Gebäudemodell integriert werden muss.
+
+
+\section{Aussicht}
+
+Die maximale auslenkung muss noch berechnet werden
 Korrekturwert in Abhängigkeit von R finden für D
 Korrekturwert in Abhängigkeit der Isolatorparameter  für eta finden
 
-\section{Excel Sheet}
+\section{Excel Sheet zur Berechnung von Isolationsspektren}
 
 Excel Sheet
 	Excel Sheet nach zweitem Ansatz
