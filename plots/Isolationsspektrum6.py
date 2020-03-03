@@ -307,3 +307,71 @@ plt.gca().set_ylim(0,11)
 plt.gca().set_xlim(0,4.01)
 plt.savefig("/home/couchsofa/masterthesis/Masterthesis/images/Isolation_4_2.png", dpi=300)
 plt.clf()
+
+
+# Konstanten und Definitionen
+m1  = 2486.7
+k1  = 98170
+Xi1 = 0.05
+c1 = Xi1 * 2 * np.sqrt(k1 * m1)
+
+m2  = 1619.5
+k2  = 32000#21117
+Xi2 = 0.1257#0.14147
+
+ag = 3.924
+S  = 1
+TB = 0.4
+TC = 1.6
+TD = 2
+
+_T = np.arange(0.001, 4.01, 0.1)
+#_T = [1]
+#_T = [0.01, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8, 4.0]
+AWS = []
+for T in _T:
+	AWS.append(Se(1, ag, S, TB, TC, TD, T))
+	
+AWS_rayleigh = []
+for T in _T:
+	k1 = m1 * (2 * np.pi / T)**2
+	Sa = vereinfacht_rayleigh(Xi1, k1, m1, Xi2, k2, m2)
+	AWS_rayleigh.append(Sa)	
+
+
+AWS_iso = []
+for T in _T:
+	n = np.sqrt(10/(5+Xi2*100))
+	k1 = m1 * (2 * np.pi / T)**2
+	Sa = vereinfacht(n, k1, m1, k2, m2)
+	AWS_iso.append(Sa)
+
+
+AWS_Kelly = []
+for T in _T:
+	n = np.sqrt(10/(5+Xi2*100))
+	k1 = m1 * (2 * np.pi / T)**2
+	Sa = Kelly(n, m1, k2, m2)
+	AWS_Kelly.append(Sa)
+
+
+plt.plot(_T, AWS, label='AWS', linestyle='-')
+T_iso = 2 * np.pi / np.sqrt(k2/(m2+m1))
+plt.axvline(x=T_iso, label = 'Isolatorperiode', color='black', linestyle='--', linewidth=0.5)
+
+plt.plot(_T, AWS_rayleigh, label='Isolationsspektrum (Transmissibilität)', linestyle=':')
+plt.plot(_T, AWS_iso, label='Isolationsspektrum (VBA)', linestyle='-')
+
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.25), shadow=False, ncol=2, frameon=False)
+
+plt.xlabel('T [$s$]')
+plt.ylabel('$S_a$ $[m/s^{2}]$')
+
+plt.grid(True)
+plt.tight_layout()
+#plt.axes().set_aspect(0.7)
+plt.margins(x=0, y=0.1)
+plt.gca().set_ylim(0,11)
+plt.gca().set_xlim(0,4.01)
+plt.savefig("/home/couchsofa/masterthesis/Masterthesis/images/Isolation_4_3.png", dpi=300)
+plt.clf()

@@ -1,5 +1,5 @@
 all: clean figures
-	rm -f *.pdf
+	rm -f main.pdf
 	pdflatex  main.tex
 	biber main.bcf
 	pdflatex  main.tex
@@ -12,13 +12,17 @@ clean:
 	rm -f *.aux *.log *.toc *.bbl *.run.xml *.bcf *.blg *.tdo *.out *.listing *.lof *.tex.bak
 
 figures:
-	python plots/DampenerSweep.py
-	python plots/Isolationsspektrum.py
-	python plots/Isolationsspektrum2.py
-	python plots/Isolationsspektrum3.py
-	python plots/Antwortspektrum.py
-	inkscape --export-dpi=300 -z -e images/voigt-kelvin-model.png svg/voigt-kelvin-model.svg
-	inkscape --export-dpi=300 -z -e images/composition.png svg/composition.svg
-	inkscape --export-dpi=300 -z -e images/composition2.png svg/composition2.svg
-	inkscape --export-dpi=300 -z -e images/2MS_beispiel.png svg/2MS_beispiel.svg
-	inkscape --export-dpi=300 -z -e images/1MS_AWS.png svg/1MS_AWS.svg
+	#python plots/DampenerSweep.py
+	#python plots/Isolationsspektrum.py
+	#python plots/Isolationsspektrum2.py
+	#python plots/Isolationsspektrum3.py
+	#python plots/Isolationsspektrum4.py
+	#python plots/Isolationsspektrum5.py
+	#python plots/Isolationsspektrum6.py
+	#python plots/Isolationsspektrum7.py
+	#python plots/Antwortspektrum.py
+	#inkscape --export-dpi=300 -z -e images/voigt-kelvin-model.png svg/voigt-kelvin-model.svg
+	#inkscape --export-dpi=300 -z -e images/composition.png svg/composition.svg
+	#inkscape --export-dpi=300 -z -e images/composition2.png svg/composition2.svg
+	#inkscape --export-dpi=300 -z -e images/2MS_beispiel.png svg/2MS_beispiel.svg
+	#inkscape --export-dpi=300 -z -e images/1MS_AWS.png svg/1MS_AWS.svg

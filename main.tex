@@ -7,33 +7,37 @@
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm,headheight=28pt]{geometry}
 \usepackage[utf8]{inputenc}
 
+\usepackage[T1]{fontenc}
 \usepackage{parskip}
 \usepackage[ngerman]{babel}
 
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 
-\usepackage{listings}
-\usepackage{solarized-light}
-\usepackage{xcolor-solarized}
+\usepackage{pdfpages}
 
-\lstset{numbers=left,
-		numbersep=0.5em,
-		numberstyle=\normalfont\footnotesize\color{solarized-violet},
-		frame=l,
-		framesep=2em,
-		framerule=1pt,
-		fillcolor=\color{solarized-base2}, 
-	    rulecolor=\color{solarized-base2},
-	    rulesepcolor=\color{solarized-base2},
-	    xleftmargin=2em}
+%\usepackage{listings}
+%\usepackage{solarized-light}
+%\usepackage{xcolor-solarized}
 
-\newenvironment{inconsolata}
-	{\fontfamily{fi4}\footnotesize\selectfont}
-	{\par}
+%\lstset{numbers=left,
+%		numbersep=0.5em,
+%		numberstyle=\normalfont\footnotesize\color{solarized-violet},
+%		frame=l,
+%		framesep=2em,
+%		framerule=1pt,
+%		fillcolor=\color{solarized-base2}, 
+%	    rulecolor=\color{solarized-base2},
+%	    rulesepcolor=\color{solarized-base2},
+%	    xleftmargin=2em}
+
+%\newenvironment{inconsolata}
+%	{\fontfamily{fi4}\footnotesize\selectfont}
+%	{\par}
 
 \usepackage{multicol}
 
+\usepackage{wrapfig}
 \usepackage{subfig}
 \usepackage{float}
 \floatstyle{boxed} 
@@ -119,11 +123,15 @@
 \setcounter{page}{1}
 
 \chapter*{\centering Abstract}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+In dieser Arbeit wurden verschiedene Ansätze zur Erzeugung von modifizierten Antwortspektren für seismisch isolierte Bauwerke untersucht und versucht einen analytischen Ansatz zu finden, mit dem es möglich ist diese aus den Antwortspektren des Eurocode 8 zu generieren.
+Mit diesen Isolationsspektren kann für jede Periode der Struktur über dem Isolator eine Spektralbeschleunigung ermittelt und eine Modalanalyse durchgeführt werden.
+Ein Bauwerk kann dann getrennt von dem Isolator betrachtet und zwecks einer Vordimensionierung mit einem Gebäudemodell auf die Erfüllung der Anforderungen an die Erdbebensicherheit untersucht werden.
+Der analytische Ansatz wird in einem Tabellenkalkulationsprogramm implementiert um Isolationsspektren in Abhängigkeit der Bauwerks- und Isolatorparameter zu erzeugen.
 
 \chapter*{\centering Danksagung}
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Mein Dank gilt vorallem Prof. Dr.-Ing. Jan Akkermann für die Idee dieser Arbeit und seine stetige Beratung bei der Bearbeitung.
+Auch meinen Freunden Jan und Alexander sei an dieser Stelle Dank für die inspierenden Gespräche zu dem Thema ausgesprochen.
 
 \pagestyle{empty}
 
@@ -147,7 +155,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 \chapter{Vergleich der Ansätze am Beispiel}
 \input{chapters/section4}
 
-\chapter{Beispielberechnung mit EDV}
+\chapter{Modalanalyse mit EDV}
 \input{chapters/section5}
 
 \chapter{Analyse}
