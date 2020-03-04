@@ -10,21 +10,21 @@ Symbol       & Einheit & Beschreibung \\
 \hline\hline
 $\omega$     & $1/s$   & Kreisfrequenz\\
 $T$          & $s$     & Periode      \\
+$t$          & $s$     & Zeit         \\
+$a$          & $m/s^2$ & Beschleunigung \\
 $S_a$        & $m/s^2$ & Spektralbeschleunigung \\
+$F$          & $kN$    & Kraft        \\
+$u$          & $m$     & Verschiebung \\
 $m$          & $t$     & Masse        \\
 $M$          & $t$     & Massenmatrix \\
 $k$          & $kN/m$  & Steifigkeit  \\
 $K$          & $kN/m$  & Steifigkeitsmatrix \\
-$c$          & $-$     & Dämpfungsbeiwert \\
-$C$          & $-$     & Dämpfungsmatrix \\
 $E$          & $kN/m^2$& Elastizitätsmodul \\
 $I$          & $m^4$   & Flächenmoment 2. Grades \\
-$F$          & $kN$    & Kraft        \\
-$t$          & $s$     & Zeit         \\
-$u$          & $m$     & Verschiebung \\
-$\xi$        & $-$     & Dämpfung     \\
+$\xi$        & $-$     & Dämpfungsgrad     \\
+$c$          & $\frac{kN}{m/s}$     & Dämpfungskoeffizient \\
+$C$          & $\frac{kN}{m/s}$     & Dämpfungsmatrix \\
 $\eta$       & $-$     & Dämpfungs-Korrekturbeiwert \\
-$a$          & $m/s^2$ & Beschleunigung \\
 $P$          & $-$     & Wahrscheinlichkeit \\
 $\gamma_1$   & $-$     & Bedeutungsbeiwert \\
 $G$          & $t, kN$ & Vertikalkraft (Eigengewicht) \\
@@ -57,7 +57,7 @@ $VT$         & $-$     & Transmissibilität \\
 
 \chapter*{Eidesstattliche Erklärung}
 
-Hiermit versichere ich, die vorliegende Master Thesis ohne Hilfe Dritter, nur mit den
+Hiermit versichere ich, die vorliegende Master-Thesis ohne Hilfe Dritter, nur mit den
 angegebenen Quellen und Hilfsmitteln, angefertigt zu haben. Alle Stellen, die den
 Quellen entnommen wurden, sind als solche kenntlich gemacht worden.
 
@@ -71,13 +71,20 @@ Quellen entnommen wurden, sind als solche kenntlich gemacht worden.
 
 \vspace*{\fill}
 
+\addtocontents{toc}{\cftpagenumbersoff{chapter}}
+\addtocontents{toc}{\cftpagenumbersoff{section}}
+
 \cleardoublepage
-\phantomsection
 \addcontentsline{toc}{chapter}{Datenträger}
+\addcontentsline{toc}{section}{\texttt{Masterthesis\_Arne\_Rick.pdf}}
+\addcontentsline{toc}{section}{\texttt{Isolationsspektrum.xlsx}}
+\addcontentsline{toc}{section}{\texttt{Ausdruckprotokoll\_-\_RStab.pdf}}
+
+\addtocontents{toc}{\cftpagenumberson{section}} 
+\addtocontents{toc}{\cftpagenumberson{chapter}} 
 
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Berechnungsprotokoll Modalanalyse mit RStab}
 \includepdf[pages=-]{Ausdruckprotokoll_-_RStab.pdf}
-
 

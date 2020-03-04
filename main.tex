@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 
+\usepackage{tocloft}
 \usepackage{pdfpages}
 
 %\usepackage{listings}
@@ -161,6 +162,7 @@ Auch meinen Freunden Jan und Alexander sei an dieser Stelle Dank für die inspie
 \chapter{Modalanalyse mit EDV}
 \input{chapters/section5}
 
+\addtocontents{toc}{\protect\newpage}
 \chapter{Analyse}
 \input{chapters/section6}
 
@@ -168,8 +170,6 @@ Auch meinen Freunden Jan und Alexander sei an dieser Stelle Dank für die inspie
 \input{chapters/section7}
 
 \appendix
-%\chapter{Appendix}
 \input{chapters/appendix}
-
 
 \end{document}
