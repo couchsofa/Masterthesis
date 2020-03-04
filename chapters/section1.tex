@@ -10,13 +10,13 @@ Erdbeben sind geophysikalische Extremereignisse, die eine Erschütterung des Erd
 \end{figure}
 
 In einer Analyse von mehr als 35.000 weltweiten Katastrophenereignissen in den Jahren zwischen 1900 und 2015 des Karlsruher Institut für Technologie (KIT) zeigte sich, dass Erdbeben für 26\% der Schäden verantwortlich waren.
-Der größte Schaden trat jedoch durch das Tohoku-Erdbeben am 11. März 2011 vor Honshū, Japan auf. Der Schaden durch das Erdbeben und den dadurch ausgelösten Tsunami belief sich auf 18.500 Tote, 450.000 Menschen wurden obdachlos, und einen direkten wirtschaftlichen Schaden von etwa 296 Milliarden Euro. \cite{DANIELL}
+Der größte Schaden trat jedoch durch das Tohoku-Erdbeben am 11. März 2011 vor Honshū, Japan auf. Der Schaden durch das Erdbeben und den dadurch ausgelösten Tsunami belief sich auf 18.500 Tote und einen direkten wirtschaftlichen Schaden von etwa 296 Milliarden Euro. 450.000 Menschen wurden obdachlos. \cite{DANIELL}
 
 Aufgrund des Erdbeben kam es zu der Fukushima-Nuklearkatastrophe im Atomkraftwerk Fukushima Daiichi.
 
 Erdbebensicheres Design ist also von wirtschaftlicher und sicherheitstechnischer Bedeutung, um die Aufgabe von Gebäuden zum Schutz des Menschen vor Naturereignissen und ein effektives Tragverhalten zu gewährleisten.
 
-Die Ziele das Eurocode 8 sind daher das Schützen menschlichen Lebens, Schadensbegrenzung und das Aufrechthalten des Betriebs von Strukturen, die zum zivilen Schutz dienen. Beispielsweise sollten Krankenhäuser keine großen Schäden davontragen und den Betrieb nach dem Ereignis vortsetzen können, um ihren Aufgaben im Katastrophenschutz unmittelbar weiter nachzugehen.
+Die Ziele das Eurocode 8 sind daher das Schützen menschlichen Lebens, Schadensbegrenzung und das Aufrechthalten des Betriebs von Strukturen, die zum zivilen Schutz dienen. Beispielsweise sollten Krankenhäuser keine großen Schäden davontragen und den Betrieb nach dem Ereignis fortsetzen können, um ihren Aufgaben im Katastrophenschutz unmittelbar weiter nachzugehen.
 Diese Anforderung der Wichtigkeit einer Struktur wird im Bedeutungsbeiwert erfasst. \cite{EC8}
 
 \section{Berechnung}
@@ -31,8 +31,8 @@ Grundlegend unterscheidet der Eurocode 8 vier verschiedene Berechnungsmethoden.
   \item Zeitschrittberechnung
 \end{itemize}
 
-Da die beiden letzteren Verfahren ein genaueres Gebäudemodell vorraussetzen und deutlich aufwändiger sind als die Antwortspektrenverfahren, eignen sich diese nur schwer für die Vordimensionierung von Strukturen. 
-Hier werden weiterhin nur die vereinfachten Verfahren mittels Antwortspektren und Modalanalyse betrachtet, die Kapazitätsspektrenmethode und Zeitschrittberechnung soll aber kurz erläutert werden.
+Da die beiden letzteren Verfahren ein genaueres Gebäudemodell voraussetzen und deutlich aufwändiger sind als die Antwortspektrenverfahren, eignen sich diese nur schwer für die Vordimensionierung von Strukturen. 
+Hier werden weiterhin nur die vereinfachten Verfahren mittels Antwortspektren und Modalanalyse betrachtet, die Kapazitätsspektrenmethode und Zeitschrittberechnung sollen aber kurz erläutert werden.
 
 \pagebreak
 
@@ -40,7 +40,7 @@ Hier werden weiterhin nur die vereinfachten Verfahren mittels Antwortspektren un
 \label{sec:Antwortspektrenverfahren}
 
 Dieses Verfahren kann nur angewandt werden, wenn die Anforderungen aus dem Eurocode 8 an die Regelmäßigkeit des Grund- und Aufrisses erfüllt sind.
-Hier wird nur die Grundschwingung der Struktur berücksichtigt. Daher kann dieses Verfahren nur angewendet werden wenn, die höheren Schwingungsformen keinen wesentlichen Einfluss haben.
+Hier wird nur die Grundschwingung der Struktur berücksichtigt. Daher kann dieses Verfahren nur angewendet werden, wenn die höheren Schwingungsformen keinen wesentlichen Einfluss haben.
 
 Die Grundschwingzeit kann in einer Näherung nach Müller/Keintzel bestimmt werden.
 
@@ -62,10 +62,10 @@ T_1 = \frac{2 \pi H^2}{\alpha_1^2}\sqrt{\frac{m}{hEI}}
  \hline
  Geschosszahl & $\alpha_1$ \\
  \hline\hline
- 1 & 1,32 \\ 
- 2 & 1,53 \\ 
- 5 & 1,71 \\ 
- 10 & 1,78 \\ 
+ 1 & 1.32 \\ 
+ 2 & 1.53 \\ 
+ 5 & 1.71 \\ 
+ 10 & 1.78 \\ 
  \hline
 \end{tabular}
 \end{flushright}
@@ -85,7 +85,7 @@ Mit der Grundschwingzeit kann nun aus dem Antwortspektrum (\cref{sec:Antwortspek
 F_b = S_d(T_1) \cdot M \cdot \lambda
 \end{equation*}
 
-Wobei $M$ die Gesamtmasse des Bauwerks und $\lambda$ der Korrekturfaktor von 0,85 für $T_1 \leq 2T_c$ für Gebäude mit mehr als zwei Geschossen und sonst $\lambda=1,0$ ist.
+$M$ ist die Gesamtmasse des Bauwerks und $\lambda$ der Korrekturfaktor von 0.85 für $T_1 \leq 2T_c$ für Gebäude mit mehr als zwei Geschossen und sonst $\lambda=1.0$.
 Die Grundschwingungsform darf linear angenähert werden. Somit können die angreifenden Horizontalkräfte vereinfacht linear über die Geschosse verteilt werden.
 
 \begin{minipage}{0.6\textwidth}
@@ -144,7 +144,7 @@ und die CQC-Methode (Complete Quadratic Combination)
 S = \sqrt{\sum_{j=1}^{n}\sum_{k=1}^{n} S_j \cdot \rho_{jk} \cdot S_k}
 \end{equation*}
 
-vor. Wobei $\rho_{jk}$ der Wechselwirkungsfaktor ist, der sich für konstante $\xi_j = \xi_k = \xi$ wie folgt berechnet.
+vor. Hier ist $\rho_{jk}$ der Wechselwirkungsfaktor, der sich für konstante $\xi_j = \xi_k = \xi$ wie folgt berechnet.
 
 \begin{equation*}
 \rho_{jk} = \frac{8 \xi^2 (1 + r) r^{3/2}}{(1 - r^2)^2 + 4 \xi^2 r ( 1 + r)^2}
@@ -159,20 +159,20 @@ Neben der CQC-Methode darf auch die CQCi-Methode angewendet werden, welche eine 
 \subsection{Kapazitätsspektrenmethode}
 \label{sec:Kapazitaetsspektrenmethode}
 
-Die auch als "pushover analysis" bezeichnete Methode ist ein nicht-elastisches statisches Verfahren unter Berücksichtung des Eigengewichts und monoton ansteigender horizontaler Lasten zur Bestimmung der Grenzlast über die Grenzduktilität.
-Sie ist ein genaueres Verfahren zur Bestimmung der plastischen Kapizität, die in den vereinfachten Verfahren von dem Verhaltensbeiwert $q$ erfasst werden.
+Die auch als \glqq pushover analysis\grqq{} bezeichnete Methode ist ein nicht-elastisches statisches Verfahren unter Berücksichtung des Eigengewichts und monoton ansteigender horizontaler Lasten zur Bestimmung der Grenzlast über die Grenzduktilität.
+Sie ist ein genaueres Verfahren zur Bestimmung der plastischen Kapazität, die in den vereinfachten Verfahren von dem Verhaltensbeiwert $q$ erfasst werden.
 
 \subsection{Zeitschrittberechnung}
 \label{sec:Zeitschrittberechnung}
 
-Die Berechnung mittels Zeitschrittverfahren ("time-history analysis") ist eín nicht-lineares Verfahren, welches eine zeitabhängige Antwort einer Struktur über die direkte numerische Integration der Differentialgleichungen der Bewegung unter den im Eurocode 8 angegebenen simulierten oder tatsächlich aufgezeichneten Akzelerogrammen der Bodenbeschleunigung bestimmt. 
+Die Berechnung mittels Zeitschrittverfahren (\glqq time-history analysis\grqq{}) ist ein nicht-lineares Verfahren, welches eine zeitabhängige Antwort einer Struktur über die direkte numerische Integration der Differentialgleichungen der Bewegung unter den im Eurocode 8 angegebenen simulierten oder tatsächlich aufgezeichneten Akzelerogrammen der Bodenbeschleunigung bestimmt. 
 
 \pagebreak
 
 \section{Bestimmung des Antwortspektrums}
 \label{sec:Antwortspektren}
 
-Zur Gewinnung des Antwortspektrums wird ein Einmassenschwinger unter Fußpunktanregung durch ortspezifische Akzelerogramme betrachtet und dessen Eigenfrequenz variiert.
+Zur Gewinnung des Antwortspektrums wird ein Einmassenschwinger unter Fußpunktanregung durch ortsspezifische Akzelerogramme betrachtet und dessen Eigenfrequenz variiert.
 
 \begin{figure}[H]
     \centering
@@ -195,7 +195,7 @@ nach Umformung mit $\xi = c/(2m\omega)$ und $\omega = \sqrt{k/m}$
 zeigt, dass die Antwort lediglich von $\omega$, der Anregung $\ddot u_g$ und $\xi$ abhängig ist, wobei $\xi$ mit 5\% angenommen wird.
 Das Antwortspektrum stellt die Einhüllende des Maximalwertes der Absolutbeschleunigung der Systemantwort $S_a=max|\ddot u + \ddot u_g|$ über die Eigenfrequenz des Systems $\omega$ dar. \cite{Bachmann}
 
-Sie wird über die Eckperioden $T_B, T_C, T_D$ und den Bemessungswert der Bodenbeschleunigung $a_g$ parametrisiert. Hinzu kommt noch der Bedeutungsbeiwert $\gamma_1$, der Einfluss des Baugrundes über den Bodenparameter $S$ und ein Dämpfungs-Korrekturbeiwert $\eta$, der bei 5\% viskoser Dämpfung $1,0$ beträgt und sonst mit $\eta=\sqrt{10/(5+\xi)}\geq 0,55$ angegeben wird.
+Sie wird über die Eckperioden $T_B, T_C, T_D$ und den Bemessungswert der Bodenbeschleunigung $a_g$ parametrisiert. Hinzu kommt noch der Bedeutungsbeiwert $\gamma_1$, der Einfluss des Baugrundes über den Bodenparameter $S$ und ein Dämpfungs-Korrekturbeiwert $\eta$, der bei 5\% viskoser Dämpfung $1.0$ beträgt und sonst mit $\eta=\sqrt{10/(5+\xi)}\geq 0.55$ angegeben wird.
 
 Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbeschleunigung wider. Die Erdbebenzone kann aus einer Karte oder Kartei entnommen werden und liefert den Referenz-Spitzenwert der Bodenbeschleunigung $a_g$.
 
@@ -206,9 +206,9 @@ Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbe
  Erdbebenzone & $a_g [m/s^2]$ \\
  \hline\hline
  Zone 0 & - \\ 
- Zone 1 & 0,4 \\ 
- Zone 2 & 0,6 \\ 
- Zone 3 & 0,8 \\ 
+ Zone 1 & 0.4 \\ 
+ Zone 2 & 0.6 \\ 
+ Zone 3 & 0.8 \\ 
  \hline
 \end{tabular}
 \caption{Tabelle NA.3 — Zuordnung von Referenz-Spitzenwerten der Bodenbeschleunigung zu den Erdbebenzonen [DIN EN 1998-1/NA:2011-01]}
@@ -222,25 +222,25 @@ Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbe
  \hline
  Baugrundklasse & $S$ & $T_B [s]$ & $T_C [s]$ & $T_D [s]$\\
  \hline\hline
- A-R  & 1,00 & 0,05 & 0,20 & 2,0\\ 
- B-R  & 1,25 & 0,05 & 0,25 & 2,0\\ 
- C-R  & 1,50 & 0,05 & 0,30 & 2,0\\ 
+ A-R  & 1.00 & 0.05 & 0.20 & 2.0\\ 
+ B-R  & 1.25 & 0.05 & 0.25 & 2.0\\ 
+ C-R  & 1.50 & 0.05 & 0.30 & 2.0\\ 
  \hline
- B-T  & 1,00 & 0,10 & 0,30 & 2,0\\
- C-T  & 1,25 & 0,10 & 0,40 & 2,0\\
+ B-T  & 1.00 & 0.10 & 0.30 & 2.0\\
+ C-T  & 1.25 & 0.10 & 0.40 & 2.0\\
  \hline
- C-S  & 0,75 & 0,10 & 0,50 & 2,0\\
+ C-S  & 0.75 & 0.10 & 0.50 & 2.0\\
  \hline
 \end{tabular}
 \caption{Tabelle NA.4 — Werte der Parameter zur Beschreibung des elastischen horizontalen Antwortspektrums [DIN EN 1998-1/NA:2011-01]}
 \end{table}
 
 Der Bedeutungsbeiwert bildet die Wichtigkeit einer Struktur ab und erhöht die Wiederkehrperiode bei einer Auftretenswahrscheinlichkeit $P_R$ von 10\% in einer Zeitspanne $T_L$ von 50 Jahren.
-Bei einem Bedeutungsbeiwert von $\gamma_1 = 1,0$ beträgt die mittlere Wiederkehrperiode $T_R$
+Bei einem Bedeutungsbeiwert von $\gamma_1 = 1.0$ beträgt die mittlere Wiederkehrperiode $T_R$
 
 \begin{align*}
 T_R &= \frac{-T_L}{ln(1 - P_R)}\\
-    &= \frac{-50}{ln(1 - 0,1)}\\
+    &= \frac{-50}{ln(1 - 0.1)}\\
     &=  475 \mbox{ Jahre}
 \end{align*}
 
@@ -250,25 +250,25 @@ T_R &= \frac{-T_L}{ln(1 - P_R)}\\
  \hline
  Bedeutungskategorie & Bauwerke & $\gamma_1$ & $T_R$ [a]\\
  \hline\hline
- I   & Bauwerke ohne Bedeutung für den Schutz der Allgemeinheit, mit geringem Personenverkehr (z. B. Scheunen, Kulturgewächshäuser, usw.). & 0,8 & 225\\
+ I   & Bauwerke ohne Bedeutung für den Schutz der Allgemeinheit, mit geringem Personenverkehr (z. B. Scheunen, Kulturgewächshäuser, usw.). & 0.8 & 225\\
  \hline
- II  & Bauwerke, die nicht zu den anderen Kategorien gehören ( z. B. kleinere Wohn- und Bürogebäude, Werkstätten, usw.). & 1,0 & 475\\
+ II  & Bauwerke, die nicht zu den anderen Kategorien gehören ( z. B. kleinere Wohn- und Bürogebäude, Werkstätten, usw.). & 1.0 & 475\\
  \hline
- III & Bauwerke, von deren Versagen bei Erdbeben eine große Zahl von Personen betroffen ist ( z. B. große Wohnanlagen, Schulen, Versammlungsräume, Kaufhäuser, usw.). & 1,2 & 820\\
+ III & Bauwerke, von deren Versagen bei Erdbeben eine große Zahl von Personen betroffen ist ( z. B. große Wohnanlagen, Schulen, Versammlungsräume, Kaufhäuser, usw.). & 1.2 & 820\\
  \hline
- IV  & Bauwerke, deren Unversehrtheit im Erdbebenfall von hoher Bedeutung für den Schutz der Allgemeinheit ist ( z. B. Krankenhäuser, wichtige Einrichtungen des Katastrophenschutzes, der Feuerwehr und der Sicherheitskräfte, usw.). & 1,4 & 1300\\
+ IV  & Bauwerke, deren Unversehrtheit im Erdbebenfall von hoher Bedeutung für den Schutz der Allgemeinheit ist ( z. B. Krankenhäuser, wichtige Einrichtungen des Katastrophenschutzes, der Feuerwehr und der Sicherheitskräfte, usw.). & 1.4 & 1300\\
  \hline
 \end{tabular}
 \caption{Tabelle NA.6 — Bedeutungskategorien und Bedeutungsbeiwerte [DIN EN 1998-1/NA:2011-01]}
 \end{table}
 
-Das elastische Antwortspektrum $S_e(T)$ wird somit über folgende Ausdrücke bestimmt
+Das elastische Antwortspektrum $S_e(T)$ wird somit über folgende Ausdrücke bestimmt.
 
 \begin{align*}
-T_A \leq T \leq T_B: S_e(T) &= a_g\gamma_1S \left[ 1+\frac{T}{T_B}(\eta2,5-1) \right] \\
-T_B \leq T \leq T_C: S_e(T) &= a_g\gamma_1S\eta2,5\\
-T_C \leq T \leq T_D: S_e(T) &= a_g\gamma_1S\eta2,5\frac{T_C}{T}\\
-T_D \leq T: S_e(T) &= a_g\gamma_1S\eta2,5\frac{T_CT_D}{T^2}
+T_A \leq T \leq T_B: S_e(T) &= a_g\gamma_1S \left[ 1+\frac{T}{T_B}(\eta2.5-1) \right] \\
+T_B \leq T \leq T_C: S_e(T) &= a_g\gamma_1S\eta2.5\\
+T_C \leq T \leq T_D: S_e(T) &= a_g\gamma_1S\eta2.5\frac{T_C}{T}\\
+T_D \leq T: S_e(T) &= a_g\gamma_1S\eta2.5\frac{T_CT_D}{T^2}
 \end{align*}
 
 \begin{figure}[H]

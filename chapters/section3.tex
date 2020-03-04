@@ -48,14 +48,14 @@ Allerdings war dieser Ansatz nicht zielführend, da (wie an den Bewegungsdiffere
 \section{Vereinfachter Ansatz}
 \label{sec:ansatzvereinfacht}
 
-Hier wird die Beschleunigung auf die Struktur über den Eigenvektor der Schwingform und dem Beteiligungsfaktor, in Abhängigkeit der Periode des Gesamtesystems bezogen auf die Periode der Struktur berechnet.
-Zur Ermittelung der Eigenkreisfrequenzen des Zweimassenschwingers $\omega_{L,1,2}$ werden die Verhältniswerte
+Hier wird die Beschleunigung auf die Struktur über den Eigenvektor der Schwingform und den Beteiligungsfaktor in Abhängigkeit der Periode des Gesamtsystems, bezogen auf die Periode der Struktur, berechnet.
+Zur Ermittlung der Eigenkreisfrequenzen des Zweimassenschwingers $\omega_{L,1,2}$ werden die Verhältniswerte
 
 \begin{align}
 \alpha &= \frac{k_2}{k_1} & \beta  &= \frac{m_2}{m_1} \\
 \end{align}
 
-eingeführt. Damit lassen sich die Eigenkreisfrequenzen und Perioden des isolierten Systems bezogen auf die Eigenkreisfrequenz $\omega$ des nicht isolierten Bauwerks wie folgt berechnen \cite{Pocanschi} \cite{Isemann}
+eingeführt. Damit lassen sich die Eigenkreisfrequenzen und Perioden des isolierten Systems bezogen auf die Eigenkreisfrequenz $\omega$ des nicht isolierten Bauwerks wie folgt berechnen. \cite{Pocanschi} \cite{Isemann}
 
 \begin{align}
 \omega_{L,1}^2 &= \frac{1 + \alpha + \beta - \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}}{2 \beta} \omega^2\\
@@ -80,13 +80,13 @@ Die Schwingungsformen lauten damit wie folgt und können normiert werden.
 \vec{\Phi}_1 &= \binom{1/r_1}{1} & \vec{\Phi}_2 &= \binom{1/r_1}{1}
 \end{align}
 
-Der Beteiligunsfaktor der ersten Schwinungsform wird wie folgt definiert.
+Der Beteiligunsfaktor der ersten Schwingungsform wird wie folgt definiert.
 
 \begin{equation}
 L_1 = \frac{\vec{\Phi}_1^T M \vec{I}}{\vec{\Phi}_1^T M \vec{\Phi}_1}
 \end{equation}
 
-Da die Steifigkeit des Isolators idealerweise deutlich geringer als die der Struktur ist gilt $\alpha \rightarrow 0$, $\vec{I} = \binom{1}{1}$ und $L_2$ wird klein, da die Schwingungsform durch die erste bestimmt wird.
+Da die Steifigkeit des Isolators idealerweise deutlich geringer als die der Struktur ist, gilt $\alpha \rightarrow 0$, $\vec{I} = \binom{1}{1}$ und $L_2$ wird klein, da die Schwingungsform durch die erste bestimmt wird.
 Damit lässt sich die maximale absolute Beschleunigung der Massen der ersten Schwingungsform des Zweimassenschwingers infolge einer Fußpunktanregung bestimmen.
 
 \begin{equation}
@@ -177,10 +177,10 @@ Bei diesem Ansatz soll eine Proportionalität zwischen der Dämpfungsmatrix $C$ 
 C^* = \alpha M^* + \beta K^*
 \end{equation*}
 
-Wobei $\alpha$ und $\beta$ die Beiwerte der Rayleigh-Dämpfung sind.
+$\alpha$ und $\beta$ sind die Beiwerte der Rayleigh-Dämpfung.
 $\alpha M$ kann als äußere und der Term $\beta K$ als innere Dämpfung verstanden werden.
 
-Die Bestimmungsgleichungen der Beweirte lauten wie folgt. \cite{Shambhu}
+Die Bestimmungsgleichungen der Beiwerte lauten wie folgt. \cite{Shambhu}
 
 \begin{align*}
 \alpha &= \frac{2 \omega_1^* \omega_2^* (\xi_2 \omega_2^* - \xi_1 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
@@ -246,7 +246,7 @@ und die gedämpfte Eigenfrequenz der ersten, durch den Isolator gesteuerten, Eig
 T_1         &= \frac{2 \pi}{\omega_{1d}} 
 \end{align*}
 
-Das System wird nun aus der Modal- zurück in die Normalform transformiert um die Dämpfungsmatrix $C$ zu erhalten. \cite{Rayleigh}
+Das System wird nun aus der Modal- zurück in die Normalform transformiert, um die Dämpfungsmatrix $C$ zu erhalten. \cite{Rayleigh}
 
 \begin{equation*}
 C = \vec{\Phi}^{-T} C^* \vec{\Phi}^{-1}

@@ -1,36 +1,36 @@
 
-In dieser Arbeit wurde ein analytisches Modell erstellt mit dem isolierte Antwortspectren erzeugt werden können, mit denen Modalanalysen an Gebäudemodellen durchgeführt werden können ohne den Isolator im Gebäudemodell zu erfassen.
+In dieser Arbeit wurde ein analytisches Modell erstellt, durch welches isolierte Antwortspektren erzeugt werden können, mit denen es möglich ist Modalanalysen an Gebäudemodellen durchzuführen ohne den Isolator im Gebäudemodell zu erfassen.
 Die isolierten Antwortspektren wurden mit dem hier erarbeiteten Modell aus den Antwortspektren gemäß Eurocode 8 abgeleitet.
 Dies hat den Vorteil, dass die Antwortspektren nach bereits etablierten Verfahren für den individuellen Gebäudestandort ermittelt werden können.
 Das Modell erspart dem Anwender ebenfalls die eventuell komplexe Modellierung des Gebäudeisolators, da das Verhalten des Isolators im isolierten Antwortspektrum abgebildet ist.
-Es ist folglich möglich Verfahren wie die Modalanalyse oder das vereinfachte Antwortspektren Verfahren unter Verwendung des isolierten Antwortspektrums durchzuführen.
+Es ist folglich möglich, Verfahren wie die Modalanalyse oder das vereinfachte Antwortspektrenverfahren unter Verwendung des isolierten Antwortspektrums durchzuführen.
 
-Um das Verhalten eines Isolatortyps im Modell abzubilden wurden in dieser Arbeit ausschließlich Gleitpendelisolatoren betrachtet.
+Um das Verhalten eines Isolatortyps im Modell abzubilden, wurden in dieser Arbeit ausschließlich Gleitpendelisolatoren betrachtet.
 Gute Isolationseigenschaften werden erzielt, wenn die Steifigkeit des Isolators deutlich kleiner ist als die der aufgehenden Struktur und die Masse direkt über dem Isolator möglichst groß ist.
-Die Rückstell- und Reibungskrtaft ist bei Gleitpendelisolatoren proportional zu ihrer effektiven Steifigkeit.
-Die Dämfung wird in linearer Näherung über die Hystereseschleife und die effektive Steifigkeit berechnet.
+Die Rückstell- und Reibungskraft ist bei Gleitpendelisolatoren proportional zu ihrer effektiven Steifigkeit.
+Die Dämpfung wird in linearer Näherung über die Hystereseschleife und die effektive Steifigkeit berechnet.
 
-Um die Ergebnisse des isolierten Antwortspecktrums abschätzen zu können wurden zunächst Näherungen mithilfe des Modells des effektiven Einmassenschwingers berechnet.
+Um die Ergebnisse des isolierten Antwortspektrums abschätzen zu können, wurden zunächst Näherungen mithilfe des Modells des effektiven Einmassenschwingers berechnet.
 Das isolierte Antwortspektrum wurde dabei zunächst mit einem vereinfachten Verfahren berechnet. Dieses Verfahren lieferte jedoch Werte auf der unsicheren Seite, weshalb ein weiterer Ansatz untersucht wurde.
-Dieser zweite Ansatz basiert auf der Berechnung der Transmissibilität um die Übertragung von Schwingungen aus Fußpunktanregungen auf die aufgehende Struktur via des Isolators zu bestimmen.
-Bei diesem  Verfahren ist zudem möglich unterschiedliche Dämpfungswerte für Struktur und Isolator anzunehmen.
+Dieser zweite Ansatz basiert auf der Berechnung der Transmissibilität, um die Übertragung von Schwingungen aus Fußpunktanregungen auf die aufgehende Struktur via des Isolators zu bestimmen.
+Bei diesem  Verfahren ist zudem möglich, unterschiedliche Dämpfungswerte für Struktur und Isolator anzunehmen.
 Im Verlauf dieser Arbeit wurden daher auch verschiedene Dämpfungsmodelle untersucht.
 
 Die Korrektheit des Ableitungsverfahrens und der Dämpfungsmodelle wurde nachfolgend durch vergleichende Beispielrechnungen verifiziert.
 Die Ergebnisse wurden mit den Ergebnissen einer numerischen Zeitschrittberechnung und denen des vereinfachten Verfahrens verglichen.
-Bei den Vergleichen zeigten sich, dass das Transmisibilitätsverfahren Werte erzeugt die auf der sicheren seite liegen und den qualitativen Verlauf der Spektralbeschleunigungen aus den Zeitschrittberechnungen besser abbilden konnte.
+Bei den Vergleichen zeigte sich, dass das Transmisibilitätsverfahren Werte erzeugt, die auf der sicheren Seite liegen und den qualitativen Verlauf der Spektralbeschleunigungen aus den Zeitschrittberechnungen besser abbilden konnte.
 
-Mit einer Modalanalyse wurde weiterhin gezeigt, dass das isolierte Antwortspektrum dazu verwendet werden kann das Verhalten des Isolators abzubilden, ohne dass dieser in dem Gebäudemodell vorhanden sein muss.
-Es wurden so statische Ersatzlasten berechnet, mithilfe derer das Gebäude auf Erdbebensicherheit ausgelegt werden kann, ohne das der Isolator aufwändig in das Gebäudemodell integriert werden muss.
+Mit einer Modalanalyse wurde weiterhin gezeigt, dass das isolierte Antwortspektrum dazu verwendet werden kann, das Verhalten des Isolators abzubilden, ohne dass dieser in dem Gebäudemodell vorhanden sein muss.
+Es wurden so statische Ersatzlasten berechnet, mithilfe derer das Gebäude auf Erdbebensicherheit ausgelegt werden kann, ohne dass der Isolator aufwendig in das Gebäudemodell integriert werden muss.
 
 \section{Aussicht}
 
 Es hat sich gezeigt, dass mit Korrekturfaktoren die Ergebnisse noch deutlich verbessert werden könnten.
 
 Bei den Isolatorparametern muss eine maximale Auslenkung angegeben werden. Wie sich in \cite{Isemann} aber gezeigt hat, stellt sich diese nicht immer ein. Die tatsächliche Auslenkung ist auch abhängig von der Einwirkung.
-Eine Vorgehensweise könnte es nun sein die Abweichung zwischen maximaler und tatsächlicher Auslenkung über verschiedene Parametersätze und Erdbeben mittels Zeitschrittverfahren zu betrachten und einen empirischen Korrekturfaktor zu finden.
+Eine Vorgehensweise könnte es nun sein, die Abweichung zwischen maximaler und tatsächlicher Auslenkung über verschiedene Parametersätze und Erdbeben mittels Zeitschrittverfahren zu betrachten und einen empirischen Korrekturfaktor zu finden.
 
-Bei der Betrachtung verschiedener Modelle für die Dämpfungskorrektur $\eta$ am Antwortspektrum wurde deutlich, dass auch hier optimiert werden könnte. Ebenfalls wurde in \cite{Isemann} ein realistischerer Dämpfungskorrekturbeiwert als Mittelwert über die Ergebnisse der Zeitschrittberechnung bestimmt. Auch hier wäre es denkbar zu untersuchen ob es möglich ist eine Beziehung zu finden, mit der sich der Dämpfungskorrekturbeiwert anpassen ließe.
+Bei der Betrachtung verschiedener Modelle für die Dämpfungskorrektur $\eta$ am Antwortspektrum wurde deutlich, dass auch hier optimiert werden könnte. Ebenfalls wurde in \cite{Isemann} ein realistischerer Dämpfungskorrekturbeiwert als Mittelwert über die Ergebnisse der Zeitschrittberechnung bestimmt. Auch hier wäre es denkbar zu untersuchen, ob es möglich ist, eine Beziehung zu finden, mit der sich der Dämpfungskorrekturbeiwert anpassen ließe.
 
 \section{Excel Tabelle zur Berechnung von Isolationsspektren}
 

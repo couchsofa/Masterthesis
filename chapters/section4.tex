@@ -42,7 +42,7 @@ k_1 = m_1 (\frac{2 \pi}{T})^2 = 2486.7 t \cdot (\frac{2 \pi}{1 s})^2 = 98170 kN/
 
 \section{Betrachtung als effektiver Einmassenschwinger}
 
-Wie in \cref{sec:schwierigkeitenvordimensionierung} erwähnt kann das System unter der Annahme, dass der Isolator die Eigenform dominiert (\cref{Verteilung}), auch als verienfachter Einmassenschwinger modelliert werden.
+Wie in \cref{sec:schwierigkeitenvordimensionierung} erwähnt, kann das System unter der Annahme, dass der Isolator die Eigenform dominiert (\cref{Verteilung}), auch als vereinfachter Einmassenschwinger modelliert werden.
 
 Die Eigenperiode beträgt dann
 
@@ -54,7 +54,7 @@ Die Eigenperiode beträgt dann
 T = \frac{2 \pi}{\omega} = \frac{2 \pi}{2.267 \frac{1}{s}} \approx 2.77 s
 \end{equation*}
 
-Für eine Periode von $T = 2.77 s$ im Bereich $T_D \leq T$ und unter der Annahme, dass auch die Dämpfung des Isolators dominiert, $\eta=\sqrt{10/(5+14.147)} \approx 0.723$ beträgt die Spektralbeschleunigung
+Für eine Periode von $T = 2.77 s$ im Bereich $T_D \leq T$ und unter der Annahme, dass auch die Dämpfung des Isolators dominiert ($\eta=\sqrt{10/(5+14.147)} \approx 0.723$), beträgt die Spektralbeschleunigung
 
 \begin{align*}
 S_a(T) &= a_g \eta 2.5 \frac{T_C T_D}{T^2}\\
@@ -202,7 +202,7 @@ und die Eigenkreisfrequenzen der zwei Einmassenschwinger
 
 \pagebreak
 
-Damit ergeben sich die Dämpfungsbeiwerte der Rayleigh-Dämpfung
+Damit ergeben sich die Dämpfungsbeiwerte der Rayleigh-Dämpfung in der Modalform
 
 \begin{align*}
 \alpha &= \frac{2 \omega_1^* \omega_2^* (\xi_2 \omega_2^* - \xi_1 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
@@ -220,7 +220,7 @@ c_2^* &= \alpha m_2^* + \beta k_2^* = 0.597 \cdot 1833.8 t + 0.004 \cdot 10013.4
       &\approx 1300.0
 \end{align*}
 
-Rücktransformation aus der Modalform
+durch Rücktransformation in die Normalform werden die Komponenten der Dämpfungsmatrix $C$
 
 \begin{align*}
 C &= \vec{\Phi}^{-T} C^* \vec{\Phi}^{-1}\\
@@ -353,8 +353,8 @@ Eine Anpassung (\cref{fig:Isolation2}) mit $\eta = \sqrt{10/(5+0)} = 1.4142$ zei
 \section{Korrekturansätze}
 \label{sec:Korrekturansaetze}
 
-In \cite{Isemann} wurden verschiedene Ansätze untersucht das Isolationsspektrum nach oben zu korrigieren.
-Auch bei dem Ansatz der Transmissibilität könnte man nun versuchen die Werte nach unten zu korrigieren. Betrachtet man die Transmissionskoeffizienten (\cref{eq:VT2DOF}), so lässt sich erkennen, dass die Dämpfung auch eine Koppelung darstellt. 
+In \cite{Isemann} wurden verschiedene Ansätze untersucht, das Isolationsspektrum nach oben zu korrigieren.
+Auch bei dem Ansatz der Transmissibilität könnte man nun versuchen, die Werte nach unten zu korrigieren. Betrachtet man die Transmissionskoeffizienten (\cref{eq:VT2DOF}), so lässt sich erkennen, dass die Dämpfung auch eine Koppelung darstellt. 
 
 Unter der Annahme, dass die Eigenformen von dem weichen Isolator dominiert werden, soll eine grobe Näherung untersucht werden, nach der die Dämpfungsbeiwerte der beiden Systeme getrennt voneinander bestimmt werden.
 
