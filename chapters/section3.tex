@@ -1,23 +1,25 @@
-Hier soll nun ein Verfahren hergeleitet und anschließend mit zwei vereinfachten Verfahren verglichen werden. 
+Hier soll nun ein analytisches Verfahren hergeleitet und anschließend mit zwei vereinfachten Verfahren verglichen werden. 
 
-Für die Erzeugung der Isolationsspektren wird hier das System um den Isolator erweitert und als Zweimassenschwinger (\cref{fig:vkm}) betrachtet, wobei der obere Schwinger die aufgehende Struktur (1) und der untere Schwinger den Isolator (2) samt des steifen Kellergeschosses beschreiben soll.
+Für die Erzeugung der Isolationsspektren wird hier das System des Einmassenschwingers aus der Bestimmung des Antwortspektrums (\cref{sec:Antwortspektren}) um den Isolator erweitert und als Zweimassenschwinger (\cref{fig:vkm}) betrachtet, wobei der obere Schwinger die aufgehende Struktur (1) und der untere Schwinger den Isolator (2) samt des steifen Kellergeschosses beschreiben soll.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth]{voigt-kelvin-model.png}
-    \caption{Voigt-Kelvin-Modell}
+    \caption{Modifiziertes Voigt-Kelvin-Modell des Gesamtsystems}
     \label{fig:vkm}
 \end{figure}
+
+\pagebreak
 
 \section{Ansatz über die Übertragsfunktion}
 \label{sec:ansatzfunktion}
 
-Im ersten Ansatz wurde die Möglichkeit untersucht, das Modell in zwei getrennte Systeme zu zerlegen und getrennt zu betrachten.
+Im ersten Ansatz wurde die Möglichkeit untersucht, das Modell in zwei unabhängige Systeme zu zerlegen und diese getrennt zu betrachten.
 Die Annahme war, dass der Isolator lediglich als Filter auf das Antwortspektrum wirkt.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{composition.png}
+    \includegraphics[width=0.6\textwidth]{composition.png}
     \caption{Trennung des Systems in Filter und Antwortspektrum}
     \label{fig:composition}
 \end{figure}
@@ -49,6 +51,9 @@ Allerdings war dieser Ansatz nicht zielführend, da (wie an den Bewegungsdiffere
 \label{sec:ansatzvereinfacht}
 
 Hier wird die Beschleunigung auf die Struktur über den Eigenvektor der Schwingform und den Beteiligungsfaktor in Abhängigkeit der Periode des Gesamtsystems, bezogen auf die Periode der Struktur, berechnet.
+
+\subsection{Berechnung am ungedämpften System}
+
 Zur Ermittlung der Eigenkreisfrequenzen des Zweimassenschwingers $\omega_{L,1,2}$ werden die Verhältniswerte
 
 \begin{align}
@@ -86,7 +91,7 @@ Der Beteiligunsfaktor der ersten Schwingungsform wird wie folgt definiert.
 L_1 = \frac{\vec{\Phi}_1^T M \vec{I}}{\vec{\Phi}_1^T M \vec{\Phi}_1}
 \end{equation}
 
-Da die Steifigkeit des Isolators idealerweise deutlich geringer als die der Struktur ist, gilt $\alpha \rightarrow 0$, $\vec{I} = \binom{1}{1}$ und $L_2$ wird klein, da die Schwingungsform durch die erste bestimmt wird.
+Da die Steifigkeit des Isolators idealerweise deutlich geringer als die der Struktur ist, gilt $\alpha \rightarrow 0$, $\vec{I} = \binom{1}{1}$ und $L_2$ wird klein, da die Schwingungsformen durch die Erste bestimmt wird.
 Damit lässt sich die maximale absolute Beschleunigung der Massen der ersten Schwingungsform des Zweimassenschwingers infolge einer Fußpunktanregung bestimmen.
 
 \begin{equation}
@@ -103,10 +108,10 @@ k_{1,i} = \frac{4 \pi^2 m_1}{T_i^2}
 \end{equation}
 
 \begin{equation}
-\omega = \sqrt{\frac{k_1}{m_1}}
+\omega_{1,i} = \sqrt{\frac{k_{1,i}}{m_1}}
 \end{equation}
 
-Da die Antwortspektren im Eurocode auf eine Dämpfung von 5\% normiert sind, wird unter der Annahme, dass die Dämpfung des Isolators dominiert, das Antwortspektrum abgemindert.
+Da die Antwortspektren im Eurocode auf eine Dämpfung von 5 \% normiert sind, wird unter der Annahme, dass die Dämpfung des Isolators dominiert, das Antwortspektrum abgemindert.
 
 \begin{equation}\label{eta}
 \eta = \sqrt{\frac{10}{5 + \xi_2}}
@@ -121,7 +126,7 @@ Die Beschleunigung aus dem Antwortspektrum wird in eine äquivalente harmonische
 Anschließend wird über die Bewegungsgleichungen (\cref{eq:2DOF1,eq:2DOF2}) das Verhältnis der Amplituden von Fußpunktanregung zu harmonischer Schwingung an der oberen Masse $m_1$ hergeleitet.
 Da die Perioden im Antwortspektrum die Eigenfrequenz des zur Erzeugung verwendeten Einmassenschwingers darstellen, kann eine harmonische Anregung erzeugt werden, deren Erregerfrequenz der Eigenfrequenz des Einmassenschwingers entspricht.
 Zur Erzeugung eines isolierten Antwortspektrums soll dann die Steifigkeit $k_1$ variiert werden, sodass die Eigenfrequenz des oberen Systems der Periode des Antwortspektrums entspricht, und die Parameter des Isolators konstant bleiben.
-So kann ein Isolationsspektrum erzeugt werden, das für jede Periode der aufgehenden Struktur eine äquivalente Beschleunigungsantwort angibt.
+So kann ein Isolationsspektrum erzeugt werden, das für jede Periode der aufgehenden Struktur eine äquivalente Beschleunigungsantwort des Gesamtsystems angibt.
 
 \subsection{Transmissibilität}
 \label{sec:transm}
@@ -165,13 +170,15 @@ Mit den komplexwertigen Transmissionskoeffizienten $X_1$, $X_2$ und $X_{12}$ erg
 VT = \left\lvert \frac{S_1}{S_3} \right\rvert = \left\lvert \frac{1}{[(1 - X_1)(1 - X_2) - X_{12}]} \right\rvert
 \end{equation}
 
-Ein Hindernis stellen jedoch noch die Dämpfungsbeiwerte $c_1$ und $c_2$ dar.
+Ein Hindernis stellen jedoch noch die Dämpfungsbeiwerte $c_1$ und $c_2$ dar. Bei Systemen mit mehreren Freiheitsgraden ist es schwierig die Dämpfung in der Berechnung zu berücksichtigen. Es gibt verschiedene Modelle der Dämpfung, die versuchen über eine Näherung, zum Beispiel mit der Betrachtung der Moden eines Systems dieses physikalische Phänomen abzubilden.
 Ein Ansatz, der hier untersucht werden soll, ist die steifigkeits- und massenproportionale modale Dämpfung. Sie wird auch als Rayleigh-Dämpfung bezeichnet. \cite{Pocanschi}
 
 \subsection{Rayleigh-Dämpfung}
 \label{sec:rayleigh}
 
-Bei diesem Ansatz soll eine Proportionalität zwischen der Dämpfungsmatrix $C$ und den generalisierten Massen- und Steifigkeitsmatrizen $M^*$ und $K^*$ verwendet werden.
+In Abhängigkeit der Moden werden die Dämpfungsparameter, unter der Annahme, dass die Verteilung der Dämpfung proportional zur Verteilung der Massen und Steifigkeiten ist und die gedämpften Schwingungsformen mit denen der ungedämpften identisch sind, ermittelt. Dies soll am System in Modalform erfolgen, um eine diagonale Dämpfungsmatrix zu erhalten. \cite{Dinkler2016}
+
+Bei diesem Ansatz soll also eine Proportionalität zwischen der Dämpfungsmatrix $C$ und den generalisierten Massen- und Steifigkeitsmatrizen $M^*$ und $K^*$ verwendet werden.
 
 \begin{equation*}
 C^* = \alpha M^* + \beta K^*
@@ -180,7 +187,14 @@ C^* = \alpha M^* + \beta K^*
 $\alpha$ und $\beta$ sind die Beiwerte der Rayleigh-Dämpfung.
 $\alpha M$ kann als äußere und der Term $\beta K$ als innere Dämpfung verstanden werden.
 
-Die Bestimmungsgleichungen der Beiwerte lauten wie folgt. \cite{Shambhu}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Rayleigh.png}
+    \caption{Rayleigh-Dämpfung aus dem Masse-Term $\alpha$ und Steifigkeitsterm-Term $\beta$}
+    \label{fig:rayleigh}
+\end{figure}
+
+Die Bestimmungsgleichungen der Beiwerte lauten, wenn $\xi_1$ und $\xi_2$ bekannt sind wie folgt. \cite{Shambhu}
 
 \begin{align*}
 \alpha &= \frac{2 \omega_1^* \omega_2^* (\xi_2 \omega_2^* - \xi_1 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
@@ -246,6 +260,8 @@ und die gedämpfte Eigenfrequenz der ersten, durch den Isolator gesteuerten, Eig
 T_1         &= \frac{2 \pi}{\omega_{1d}} 
 \end{align*}
 
+\pagebreak
+
 Das System wird nun aus der Modal- zurück in die Normalform transformiert, um die Dämpfungsmatrix $C$ zu erhalten. \cite{Rayleigh}
 
 \begin{equation*}
@@ -262,29 +278,29 @@ VT(m_2, k_2, c_2, m_1, k_1, c_1)
 \label{sec:transmAWS}
 
 Das isolierte Antwortspektrum kann aus dem elastischen Antwortspektrum erlangt werden.
-Für jede Periode $T_i$ wird die Steifigkeit der aufgehenden Struktur berechnet, wobei die restlichen Parameter konstant bleiben.
+Für jede Periode $T_i$ aus dem Antwortspektrum wird die Steifigkeit der aufgehenden Struktur berechnet, wobei die restlichen Parameter konstant bleiben.
 
 \begin{equation}
 k_{1,i} = m_1 (\frac{2 \pi}{T_i})^2
 \end{equation}
   
-Damit können die Transmissibilität $VT$, die gedämpfte erste Eigenkreisfrequenz $\omega_{1d}$
+Damit können die Transmissibilität $VT_i$, die gedämpfte erste Eigenkreisfrequenz $\omega_{1d,i}$ des Gesamtsystems
 
 \begin{align}
-\omega_{1d} &= \omega_1 \sqrt{1 - \xi_2^2} \\
-T_1 &= \frac{2 \pi}{\omega_{1d}}
+\omega_{1d,i} &= \omega_{1,i} \sqrt{1 - \xi_2^2} \\
+T_{1,i} &= \frac{2 \pi}{\omega_{1d,i}}
 \end{align}
 
 und die zugehörige äquivalente Amplitude der Beschleunigung der Fußpunktanregung
 
 \begin{equation}
-S_{a,x_3} = Sa(T_1)
+S_{a,x_3,i} = Sa(T_{1,i})
 \end{equation}
 
-ermittelt werden. Die Ordinate des isolierten Antwortspektrums beträgt dann
+ermittelt werden. Die Ordinate des isolierten Antwortspektrums, für die Periode $T_i$ der aufgehenden Struktur beträgt dann
 
 \begin{equation}
-S_{a,isoliert} = S_{a,x_3} \cdot VT
+S_{a,isoliert}(T_i) = S_{a,x_3,i} \cdot VT_i
 \end{equation}
   
 \pagebreak

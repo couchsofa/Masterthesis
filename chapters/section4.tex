@@ -14,7 +14,7 @@ Es soll ein Antwortspektrum mit folgenden Eckperioden und Bodenbeschleunigung ve
 \makebox[1cm]{$T_D$}  = 2.0 s\par
 \makebox[1cm]{$a_g$}  = 3.924 m/s\textsuperscript{2}\par
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{AWS_beispiel.png}
     \caption{Antwortspektrum (Beispiel 1)}
@@ -26,11 +26,13 @@ Die Steifigkeit $k_2$ ergibt sich aus der effektiven Steifigkeit des Isolators n
 k_2 = k_{eff} = \frac{G}{R} + \mu \frac{G}{D} = \frac{41062 kN}{2.5 m} + 0.04 \cdot \frac{41062 kN}{0.35 m} = 21117 kN/m
 \end{equation*}
 
-Die Dämpfung $\xi_1$ wird mit 5\% angenommen und die effektive Dämpfung des Isolators $\xi_2$ nach \cref{xieff} bestimmt.
+Die Dämpfung $\xi_1$ wird mit 5 \% angenommen und die effektive Dämpfung des Isolators $\xi_2$ nach \cref{xieff} bestimmt.
 
 \begin{equation*}
 \xi_2 = \xi_{eff} = \frac{2}{\pi} \frac{\mu R}{(D + \mu R)} = \frac{2}{\pi} \frac{0.04 \cdot 2.5 m}{(0.35 m + 0.04 \cdot 2.5 m)} \approx 0.14147
 \end{equation*}
+
+\pagebreak
 
 Hier sollen zunächst die Ergebnisse für eine Periode der aufgehenden Struktur von $T = 1 s$ betrachtet werden. Daraus ergibt sich eine Steifigkeit $k_1$ von
 
@@ -61,6 +63,8 @@ S_a(T) &= a_g \eta 2.5 \frac{T_C T_D}{T^2}\\
        &= 3.924 m/s^2 \cdot 0.723 \cdot 2.5 \cdot \frac{1.6 s \cdot 2.0 s}{(2.77 s)^2}\\
        &= \underline{\underline{2.958 m/s^2}}
 \end{align*}
+
+\pagebreak
 
 \section{Vereinfachtes Verfahren}
 
@@ -93,6 +97,8 @@ S_a(T) &= a_g \eta 2.5 \frac{T_C T_D}{T^2}\\
        &= 3.924 m/s^2 \cdot 0.723 \cdot 2.5 \cdot \frac{1.6 s \cdot 2.0 s}{(2.882 s)^2}\\
        &= 2.733 m/s^2
 \end{align*}
+
+\pagebreak
 
 Um dann die maximale Beschleunigung zu erhalten, wird noch der erste Eigenvektor und Beteiligungsfaktor berücksichtigt.
 
@@ -137,6 +143,8 @@ L_1 = \frac{\vec{\Phi}_1^T M \vec{I}}{\vec{\Phi}_1^T M \vec{\Phi}_1} = \frac{
 \begin{equation*}
 \ddot U_{max} = \vec{\Phi}_1 L_1 S_a(T_{L,1}, \xi_{L,1}) = 1.0 \cdot 1.0458 \cdot 2.733 m/s^2 = \underline{\underline{2.858 m/s^2}}
 \end{equation*}
+
+\pagebreak
 
 \section{Verfahren der Transmissibilität}
 
@@ -202,7 +210,7 @@ und die Eigenkreisfrequenzen der zwei Einmassenschwinger
 
 \pagebreak
 
-Damit ergeben sich die Dämpfungsbeiwerte der Rayleigh-Dämpfung in der Modalform
+Damit ergeben sich die Dämpfungsbeiwerte der Rayleigh-Dämpfung in der Modalform.
 
 \begin{align*}
 \alpha &= \frac{2 \omega_1^* \omega_2^* (\xi_2 \omega_2^* - \xi_1 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
@@ -220,7 +228,7 @@ c_2^* &= \alpha m_2^* + \beta k_2^* = 0.597 \cdot 1833.8 t + 0.004 \cdot 10013.4
       &\approx 1300.0
 \end{align*}
 
-durch Rücktransformation in die Normalform werden die Komponenten der Dämpfungsmatrix $C$
+Durch Rücktransformation in die Normalform werden die Komponenten der Dämpfungsmatrix $C$ erhalten.
 
 \begin{align*}
 C &= \vec{\Phi}^{-T} C^* \vec{\Phi}^{-1}\\
@@ -228,7 +236,7 @@ C &= \vec{\Phi}^{-T} C^* \vec{\Phi}^{-1}\\
   &\Rightarrow c_2 = 334635.2
 \end{align*}
 
-und die Eigenfrequenz der ersten, durch den Isolator gesteuerten, Eigenform  
+Die Eigenfrequenz der ersten, durch den Isolator gesteuerten, Eigenform beträgt dann.
 
 \begin{align*}
 \omega_{1d} &= \omega_1 \sqrt{1 - \xi_2^2} = 2.179 \frac{1}{s} \cdot \sqrt{1 - 0.14147^2}\\
@@ -236,6 +244,8 @@ und die Eigenfrequenz der ersten, durch den Isolator gesteuerten, Eigenform
 T_1         &= \frac{2 \pi}{\omega_{1d}} = \frac{2 \pi}{2.157 \frac{1}{s}}\\
             &\approx 2.912 s
 \end{align*}
+
+\pagebreak
 
 Mit der Periode lässt sich bereits $S_a$ aus dem Antwortspektrum (mit $\eta=1$) ermitteln.
 
@@ -293,12 +303,12 @@ Um einen besseren Einblick zu erhalten, sollen die gesamten Spektren betrachtet 
     \label{fig:Isolation}
 \end{figure}
 
-Wie zu erwarten war, ist die Modellierung als effektiver Einmassenschwinger nur eine Näherung. Die Ergebnisse über die Transmissibilität liefern durchweg größere Beschleunigungen als der vereinfachte Ansatz, wobei diese Differenz in der Nähe der Isolatorperiode sich stärker ausprägt. Auch ist anzumerken, dass die Isolationsspektren geglättet sind, da sie aus dem ebenfalls bereits geglätteten Antwortspektrum berechnet wurden.
+Wie zu erwarten war, ist die Modellierung als effektiver Einmassenschwinger nur eine Näherung. Die Ergebnisse über die Transmissibilität liefern durchweg größere Beschleunigungen als der vereinfachte Ansatz, wobei sich diese Differenz in der Nähe der Isolatorperiode stärker ausprägt. Auch ist anzumerken, dass die Isolationsspektren geglättet sind, da sie aus dem ebenfalls bereits geglätteten Antwortspektrum berechnet wurden.
 
 \section{Vergleich mit den Ergebnissen einer Zeitschrittberechnung}
 
 Um auch einen Vergleich mit den numerisch ermittelten Werten aus \cite{Isemann} zu machen, wurde das Beispiel in Kapitel 11.3 untersucht.
-Mit den angegebenen Massen und der Isolatorsteifigkeit stimmt jedoch die Periode des Isolators, die mit $T = 2.251 s$ angeben wurde, nicht überein.
+Mit den angegebenen Massen und der Isolatorsteifigkeit stimmt jedoch die Periode des Isolators, die mit $T = 2.251 s$ angegeben wurde, nicht überein.
 
 \begin{align*}
 T &= \frac{2 \pi}{\sqrt{(k_2/(m_2+m_1))}}\\
@@ -314,7 +324,7 @@ T &= \frac{2 \pi}{\sqrt{(32000/( 2486.7 t + 1619.5 t)}}\\
 \end{align*}
 
 Mit dieser bestätigten Vermutung wird weiterhin mit $m_1 = 2486.7 t$ gerechnet.
-Aus der angebenen Steifigkeit für den Isolator von $k_2 = 32000 kN/m$ lässt sich der verwendete Radius und das Dämpfungsmaß bestimmen.
+Aus der angegebenen Steifigkeit für den Isolator von $k_2 = 32000 kN/m$ lässt sich der verwendete Radius und das Dämpfungsmaß bestimmen.
 
 \begin{align*}
 k_2 &= \frac{G}{R} + \mu \frac{G}{D}\\
@@ -324,6 +334,10 @@ k_2 &= \frac{G}{R} + \mu \frac{G}{D}\\
 \begin{equation*}
 \xi_2 = \xi_{eff} = \frac{2}{\pi} \frac{\mu R}{(D + \mu R)} = \frac{2}{\pi} \frac{0.05 \cdot 1.599 m}{(0.325 m + 0.05 \cdot 1.599 m)} \approx 0.1257
 \end{equation*} 
+
+\pagebreak
+
+Damit stehen die Parameter fest und die Spektren können erzeugt werden.
 
 \makebox[1cm]{$D$}    = 0.325 m \par
 \makebox[1cm]{$\mu$}  = 0.05\par
@@ -356,7 +370,7 @@ Eine Anpassung (\cref{fig:Isolation2}) mit $\eta = \sqrt{10/(5+0)} = 1.4142$ zei
 In \cite{Isemann} wurden verschiedene Ansätze untersucht, das Isolationsspektrum nach oben zu korrigieren.
 Auch bei dem Ansatz der Transmissibilität könnte man nun versuchen, die Werte nach unten zu korrigieren. Betrachtet man die Transmissionskoeffizienten (\cref{eq:VT2DOF}), so lässt sich erkennen, dass die Dämpfung auch eine Koppelung darstellt. 
 
-Unter der Annahme, dass die Eigenformen von dem weichen Isolator dominiert werden, soll eine grobe Näherung untersucht werden, nach der die Dämpfungsbeiwerte der beiden Systeme getrennt voneinander bestimmt werden.
+Es soll eine grobe Näherung untersucht werden, nach der die Dämpfungsbeiwerte der beiden Systeme getrennt voneinander bestimmt werden.
 
 \begin{align*}
 c_1 &= 2 \xi_1 \sqrt{k_1 m_1}\\
@@ -391,13 +405,13 @@ Die Werte aus dem ersten Beispiel liegen nun deutlich näher zusammen.
 \end{figure}
 
 
-Im zweiten Beispiel kann anhand des Vergleiches der numerischen Werte auch festgestellt werden, dass der qualitative Verlauf besser abgebildet werden konnte.
+Im zweiten Beispiel (\cref{fig:Isolation21}) kann anhand des Vergleiches der numerischen Werte auch festgestellt werden, dass der qualitative Verlauf besser abgebildet werden konnte.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{_Isolation_4.png}
     \caption{Vergleich der Isolationsspektren aus Zeitschrittberechnung \cite{Isemann}, vereinfachten Ansatz und Ansatz der Transmissibilität (Beispiel 2)}
-    \label{fig:Isolation2}
+    \label{fig:Isolation21}
 \end{figure}
 
 \pagebreak

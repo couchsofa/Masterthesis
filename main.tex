@@ -1,6 +1,6 @@
 % Gobals
 \newcommand{\GetAuthor}{Arne Rick}
-\newcommand{\GetTitle}{Erzeugung Modifizierter Antwortspektren zur Vordimensionierung von Seismisch Isolierten Bauwerken}
+\newcommand{\GetTitle}{Erzeugung Modifizierter Antwortspektren\\ zur Vordimensionierung von Seismisch Isolierten Bauwerken}
 
 % Layout
 \documentclass[12pt, oneside]{report}
@@ -125,10 +125,11 @@
 
 \maketitle
 \setcounter{page}{1}
+\pagenumbering{Roman}
 
 \chapter*{\centering Abstract}
 
-In dieser Arbeit werden verschiedene Ansätze zur Erzeugung von modifizierten Antwortspektren für seismisch isolierte Bauwerke untersucht.
+In dieser Arbeit werden verschiedene Ansätze zur Erzeugung modifizierter Antwortspektren für seismisch isolierte Bauwerke untersucht.
 Es wird versucht, einen analytischen Ansatz zu finden, mit dem es möglich ist, diese aus den Antwortspektren des Eurocode 8 zu generieren.
 Mit diesen Isolationsspektren kann für jede Periode der Struktur über dem Isolator eine Spektralbeschleunigung ermittelt und eine Modalanalyse durchgeführt werden.
 Ein Bauwerk kann dann getrennt von dem Isolator betrachtet und zwecks einer Vordimensionierung mit einem Gebäudemodell auf die Erfüllung der Anforderungen an die Erdbebensicherheit untersucht werden.
@@ -136,18 +137,19 @@ Der analytische Ansatz wird in einem Tabellenkalkulationsprogramm implementiert,
 
 \chapter*{\centering Danksagung}
 
-Mein Dank gilt vorallem Prof. Dr.-Ing. Jan Akkermann für die Idee dieser Arbeit und seine stetige Beratung bei der Bearbeitung.
+Mein Dank gilt vor allem Prof. Dr.-Ing. Jan Akkermann für die Idee dieser Arbeit und seine stetige Beratung bei der Bearbeitung.
 Auch meinen Freunden Jan und Alexander sei an dieser Stelle Dank für die inspirierenden Gespräche zu dem Thema ausgesprochen.
 
-\pagestyle{empty}
+\pagestyle{plain}
 
 \cleardoublepage
 \tableofcontents
 \cleardoublepage
-\addtocontents{toc}{\protect\thispagestyle{empty}}
+\addtocontents{toc}{\protect\thispagestyle{plain}}
 
 \clearpage
 \pagestyle{fancy}
+\pagenumbering{arabic}
 
 \chapter{Einleitung}
 \input{chapters/section1}
@@ -164,8 +166,7 @@ Auch meinen Freunden Jan und Alexander sei an dieser Stelle Dank für die inspir
 \chapter{Modalanalyse mit EDV}
 \input{chapters/section5}
 
-\addtocontents{toc}{\protect\newpage}
-\chapter{Analyse}
+\chapter{Analyse}\label{cap:analyse}
 \input{chapters/section6}
 
 \chapter{Zusammenfassung}

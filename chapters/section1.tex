@@ -9,30 +9,30 @@ Erdbeben sind geophysikalische Extremereignisse, die eine Erschütterung des Erd
     \caption{Schematische Darstellung der Dynamik von Lithosphärenplatten: Divergenz an Mittelozeanischen Rücken und Konvergenz an Subduktionszonen - [Gunnar Ries]}
 \end{figure}
 
-In einer Analyse von mehr als 35.000 weltweiten Katastrophenereignissen in den Jahren zwischen 1900 und 2015 des Karlsruher Institut für Technologie (KIT) zeigte sich, dass Erdbeben für 26\% der Schäden verantwortlich waren.
-Der größte Schaden trat jedoch durch das Tohoku-Erdbeben am 11. März 2011 vor Honshū, Japan auf. Der Schaden durch das Erdbeben und den dadurch ausgelösten Tsunami belief sich auf 18.500 Tote und einen direkten wirtschaftlichen Schaden von etwa 296 Milliarden Euro. 450.000 Menschen wurden obdachlos. \cite{DANIELL}
+In einer Analyse von mehr als 35,000 weltweiten Katastrophenereignissen in den Jahren zwischen 1900 und 2015 des Karlsruher Instituts für Technologie (KIT) zeigte sich, dass Erdbeben für 26 \% der Schäden verantwortlich waren.
+Der größte Schaden trat jedoch durch das Tohoku-Erdbeben am 11. März 2011 vor Honshū, Japan auf. Der Schaden durch das Erdbeben und den dadurch ausgelösten Tsunami belief sich auf 18,500 Todesopfer und einen direkten wirtschaftlichen Schaden von etwa 296 Milliarden Euro. 450,000 Menschen wurden obdachlos. \cite{DANIELL}
 
 Aufgrund des Erdbeben kam es zu der Fukushima-Nuklearkatastrophe im Atomkraftwerk Fukushima Daiichi.
 
-Erdbebensicheres Design ist also von wirtschaftlicher und sicherheitstechnischer Bedeutung, um die Aufgabe von Gebäuden zum Schutz des Menschen vor Naturereignissen und ein effektives Tragverhalten zu gewährleisten.
+Erdbebensicheres Design ist also von wirtschaftlicher und sicherheitstechnischer Bedeutung, um die Funktion von Gebäuden zum Schutz des Menschen vor Naturereignissen und ein effektives Tragverhalten zu gewährleisten.
 
-Die Ziele das Eurocode 8 sind daher das Schützen menschlichen Lebens, Schadensbegrenzung und das Aufrechthalten des Betriebs von Strukturen, die zum zivilen Schutz dienen. Beispielsweise sollten Krankenhäuser keine großen Schäden davontragen und den Betrieb nach dem Ereignis fortsetzen können, um ihren Aufgaben im Katastrophenschutz unmittelbar weiter nachzugehen.
+Die Ziele des Eurocode 8 sind folglich das Schützen menschlichen Lebens, Schadensbegrenzung und das Aufrechthalten des Betriebs von Strukturen, die zum zivilen Schutz dienen. Beispielsweise sollten Krankenhäuser keine großen Schäden davontragen und den Betrieb nach dem Ereignis fortsetzen können, um ihren Aufgaben im Katastrophenschutz unmittelbar weiter nachgehen zu können.
 Diese Anforderung der Wichtigkeit einer Struktur wird im Bedeutungsbeiwert erfasst. \cite{EC8}
 
 \section{Berechnung}
 \label{sec:berechnung}
 
-Grundlegend unterscheidet der Eurocode 8 vier verschiedene Berechnungsmethoden.
+Grundlegend unterscheidet der Eurocode 8 vier verschiedene Berechnungsmethoden für den Lastfall Erdbeben.
 
 \begin{itemize}
-  \item Vereinfachtes Antwortspektrenverfahren
-  \item Antwortspektrenverfahren unter Berücksichtigung mehrerer Schwingungsformen (Modalanalyse)
-  \item Kapazitätsspektrenmethode
-  \item Zeitschrittberechnung
+  \item das vereinfachte Antwortspektrenverfahren
+  \item das Antwortspektrenverfahren unter Berücksichtigung mehrerer Schwingungsformen (Modalanalyse)
+  \item sowie die Kapazitätsspektrenmethode
+  \item und die Zeitschrittberechnung
 \end{itemize}
 
-Da die beiden letzteren Verfahren ein genaueres Gebäudemodell voraussetzen und deutlich aufwändiger sind als die Antwortspektrenverfahren, eignen sich diese nur schwer für die Vordimensionierung von Strukturen. 
-Hier werden weiterhin nur die vereinfachten Verfahren mittels Antwortspektren und Modalanalyse betrachtet, die Kapazitätsspektrenmethode und Zeitschrittberechnung sollen aber kurz erläutert werden.
+Da die beiden letzteren Verfahren ein genaueres Gebäudemodell voraussetzen und deutlich aufwändiger sind als die Antwortspektrenverfahren, eignen sich diese nur begrenzt für die Vordimensionierung von Strukturen. 
+Hier werden im Folgenden nur die vereinfachten Verfahren mittels Antwortspektren und Modalanalyse betrachtet, die Kapazitätsspektrenmethode und Zeitschrittberechnung sollen aber kurz erläutert werden.
 
 \pagebreak
 
@@ -71,8 +71,6 @@ T_1 = \frac{2 \pi H^2}{\alpha_1^2}\sqrt{\frac{m}{hEI}}
 \end{flushright}
 \end{multicols}
 
-Mit der Grundschwingzeit kann nun aus dem Antwortspektrum (\cref{sec:Antwortspektren}) der Bemessungswert der Spektralbeschleunigung $S_d$ bestimmt und die Gesamterdbebenkraft $F_b$ brechnet werden.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{AWS_Einleitung.png}
@@ -80,6 +78,8 @@ Mit der Grundschwingzeit kann nun aus dem Antwortspektrum (\cref{sec:Antwortspek
 \end{figure}
 
 \pagebreak
+
+Mit der Grundschwingzeit kann nun aus dem Antwortspektrum (\cref{sec:Antwortspektren}) der Bemessungswert der Spektralbeschleunigung $S_d$ bestimmt und die Gesamterdbebenkraft $F_b$ berechnet werden.
 
 \begin{equation*}
 F_b = S_d(T_1) \cdot M \cdot \lambda
@@ -116,21 +116,9 @@ Mit den Horizontalkräften können nun die Nachweise der Standsicherheit geführ
 \subsection{Antwortspektrenverfahren unter Berücksichtigung mehrerer Schwingungsformen (Modalanalyse)}
 \label{sec:Modalanalyse}
 
-Sind die Bedingungen an die Regelmäßigkeit des Bauwerks nicht erfüllt und es sollen mehr Schwingungsformen, zum Beispiel auch an einem dreidimensionalen Modell, betrachtet werden, so kann eine Modalanalyse durchgeführt werden.
+Sind die Bedingungen an die Regelmäßigkeit des Bauwerks nicht erfüllt und es sollen mehr Schwingungsformen, beispielsweise an einem dreidimensionalen Modell, betrachtet werden, so kann eine Modalanalyse durchgeführt werden.
 
 Das Vorgehen ist ähnlich zu \cref{sec:Antwortspektrenverfahren}, jedoch wird für jede Schwingungsform die Periode ermittelt, eine Spektralbeschleunigung bestimmt und die Horizontallasten anhand der Beteiligungsfaktoren der Schwingungsform angesetzt.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{AWS_Modal_Einleitung.png}
-    \caption{Bemessungsspektrum Modalanalyse}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Beteiligungsfaktoren.png}
-    \caption{Eigenschwingungsformen eines Dreimassensystems \cite{Pocanschi}}
-\end{figure}
 
 Anschließend müssen die modalen Schnittgrößen und Verschiebungen kombiniert werden. Hier sieht der Eurocode die SRSS-Methode (Square Root of Sum of Squares)
 
@@ -144,7 +132,11 @@ und die CQC-Methode (Complete Quadratic Combination)
 S = \sqrt{\sum_{j=1}^{n}\sum_{k=1}^{n} S_j \cdot \rho_{jk} \cdot S_k}
 \end{equation*}
 
-vor. Hier ist $\rho_{jk}$ der Wechselwirkungsfaktor, der sich für konstante $\xi_j = \xi_k = \xi$ wie folgt berechnet.
+vor.
+
+\pagebreak
+
+Hier ist $\rho_{jk}$ der Wechselwirkungsfaktor, der sich für konstante $\xi_j = \xi_k = \xi$ wie folgt berechnet.
 
 \begin{equation*}
 \rho_{jk} = \frac{8 \xi^2 (1 + r) r^{3/2}}{(1 - r^2)^2 + 4 \xi^2 r ( 1 + r)^2}
@@ -153,6 +145,18 @@ r = \frac{\omega_k}{\omega_j}
 \end{equation*}
 
 Neben der CQC-Methode darf auch die CQCi-Methode angewendet werden, welche eine Modifikation unter Berücksichtigung des Vorzeichens der i-ten Eigenform darstellt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{AWS_Modal_Einleitung.png}
+    \caption{Bemessungsspektrum Modalanalyse}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Beteiligungsfaktoren.png}
+    \caption{Eigenschwingungsformen eines Dreimassensystems \cite{Pocanschi}}
+\end{figure}
 
 \pagebreak
 
@@ -192,10 +196,12 @@ nach Umformung mit $\xi = c/(2m\omega)$ und $\omega = \sqrt{k/m}$
 \ddot u + 2\xi\omega \dot u + \omega^2 u = - \ddot u_g
 \end{equation}
 
-zeigt, dass die Antwort lediglich von $\omega$, der Anregung $\ddot u_g$ und $\xi$ abhängig ist, wobei $\xi$ mit 5\% angenommen wird.
+zeigt, dass die Antwort lediglich von $\omega$, der Anregung $\ddot u_g$ und $\xi$ abhängig ist, wobei $\xi$ mit 5 \% angenommen wird.
 Das Antwortspektrum stellt die Einhüllende des Maximalwertes der Absolutbeschleunigung der Systemantwort $S_a=max|\ddot u + \ddot u_g|$ über die Eigenfrequenz des Systems $\omega$ dar. \cite{Bachmann}
 
-Sie wird über die Eckperioden $T_B, T_C, T_D$ und den Bemessungswert der Bodenbeschleunigung $a_g$ parametrisiert. Hinzu kommt noch der Bedeutungsbeiwert $\gamma_1$, der Einfluss des Baugrundes über den Bodenparameter $S$ und ein Dämpfungs-Korrekturbeiwert $\eta$, der bei 5\% viskoser Dämpfung $1.0$ beträgt und sonst mit $\eta=\sqrt{10/(5+\xi)}\geq 0.55$ angegeben wird.
+Sie wird über die Eckperioden $T_B$, $T_C$, $T_D$ und den Bemessungswert der Bodenbeschleunigung $a_g$ parametrisiert. Hinzu kommt noch der Bedeutungsbeiwert $\gamma_1$, der Einfluss des Baugrundes über den Bodenparameter $S$ und ein Dämpfungs-Korrekturbeiwert $\eta$, der bei 5 \% viskoser Dämpfung $1.0$ beträgt und sonst mit $\eta=\sqrt{10/(5+\xi)}\geq 0.55$ angegeben wird.
+
+\pagebreak
 
 Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbeschleunigung wider. Die Erdbebenzone kann aus einer Karte oder Kartei entnommen werden und liefert den Referenz-Spitzenwert der Bodenbeschleunigung $a_g$.
 
@@ -214,7 +220,7 @@ Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbe
 \caption{Tabelle NA.3 — Zuordnung von Referenz-Spitzenwerten der Bodenbeschleunigung zu den Erdbebenzonen [DIN EN 1998-1/NA:2011-01]}
 \end{table}
 
-Über die Baugrundverhältnisse kann nach Eurocode 8 NAD eine Baugrundklasse ermittelt werden und in dessen Abhängigkeit Parameter für den Bodenparameter $S$ und die Eckperioden $T_B, T_C, T_D$ angegeben werden.
+Über die Baugrundverhältnisse kann nach Eurocode 8 NAD eine Baugrundklasse ermittelt werden und in dessen Abhängigkeit Parameter für den Bodenparameter $S$ und die Eckperioden $T_B$, $T_C$, $T_D$ angegeben werden.
 
 \begin{table}[H]
 \centering
@@ -235,8 +241,10 @@ Die Ortsgebundenheit spiegelt sich in den Baugrundverhältnissen und der Bodenbe
 \caption{Tabelle NA.4 — Werte der Parameter zur Beschreibung des elastischen horizontalen Antwortspektrums [DIN EN 1998-1/NA:2011-01]}
 \end{table}
 
-Der Bedeutungsbeiwert bildet die Wichtigkeit einer Struktur ab und erhöht die Wiederkehrperiode bei einer Auftretenswahrscheinlichkeit $P_R$ von 10\% in einer Zeitspanne $T_L$ von 50 Jahren.
-Bei einem Bedeutungsbeiwert von $\gamma_1 = 1.0$ beträgt die mittlere Wiederkehrperiode $T_R$
+\pagebreak
+
+Der Bedeutungsbeiwert bildet die Wichtigkeit einer Struktur ab und erhöht die Wiederkehrperiode bei einer Auftretenswahrscheinlichkeit $P_R$ von 10 \% in einer Zeitspanne $T_L$ von 50 Jahren.
+Bei einem Bedeutungsbeiwert von $\gamma_1 = 1.0$ beträgt die mittlere Wiederkehrperiode
 
 \begin{align*}
 T_R &= \frac{-T_L}{ln(1 - P_R)}\\
@@ -261,6 +269,8 @@ T_R &= \frac{-T_L}{ln(1 - P_R)}\\
 \end{tabular}
 \caption{Tabelle NA.6 — Bedeutungskategorien und Bedeutungsbeiwerte [DIN EN 1998-1/NA:2011-01]}
 \end{table}
+
+\pagebreak
 
 Das elastische Antwortspektrum $S_e(T)$ wird somit über folgende Ausdrücke bestimmt.
 

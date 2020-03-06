@@ -1,11 +1,11 @@
-Wenn die Einwirkungen aus Erdbeben sehr hoch werden, zum Beispiel durch eine hohe Anforderung an den Bedeutungsbeiwert oder wenn sich das Bauwerk in einem Starkbebengebiet befindet, ist es meistens technisch und wirtschaftlich günstiger, die Struktur von der Einwirkung zu isolieren, damit sie dieser nicht mehr vollends ausgesetzt wird.
+Wenn die Einwirkungen aus Erdbeben sehr groß sind, zum Beispiel durch eine hohe Anforderung an den Bedeutungsbeiwert oder wenn sich das Bauwerk in einem Starkbebengebiet befindet, ist es meistens technisch und wirtschaftlich günstiger, die Struktur von der Einwirkung zu isolieren, damit sie dieser nicht mehr vollends ausgesetzt wird.
 
 Es können leichtere Konstruktionen gebaut werden, die durch geringere Aufwendung an Material die Kosten senken und die Nachhaltigkeit durch Senken des Ausstoßes an CO\textsubscript{2} erhöhen.
 
-Die horizontale Isolation ist keine Lösung der Neuzeit. Schon die Baumeister im alten China ordneten zwischen Fundament und Grundplatte eine Schicht aus rolligem Sand an. \cite{Taylor}
+Die horizontale Isolation ist keine Lösung der Neuzeit. Schon die Baumeister im alten China ordneten zwischen Fundament und Grundplatte eine Schicht aus rolligem Sand an. \cite{Taylor}\\
 Im 20. Jahrhundert folgten einige Patente mit dem selben Grundprinzip und 1921 realisierte Frank Lloyd Wright das Imperial Hotel in Tokyo mit einer Isolation mittels einer 3m mächtigen Schicht aus Weichboden. Das Gebäude überstand ein zwei Jahre später aufgetretenes schweres Erdbeben nahezu unbeschadet. \cite{Reitherman}
 
-Für die Isolierung stehen einige verschiedene Mechanismen, wie zum Beispiel kinematische Lager, Gleitpendelisolatoren und Elastomerlager (ggf. mit Bleikern) zur Verfügung.
+Für die Isolierung stehen einige verschiedene Mechanismen, wie zum Beispiel kinematische Lager, Gleitpendelisolatoren und Elastomerlager (ggf. mit Bleikern zur Erhöhung der Energiedissipation) zur Verfügung.
 In dieser Arbeit sollen nur Gleitpendelisolatoren betrachtet werden.
 
 \pagebreak
@@ -64,6 +64,8 @@ Damit der Isolator möglichst effektiv wirkt, sollte das Ziel sein, die Masse di
 Dadurch sollte die Periode des Isolators $T_I$ möglichst weit von der Periode der Struktur $T_S$ entfernt sein.
 Ein Wert, der sich in der Praxis als anstrenswert erwiesen hat, ist $T_I \approx 3 \cdot T_S$.
 
+\pagebreak
+
 \subsection{Steifigkeit}
 \label{sec:steifigkeit}
 
@@ -93,6 +95,8 @@ k_{eff} &= \frac{F_{\text{Rück}} + F_{\text{Reib}}}{D}\nonumber\\
         &= \frac{G}{R} + \mu \frac{G}{D}\label{keff}
 \end{align}
 
+\pagebreak
+
 \subsection{Dämpfung}
 \label{sec:daempdung}
 
@@ -109,14 +113,14 @@ Die effektive Dämpfung ergibt sich aus der Fläche der Hystereseschleife und de
           &= \frac{2}{\pi} \frac{\mu R}{(D + \mu R)}\label{xieff}
 \end{align}
 
-
+Dieser Ansatz hat den Vorteil einer linearen Steifigkeits- und Dämpfungsfunktion, was die spätere Lösung der Differentialgleichungen vereinfacht. In \cref{cap:analyse} werden die Implikationen davon betrachtet.
 
 \pagebreak
 
 \section{Schwierigkeiten bei der Vordimensionierung}
 \label{sec:schwierigkeitenvordimensionierung}
 
-Für eine genaue Berechnung ist es sinnvoll, ein Gebäudemodell samt Isolator zu erstellen und mit dem Zeitschrittverfahren und Erdbebenzeitverläufen zu berechnen. Dies ist jedoch sehr aufwendig und bei einer Vordimensionierung nicht immer praktikabel, da sich Parameter noch ändern können.
+Für eine genaue Berechnung ist es sinnvoll, ein Gebäudemodell samt Isolator zu erstellen und mit dem Zeitschrittverfahren und Erdbebenzeitverläufen zu berechnen. Dies ist jedoch sehr aufwendig und bei einer Vordimensionierung nicht immer praktikabel, da sich Parameter noch ändern können oder nicht bekannt sind.
 Ein Ansatz ist es, die Gesamtstruktur auf einen Einmassenschwinger mit der effektiven Masse aus Struktur ($m_S$) und Isolator ($m_I$) zu vereinfachen. Er beruht auf der Annahme, dass die Steifigkeit der Struktur sehr hoch ist und die des Isolators $k_I$ die Eigenform somit dominiert. \cite{Kelly2}
 Die Eigenfrequenz kann dann mit
 

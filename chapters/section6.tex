@@ -10,7 +10,7 @@ Es wird aber auch deutlich, dass, wie bereits erwähnt, der vereinfachte Ansatz 
 
 Interessant ist die Beobachtung, dass bei Variation des Reibungskoeffizienten (\cref{fig:muvariation}) zu erkennen ist, dass die optimale Isolation von $\mu$ abhängig ist und ab einem Grenzwert ein negativer Effekt eintritt.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{variation_mu.png}
     \caption{Bild 10.10: Vergleich der Isolationsspektren des „Erdbeben 1“ bei verschiedenen Reibungskoeffizienten \cite{Isemann}}
@@ -46,18 +46,35 @@ Betrachtet man aber die Gleichung für den Vergrößerungsfaktor eines Einmassen
 \frac{u_{max}}{u_{stat}} = \frac{1}{\sqrt{(1 - (\omega / \omega_1)^2)^2 + (2 \xi \omega / \omega_1)^2}}
 \end{equation}
 
-so ergibt sich im Resonanzfall für $\omega = \omega_1$, nach Umstellung die Beziehung
+so ergibt sich im Resonanzfall für $\omega = \omega_1$, nach Umstellung und normierung auf $\eta(5 \%) = 1$ die Beziehung
 
 \begin{equation}
-\eta = \frac{1}{2\xi}
+\eta = \frac{10}{2\xi}
 \end{equation}
 
-Für $\mu = 0.05$ und $R = 2 m$ zeigt sich aber auch hier, dass die Werte überkorrigiert werden und deutlich zu geringe Beschleunigungen liefern.
+\pagebreak
+
+Für die Vergrößerungsfunktion für Beschleunigung ergibt sich die Gleichung zu 
+
+\begin{equation}
+\eta = \frac{1}{2\frac{\xi}{10}\sqrt{1-\frac{\xi}{100}}}
+\end{equation}
+
+und im Vergleich wird deutlich, dass sie im Resonanzfall äquivalent zur Weganregung ist.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Xi.png}
+    \caption{Ansatzfunktionen für $\eta$}
+    \label{fig:eta}
+\end{figure}
+
+Für $\mu = 0.05$ und $R = 2 m$ zeigt sich aber auch hier (\cref{fig:Isolation5}), wie in \cite{Isemann}, dass die Werte überkorrigiert werden und deutlich zu geringe Beschleunigungen liefern.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Isolation_5.png}
-    \caption{Antwort- und Isoatlionsspektren für $\eta = 1/(2\xi)$}
+    \caption{Antwort- und Isoatlionsspektren für $\eta = 10/(2\xi)$}
     \label{fig:Isolation5}
 \end{figure}
 
