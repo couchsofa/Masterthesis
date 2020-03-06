@@ -12,7 +12,7 @@ Erdbeben sind geophysikalische Extremereignisse, die eine Erschütterung des Erd
 In einer Analyse von mehr als 35,000 weltweiten Katastrophenereignissen in den Jahren zwischen 1900 und 2015 des Karlsruher Instituts für Technologie (KIT) zeigte sich, dass Erdbeben für 26 \% der Schäden verantwortlich waren.
 Der größte Schaden trat jedoch durch das Tohoku-Erdbeben am 11. März 2011 vor Honshū, Japan auf. Der Schaden durch das Erdbeben und den dadurch ausgelösten Tsunami belief sich auf 18,500 Todesopfer und einen direkten wirtschaftlichen Schaden von etwa 296 Milliarden Euro. 450,000 Menschen wurden obdachlos. \cite{DANIELL}
 
-Aufgrund des Erdbeben kam es zu der Fukushima-Nuklearkatastrophe im Atomkraftwerk Fukushima Daiichi.
+Aufgrund des Erdbebens kam es zu der Fukushima-Nuklearkatastrophe im Atomkraftwerk Fukushima Daiichi.
 
 Erdbebensicheres Design ist also von wirtschaftlicher und sicherheitstechnischer Bedeutung, um die Funktion von Gebäuden zum Schutz des Menschen vor Naturereignissen und ein effektives Tragverhalten zu gewährleisten.
 
@@ -22,7 +22,7 @@ Diese Anforderung der Wichtigkeit einer Struktur wird im Bedeutungsbeiwert erfas
 \section{Berechnung}
 \label{sec:berechnung}
 
-Grundlegend unterscheidet der Eurocode 8 vier verschiedene Berechnungsmethoden für den Lastfall Erdbeben.
+Grundlegend unterscheidet der Eurocode 8 vier verschiedene Berechnungsmethoden für den Lastfall Erdbeben:
 
 \begin{itemize}
   \item das vereinfachte Antwortspektrenverfahren
@@ -51,7 +51,7 @@ T_1 = \frac{2 \pi H^2}{\alpha_1^2}\sqrt{\frac{m}{hEI}}
 \thinspace
 
 \begin{multicols}{2}
-\makebox[0.8cm]{$H$} Gestamthöhe des Bauwerks \par
+\makebox[0.8cm]{$H$} Gesamthöhe des Bauwerks \par
 \makebox[0.8cm]{$h$} Geschosshöhe \par
 \makebox[0.8cm]{$m$} Geschossmasse \par
 \makebox[0.8cm]{$EI$} Steifigkeit \par 
@@ -163,8 +163,8 @@ Neben der CQC-Methode darf auch die CQCi-Methode angewendet werden, welche eine 
 \subsection{Kapazitätsspektrenmethode}
 \label{sec:Kapazitaetsspektrenmethode}
 
-Die auch als \glqq pushover analysis\grqq{} bezeichnete Methode ist ein nicht-elastisches statisches Verfahren unter Berücksichtung des Eigengewichts und monoton ansteigender horizontaler Lasten zur Bestimmung der Grenzlast über die Grenzduktilität.
-Sie ist ein genaueres Verfahren zur Bestimmung der plastischen Kapazität, die in den vereinfachten Verfahren von dem Verhaltensbeiwert $q$ erfasst werden.
+Die auch als \glqq pushover analysis\grqq{} bezeichnete Methode ist ein nicht-elastisches statisches Verfahren unter Berücksichtigung des Eigengewichts und monoton ansteigender horizontaler Lasten zur Bestimmung der Grenzlast über die Grenzduktilität.
+Sie ist ein genaueres Verfahren zur Bestimmung der plastischen Kapazität, die in den vereinfachten Verfahren von dem Verhaltensbeiwert $q$ erfasst wird.
 
 \subsection{Zeitschrittberechnung}
 \label{sec:Zeitschrittberechnung}
@@ -197,7 +197,7 @@ nach Umformung mit $\xi = c/(2m\omega)$ und $\omega = \sqrt{k/m}$
 \end{equation}
 
 zeigt, dass die Antwort lediglich von $\omega$, der Anregung $\ddot u_g$ und $\xi$ abhängig ist, wobei $\xi$ mit 5 \% angenommen wird.
-Das Antwortspektrum stellt die Einhüllende des Maximalwertes der Absolutbeschleunigung der Systemantwort $S_a=max|\ddot u + \ddot u_g|$ über die Eigenfrequenz des Systems $\omega$ dar. \cite{Bachmann}
+Das Antwortspektrum stellt die Einhüllende des Maximalwertes der Absolutbeschleunigung der Systemantwort $S_a=max|\ddot u + \ddot u_g|$ über die Eigenperiode des Systems $\omega$ dar. \cite{Bachmann}
 
 Sie wird über die Eckperioden $T_B$, $T_C$, $T_D$ und den Bemessungswert der Bodenbeschleunigung $a_g$ parametrisiert. Hinzu kommt noch der Bedeutungsbeiwert $\gamma_1$, der Einfluss des Baugrundes über den Bodenparameter $S$ und ein Dämpfungs-Korrekturbeiwert $\eta$, der bei 5 \% viskoser Dämpfung $1.0$ beträgt und sonst mit $\eta=\sqrt{10/(5+\xi)}\geq 0.55$ angegeben wird.
 
@@ -258,13 +258,13 @@ T_R &= \frac{-T_L}{ln(1 - P_R)}\\
  \hline
  Bedeutungskategorie & Bauwerke & $\gamma_1$ & $T_R$ [a]\\
  \hline\hline
- I   & Bauwerke ohne Bedeutung für den Schutz der Allgemeinheit, mit geringem Personenverkehr (z. B. Scheunen, Kulturgewächshäuser, usw.). & 0.8 & 225\\
+ I   & Bauwerke ohne Bedeutung für den Schutz der Allgemeinheit, mit geringem Personenverkehr (z.B. Scheunen, Kulturgewächshäuser, usw.). & 0.8 & 225\\
  \hline
- II  & Bauwerke, die nicht zu den anderen Kategorien gehören ( z. B. kleinere Wohn- und Bürogebäude, Werkstätten, usw.). & 1.0 & 475\\
+ II  & Bauwerke, die nicht zu den anderen Kategorien gehören (z.B. kleinere Wohn- und Bürogebäude, Werkstätten, usw.). & 1.0 & 475\\
  \hline
- III & Bauwerke, von deren Versagen bei Erdbeben eine große Zahl von Personen betroffen ist ( z. B. große Wohnanlagen, Schulen, Versammlungsräume, Kaufhäuser, usw.). & 1.2 & 820\\
+ III & Bauwerke, von deren Versagen bei Erdbeben eine große Zahl von Personen betroffen ist (z.B. große Wohnanlagen, Schulen, Versammlungsräume, Kaufhäuser, usw.). & 1.2 & 820\\
  \hline
- IV  & Bauwerke, deren Unversehrtheit im Erdbebenfall von hoher Bedeutung für den Schutz der Allgemeinheit ist ( z. B. Krankenhäuser, wichtige Einrichtungen des Katastrophenschutzes, der Feuerwehr und der Sicherheitskräfte, usw.). & 1.4 & 1300\\
+ IV  & Bauwerke, deren Unversehrtheit im Erdbebenfall von hoher Bedeutung für den Schutz der Allgemeinheit ist (z.B. Krankenhäuser, wichtige Einrichtungen des Katastrophenschutzes, der Feuerwehr und der Sicherheitskräfte, usw.). & 1.4 & 1300\\
  \hline
 \end{tabular}
 \caption{Tabelle NA.6 — Bedeutungskategorien und Bedeutungsbeiwerte [DIN EN 1998-1/NA:2011-01]}

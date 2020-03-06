@@ -5,15 +5,15 @@ Es zeigt sich, dass es grundlegend möglich ist, nur die aufgehende Struktur zu 
 Dabei werden die Parameter des Isolators erfasst, um ein modifiziertes Antwortspektrum zu erzeugen.
 Es wird aber auch deutlich, dass, wie bereits erwähnt, der vereinfachte Ansatz für Perioden in der Nähe der Isolatorperiode auf der unsicheren Seite und der Ansatz über die Transmissibilität deutlich auf der sicheren Seite liegt.
 
-\section{Variation des Reibungskoeffizienten $\mu$}
+\section{Variation des Reibkoeffizienten $\mu$}
 \label{sec:muvariation}
 
-Interessant ist die Beobachtung, dass bei Variation des Reibungskoeffizienten (\cref{fig:muvariation}) zu erkennen ist, dass die optimale Isolation von $\mu$ abhängig ist und ab einem Grenzwert ein negativer Effekt eintritt.
+Interessant ist die Beobachtung, dass bei Variation des Reibkoeffizienten (\cref{fig:muvariation}) zu erkennen ist, dass die optimale Isolation von $\mu$ abhängig ist und ab einem Grenzwert ein negativer Effekt eintritt.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{variation_mu.png}
-    \caption{Bild 10.10: Vergleich der Isolationsspektren des „Erdbeben 1“ bei verschiedenen Reibungskoeffizienten \cite{Isemann}}
+    \caption{Bild 10.10: Vergleich der Isolationsspektren des „Erdbeben 1“ bei verschiedenen Reibkoeffizienten \cite{Isemann}}
     \label{fig:muvariation}
 \end{figure}
 
@@ -34,7 +34,7 @@ Er geht also bei der Linearisierung verloren und kann nur von nicht-linearen Ber
 \section{Ansätze für verschiedene Dämpfungskorrekturbeiwerte $\eta$}
 
 Wie in \cref{sec:Korrekturansaetze} schon erwähnt, wurde in \cite{Isemann} auch eine Korrektur über andere Ansätze für die Bestimmung des Dämpfungskorrekturbeiwertes $\eta$ untersucht.
-Der Eurcode 8 sieht dabei folgende Bestimmungsgleichung vor.
+Der Eurocode 8 sieht dabei folgende Bestimmungsgleichung vor.
 
 \begin{equation*}
 \eta = \sqrt{\frac{10}{5+\xi}}
@@ -46,7 +46,7 @@ Betrachtet man aber die Gleichung für den Vergrößerungsfaktor eines Einmassen
 \frac{u_{max}}{u_{stat}} = \frac{1}{\sqrt{(1 - (\omega / \omega_1)^2)^2 + (2 \xi \omega / \omega_1)^2}}
 \end{equation}
 
-so ergibt sich im Resonanzfall für $\omega = \omega_1$, nach Umstellung und normierung auf $\eta(5 \%) = 1$ die Beziehung
+so ergibt sich im Resonanzfall für $\omega = \omega_1$, nach Umstellung und Normierung auf $\eta(5 \%) = 1$ die Beziehung
 
 \begin{equation}
 \eta = \frac{10}{2\xi}
@@ -74,7 +74,7 @@ Für $\mu = 0.05$ und $R = 2 m$ zeigt sich aber auch hier (\cref{fig:Isolation5}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Isolation_5.png}
-    \caption{Antwort- und Isoatlionsspektren für $\eta = 10/(2\xi)$}
+    \caption{Antwort- und Isolationsspektren für $\eta = 10/(2\xi)$}
     \label{fig:Isolation5}
 \end{figure}
 

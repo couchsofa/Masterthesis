@@ -11,7 +11,7 @@ Für die Erzeugung der Isolationsspektren wird hier das System des Einmassenschw
 
 \pagebreak
 
-\section{Ansatz über die Übertragsfunktion}
+\section{Ansatz über die Übertragungsfunktion}
 \label{sec:ansatzfunktion}
 
 Im ersten Ansatz wurde die Möglichkeit untersucht, das Modell in zwei unabhängige Systeme zu zerlegen und diese getrennt zu betrachten.
@@ -78,21 +78,21 @@ r_1 &= \frac{1 + \alpha - \beta + \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}
 r_2 &= \frac{1 + \alpha - \beta - \sqrt{(1 + \alpha + \beta)^2 - 4 \alpha \beta}}{2}
 \end{align}
 
-Die Schwingungsformen lauten damit wie folgt und können normiert werden.
+Die Schwingformen lauten damit wie folgt und können normiert werden.
 
 \begin{align}
 \vec{\Phi}_1 &= \binom{1}{r_1} & \vec{\Phi}_2 &= \binom{1}{r_2}\\
 \vec{\Phi}_1 &= \binom{1/r_1}{1} & \vec{\Phi}_2 &= \binom{1/r_1}{1}
 \end{align}
 
-Der Beteiligunsfaktor der ersten Schwingungsform wird wie folgt definiert.
+Der Beteiligungsfaktor der ersten Schwingform wird wie folgt definiert.
 
 \begin{equation}
 L_1 = \frac{\vec{\Phi}_1^T M \vec{I}}{\vec{\Phi}_1^T M \vec{\Phi}_1}
 \end{equation}
 
-Da die Steifigkeit des Isolators idealerweise deutlich geringer als die der Struktur ist, gilt $\alpha \rightarrow 0$, $\vec{I} = \binom{1}{1}$ und $L_2$ wird klein, da die Schwingungsformen durch die Erste bestimmt wird.
-Damit lässt sich die maximale absolute Beschleunigung der Massen der ersten Schwingungsform des Zweimassenschwingers infolge einer Fußpunktanregung bestimmen.
+Da die Steifigkeit des Isolators idealerweise deutlich geringer als die der Struktur ist, gilt $\alpha \rightarrow 0$, $\vec{I} = \binom{1}{1}$ und $L_2$ wird klein, da die Schwingformen durch die Erste bestimmt wird.
+Damit lässt sich die maximale absolute Beschleunigung der Massen der ersten Schwingform des Zweimassenschwingers infolge einer Fußpunktanregung bestimmen.
 
 \begin{equation}
 \ddot U_{max} = \vec{\Phi}_1 L_1 S_a(T_{L,1}, \xi_{L,1})
@@ -170,7 +170,7 @@ Mit den komplexwertigen Transmissionskoeffizienten $X_1$, $X_2$ und $X_{12}$ erg
 VT = \left\lvert \frac{S_1}{S_3} \right\rvert = \left\lvert \frac{1}{[(1 - X_1)(1 - X_2) - X_{12}]} \right\rvert
 \end{equation}
 
-Ein Hindernis stellen jedoch noch die Dämpfungsbeiwerte $c_1$ und $c_2$ dar. Bei Systemen mit mehreren Freiheitsgraden ist es schwierig die Dämpfung in der Berechnung zu berücksichtigen. Es gibt verschiedene Modelle der Dämpfung, die versuchen über eine Näherung, zum Beispiel mit der Betrachtung der Moden eines Systems dieses physikalische Phänomen abzubilden.
+Ein Hindernis stellen jedoch noch die Dämpfungsbeiwerte $c_1$ und $c_2$ dar. Bei Systemen mit mehreren Freiheitsgraden ist es schwierig, die Dämpfung in der Berechnung zu berücksichtigen. Es gibt verschiedene Modelle der Dämpfung, die versuchen über eine Näherung, zum Beispiel mit der Betrachtung der Moden eines Systems, dieses physikalische Phänomen abzubilden.
 Ein Ansatz, der hier untersucht werden soll, ist die steifigkeits- und massenproportionale modale Dämpfung. Sie wird auch als Rayleigh-Dämpfung bezeichnet. \cite{Pocanschi}
 
 \subsection{Rayleigh-Dämpfung}
@@ -190,11 +190,11 @@ $\alpha M$ kann als äußere und der Term $\beta K$ als innere Dämpfung verstan
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{Rayleigh.png}
-    \caption{Rayleigh-Dämpfung aus dem Masse-Term $\alpha$ und Steifigkeitsterm-Term $\beta$}
+    \caption{Rayleigh-Dämpfung aus dem Masse-Term $\alpha$ und Steifigkeits-Term $\beta$}
     \label{fig:rayleigh}
 \end{figure}
 
-Die Bestimmungsgleichungen der Beiwerte lauten, wenn $\xi_1$ und $\xi_2$ bekannt sind wie folgt. \cite{Shambhu}
+Die Bestimmungsgleichungen der Beiwerte lauten, wenn $\xi_1$ und $\xi_2$ bekannt sind, wie folgt. \cite{Shambhu}
 
 \begin{align*}
 \alpha &= \frac{2 \omega_1^* \omega_2^* (\xi_2 \omega_2^* - \xi_1 \omega_1^*)}{\omega_2^{*2} - \omega_1^{*2}}\\
@@ -224,7 +224,7 @@ Nach Betragsgröße normierte Eigenvektoren des ungedämpften Systems:
 \varphi_{21} &= \varepsilon_1 \varphi_{11}            &  \varphi_{22} &= \varepsilon_2 \varphi_{12}
 \end{align*}
 
-Mit Hilfe der Eigenvektoren können die generalisierten Massen und Steifigkeiten ermittelt werden und damit die Eigenkreisfrequenzen.
+Mit Hilfe der Eigenvektoren können die generalisierten Massen und Steifigkeiten und damit die Eigenkreisfrequenzen ermittelt werden.
 
 Generalisierte Massen:
 
@@ -297,7 +297,7 @@ und die zugehörige äquivalente Amplitude der Beschleunigung der Fußpunktanreg
 S_{a,x_3,i} = Sa(T_{1,i})
 \end{equation}
 
-ermittelt werden. Die Ordinate des isolierten Antwortspektrums, für die Periode $T_i$ der aufgehenden Struktur beträgt dann
+ermittelt werden. Die Ordinate des isolierten Antwortspektrums für die Periode $T_i$ der aufgehenden Struktur beträgt dann
 
 \begin{equation}
 S_{a,isoliert}(T_i) = S_{a,x_3,i} \cdot VT_i
